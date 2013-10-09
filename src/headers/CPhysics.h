@@ -1,11 +1,3 @@
-/*
-*  CPhysics.h
-*  MagicMine
-*
-*  Created by gianluca on 1/25/13.
-*  Copyright 2013 __MyCompanyName__. All rights reserved.
-*
-*/
 #ifndef CPHYSICS_H
 #define CPHYSICS_H
 
@@ -13,6 +5,10 @@
 #include "C2DVector.h"
 #include "IMoveable.h"
 
+/**
+* CPhysics defines the interface and basic implementation for entities that are bound to follow physics laws.
+* It is intended to be used
+*/
 class CPhysics
 {
 public:

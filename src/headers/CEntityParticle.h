@@ -1,11 +1,3 @@
-/*
-*  CEntityParticle.h
-*  MagicMine
-*
-*  Created by gianluca on 1/25/13.
-*  Copyright 2013 __MyCompanyName__. All rights reserved.
-*
-*/
 #ifndef CENTITYPARTICLE_H
 #define CENTITYPARTICLE_H
 

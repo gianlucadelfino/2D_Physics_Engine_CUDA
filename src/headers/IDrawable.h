@@ -5,6 +5,9 @@
 #include "C2DVector.h"
 #include "CSurface.h"
 
+/**
+* IDrawable defines the interface for everything that needs to be drawn on screen.
+*/
 class IDrawable
 {
 public:

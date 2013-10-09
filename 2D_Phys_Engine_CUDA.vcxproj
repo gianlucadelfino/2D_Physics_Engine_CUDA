@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\headers\C2DVector.h" />
-    <ClInclude Include="src\headers\CCEntityCloth.h" />
     <ClInclude Include="src\headers\CDrawableImage.h" />
     <ClInclude Include="src\headers\CDrawableLink.h" />
     <ClInclude Include="src\headers\CDrawableStar.h" />
@@ -29,7 +28,6 @@
     <ClInclude Include="src\headers\CEntityParticle.h" />
     <ClInclude Include="src\headers\CMoveableParticle.h" />
     <ClInclude Include="src\headers\CPhysics.h" />
-    <ClInclude Include="src\headers\CPhysicsParticle.h" />
     <ClInclude Include="src\headers\CRandom.h" />
     <ClInclude Include="src\headers\CSurface.h" />
     <ClInclude Include="src\headers\device_compute_grav_forces.h" />

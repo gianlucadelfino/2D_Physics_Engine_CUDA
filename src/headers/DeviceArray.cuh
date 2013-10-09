@@ -17,6 +17,9 @@ inline void gpuAssert( cudaError_t code, char* file, int line, bool abort=true )
 	}
 }
 
+/**
+* DeviceArray is a RAII class to contain CUDA arrays.
+*/
 template <typename ValueType>
 class DeviceArray {
 public:

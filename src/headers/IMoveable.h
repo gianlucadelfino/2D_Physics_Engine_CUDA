@@ -12,6 +12,9 @@
 #include <memory>
 #include "C2DVector.h"
 
+/**
+* Anything on screen that can move should use an IMoveable, i.e. have a composite object that inherits from IMoveable.
+*/
 class IMoveable
 {
 public:

@@ -10,8 +10,7 @@
 
 /**
 * CEntityCloth is a child of CEntityParticle to contain CEntities, following the Pattern of the "Composite".
-* Calling Update on the collection will update all the Entities in it and
-* apply collective forces/constraints.
+* Calling Update on the collection will update all the Entities in it and impose all the constraints.
 */
 class CEntityCloth: public IEntity
 {

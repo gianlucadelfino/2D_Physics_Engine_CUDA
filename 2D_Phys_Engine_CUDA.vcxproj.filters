@@ -54,12 +54,6 @@
     <ClInclude Include="src\headers\CSurface.h">
       <Filter>src\headers</Filter>
     </ClInclude>
-    <ClInclude Include="src\headers\CPhysicsParticle.h">
-      <Filter>src\headers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\headers\CCEntityCloth.h">
-      <Filter>src\headers</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\headers\DeviceArray.cuh">

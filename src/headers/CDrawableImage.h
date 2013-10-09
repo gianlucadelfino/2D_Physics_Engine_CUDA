@@ -1,11 +1,3 @@
-/*
-*  CDrawableImage.h
-*  MagicMine
-*
-*  Created by gianluca on 1/25/13.
-*  Copyright 2013 __MyCompanyName__. All rights reserved.
-*
-*/
 #ifndef CDRAWABLEIMAGE_H
 #define CDRAWABLEIMAGE_H
 #include "IDrawable.h"

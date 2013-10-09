@@ -3,6 +3,9 @@
 
 #include <iostream>
 
+/**
+* C2DVector manages two-dimensional vectors of floats and defines all the common Vector operations.
+*/
 class C2DVector
 {
 public:

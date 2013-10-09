@@ -1,12 +1,12 @@
-#include "cuda.h"
-#include "cuda_runtime.h"
+#include "CUDA.h"
+#include "CUDA_runtime.h"
 #include "device_launch_parameters.h"
 #include "DeviceArray.cuh"
 
 #include "assert.h"
 
 #define BLOCK_SIZE 256
-#define NEWTON 0.20f
+#define NEWTON 0.2f
 #define MIN_DIST 50.0f
 
 /******************************

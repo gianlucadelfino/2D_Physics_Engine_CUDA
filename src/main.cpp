@@ -1,8 +1,9 @@
+#include <memory>
+#include <vector>
+#include <iostream>
 #include "SDL.h"
 #include "SDL_image.h"
 #include "CSurface.h"
-#include <memory>
-#include <vector>
 #include "CEntityParticle.h"
 #include "CEntityCloth.h"
 #include "CEntityGalaxy.h"
@@ -16,20 +17,25 @@ const unsigned int SCREEN_HEIGHT = 720;
 const unsigned int SCREEN_BPP = 16;
 const unsigned int MS_PER_UPDATE = 32; // 30Hz
 
+//TODO: implement a button to dinamically swap between simulations.
+//For now uncomment the wanted one
+//#define CLOTH_SIMULATION
+#define GALAXY_SIMULATION
+
 int main ( int argc, char **argv )
 {
 	if( !SDL_Init( SDL_INIT_EVERYTHING ) )
 	{
-		//error code
+		std::cerr << "Could NOT initialize SDL.." << std::endl;
 	}
 
-	SDL_WM_SetCaption( "Magic Mine ", NULL );
+	SDL_WM_SetCaption( "2D Physics Engine. Gianluca.Delfino@gmail.com", NULL );
 
 	SDL_Surface* screen = NULL;
 	screen = SDL_SetVideoMode( SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE );
 	if ( !screen )
 	{
-		cerr << "no screen" << endl;
+		std::cerr << "No screen." << std::endl;
 	}
 
 	SDL_Rect screen_rect;
@@ -46,14 +52,17 @@ int main ( int argc, char **argv )
 	//instantiate entities container
 	vector< shared_ptr< IEntity > > entities;
 
+#ifdef CLOTH_SIMULATION
 	//build the cloth
 	shared_ptr<CPhysics> phys_seam( new CPhysics( 1.0f ) );
 	shared_ptr<IMoveable> seam_moveable( new CMoveableParticle(50.0f, 50.0f) );
 
 	CEntityParticle seam( 1, seam_moveable, NULL, phys_seam );
-	shared_ptr< IEntity > cloth( new CEntityCloth( 1, C2DVector( 300.0f,20.0f), cloth_drawable, seam, 10 ) ); //mass = 1, side_length = 40
-	//entities.push_back( cloth );
+	shared_ptr< IEntity > cloth( new CEntityCloth( 1, C2DVector( 300.0f,20.0f), cloth_drawable, seam, 40 ) ); // id, pos, IDrawable, seam prototype, size
+	entities.push_back( cloth );
+#endif
 
+#ifdef GALAXY_SIMULATION
 	//build prototype star for the galaxy
 	shared_ptr<CDrawableStar> star_drawable( new CDrawableStar( screen ) );
 	shared_ptr<CPhysics> star_physics( new CPhysics( 1.0f, C2DVector( 0.0f, 0.0f ) ) );
@@ -62,12 +71,13 @@ int main ( int argc, char **argv )
 	CEntityParticle star( 1, star_moveable, star_drawable, star_physics);
 
 	//create galaxy
-#ifdef CUDA
-	shared_ptr<IEntity> galaxy( new CEntityGalaxy( 2, C2DVector( 600.0f, 300.0f), star, 1024*8, 500 ) ); // id, pos, star, stars number (max 9432), size
+#ifdef USE_CUDA
+	shared_ptr<IEntity> galaxy( new CEntityGalaxy( 2, C2DVector( 600.0f, 300.0f), star, 1024*8, 500 ) ); // id, pos, star prototype, stars number (max 9216), size
 #else
-	shared_ptr<IEntity> galaxy( new CEntityGalaxy( 2, C2DVector( 600.0f, 300.0f), star, 1280 , 500 ) ); // id, pos, star, stars number, size
+	shared_ptr<IEntity> galaxy( new CEntityGalaxy( 2, C2DVector( 600.0f, 300.0f), star, 1024 , 500 ) ); // id, pos, star, stars number, size
 #endif
 	entities.push_back( galaxy );
+#endif
 
 	bool quit = false;
 	SDL_Event event;
@@ -132,9 +142,13 @@ int main ( int argc, char **argv )
 			lag -= MS_PER_UPDATE;
 		}
 
-		//draw stuff
-		//SDL_FillRect( screen, &screen_rect, color_white);
-		SDL_FillRect( screen, &screen_rect, color_black);
+		//draw stuff, background first!
+#ifdef CLOTH_SIMULATION
+		SDL_FillRect( screen, &screen_rect, color_white );
+#endif
+#ifdef GALAXY_SIMULATION
+		SDL_FillRect( screen, &screen_rect, color_black );
+#endif
 		for( vector< shared_ptr< IEntity > >::iterator it = entities.begin(); it != entities.end(); ++it )
 		{
 			(*it)->Draw();
@@ -148,7 +162,6 @@ int main ( int argc, char **argv )
 		if ( delay > 0 ) SDL_Delay( delay );
 	}
 
-	//delete surf_purpleGem;
 	SDL_Quit();
 
 #ifdef CUDA

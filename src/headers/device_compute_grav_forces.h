@@ -1,8 +1,8 @@
 #ifndef DEVICE_COMPUTE_GRAV_FORCES_H
 #define DEVICE_COMPUTE_GRAV_FORCES_H
 
-#include "cuda.h"
-#include "cuda_runtime.h"
+#include "CUDA.h"
+#include "CUDA_runtime.h"
 
 //forward declaration
 void compute_grav(

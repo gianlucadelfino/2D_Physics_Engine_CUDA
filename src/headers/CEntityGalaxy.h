@@ -15,9 +15,13 @@
 #include "cuda.h"
 #include "cuda_runtime.h"
 
-//#include "cuda_profiler_api.h"
-#define CUDA
+//#define USE_CUDA
 
+/**
+* CEntityGalaxy is the Entity that manages the galaxy simulation. Given a Star Entity as a prototype, the constructor will populate the galaxy
+* with _star_number elements.
+* CEntityGalaxy follows the "Composite" patter: it IS an IEnity and manages many IEnities underneath it.
+*/
 class CEntityGalaxy : public IEntity
 {
 public:
@@ -44,15 +48,13 @@ private:
 	typedef std::vector< std::shared_ptr< CEntityParticle > > StarList;
 	StarList m_collection;
 	unsigned int m_non_fixed_stars;
-	std::vector< C2DVector > m_pairwise_forces;
 };
 
 CEntityGalaxy::CEntityGalaxy( unsigned int _id, const C2DVector& _initial_pos,  const CEntityParticle& _star, unsigned int _star_number, float _bounding_box_side ):
 	IEntity( _id, std::shared_ptr< IMoveable >( new CMoveableParticle( _initial_pos ) ) ),
 	m_rand_pos(),
 	m_rand_mass(),
-	m_non_fixed_stars( _star_number ),
-	m_pairwise_forces( _star_number*_star_number ) // We actully only need half of the matrix (force_ij=-force_ji), with no trace (no self interaction), however this would lead to complicated look up
+	m_non_fixed_stars( _star_number )
 {
 	m_rand_pos.SetRealBounds( - _bounding_box_side/2.0f, _bounding_box_side/2.0f );
 	m_rand_mass.SetRealBounds( 1, 4);
@@ -97,7 +99,7 @@ CEntityGalaxy::CEntityGalaxy( unsigned int _id, const C2DVector& _initial_pos,  
 	this->m_collection.push_back( super_massive_black_hole );
 }
 
-#ifdef CUDA
+#ifdef USE_CUDA
 void CEntityGalaxy::Update( const C2DVector& _external_force, float dt )
 {
 	//instantiate some arrays to pass to the cuda kernels
@@ -135,45 +137,47 @@ void CEntityGalaxy::Update( const C2DVector& _external_force, float dt )
 */
 void CEntityGalaxy::Update( const C2DVector& _external_force, float dt )
 {
+	std::vector< C2DVector > pairwise_forces( this->m_collection.size()*this->m_collection.size() ); // We actully only need half of the matrix (force_ij=-force_ji), with no trace (no self interaction), however this would lead to complicated look up
+
 	//load the forces for each pair of star in the forces vector (N^2 operation)
-	for( unsigned int i = 0; i < m_non_fixed_stars; ++i )
+	for( unsigned int i = 0; i < this->m_collection.size(); ++i )
 	{
 		for( unsigned int j = 0 ; j < i; ++j ) //keep j < i to compute only the upper half of the matrix. The matrix is antisimmetric anyway, no need to compute it all!
 		{
-			float mass_i = m_collection[i]->GetMass();
-			C2DVector pos_i = m_collection[i]->GetPosition();
+			float mass_i = this->m_collection[i]->GetMass();
+			C2DVector pos_i = this->m_collection[i]->GetPosition();
 
-			float mass_j = m_collection[j]->GetMass();
-			C2DVector pos_j = m_collection[j]->GetPosition();
+			float mass_j = this->m_collection[j]->GetMass();
+			C2DVector pos_j = this->m_collection[j]->GetPosition();
 
 			//compute gravity
 			C2DVector r =  pos_j - pos_i; // vector from i to j
 
 			float dist = r.GetLenght();
-			const float min_dist = 20.0f; // to avoid infinities
-			const float NEWTON_CONST = 5.0f;
+			const float min_dist = 50.0f; // to avoid infinities
+			const float NEWTON_CONST = 0.2f;
 
 			//force = G*m*M/ r^2
 			C2DVector force_ij = NEWTON_CONST * mass_i * mass_j/ ( dist * dist * dist + min_dist ) * r; //r is not normalized, therefore we divide by dist^3
 
-			unsigned int index_ij = i +  m_collection.size() * j; // col + rows_num*row
-			unsigned int index_ji = j +  m_collection.size() * i; // col + rows_num*row
+			unsigned int index_ij = i +  this->m_collection.size() * j; // col + rows_num*row
+			unsigned int index_ji = j +  this->m_collection.size() * i; // col + rows_num*row
 
-			this->m_pairwise_forces[index_ij] = force_ij;
-			this->m_pairwise_forces[index_ji] = (-1) * force_ij; //save redundant information for easy and fast look-ups
+			pairwise_forces[index_ij] = force_ij;
+			pairwise_forces[index_ji] = (-1) * force_ij; //save redundant information for easy and fast look-ups
 		}
 	}
 
 	//now add forces for each particle and apply it ( order N^2 )
-	for( unsigned int i = 0; i < m_collection.size(); ++i )//skip massive black hole to make it stay in the center of the screen
+	for( unsigned int i = 0; i < m_non_fixed_stars; ++i )//skip massive black hole to make it stay in the center of the screen
 	{
 		C2DVector force_on_i = C2DVector( 0.0f, 0.0f);
-		for( unsigned int j = 0 ; j <  m_collection.size(); ++j ) // sum all the column of forces
+		for( unsigned int j = 0 ; j < this->m_collection.size(); ++j ) // sum all the column of forces
 		{
 			if ( i != j )
 			{
 				unsigned int index_ij = i +  m_collection.size() * j; // col + rows_num*row
-				force_on_i += this->m_pairwise_forces[index_ij];
+				force_on_i += pairwise_forces[index_ij];
 			}
 		}
 		this->m_collection[i]->Update( _external_force + force_on_i, dt);
