@@ -1,11 +1,3 @@
-/*
-*  IMoveable.h
-*  MagicMine
-*
-*  Created by gianluca on 1/26/13.
-*  Copyright 2013 __MyCompanyName__. All rights reserved.
-*
-*/
 #ifndef IMOVEABLE_H
 #define IMOVEABLE_H
 

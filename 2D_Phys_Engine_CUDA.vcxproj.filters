@@ -54,6 +54,12 @@
     <ClInclude Include="src\headers\CSurface.h">
       <Filter>src\headers</Filter>
     </ClInclude>
+    <ClInclude Include="src\headers\CEntityUI.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\CGameStateManager.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\headers\DeviceArray.cuh">

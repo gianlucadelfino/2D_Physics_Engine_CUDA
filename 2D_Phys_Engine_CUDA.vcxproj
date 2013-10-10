@@ -26,6 +26,8 @@
     <ClInclude Include="src\headers\CEntityCloth.h" />
     <ClInclude Include="src\headers\CEntityGalaxy.h" />
     <ClInclude Include="src\headers\CEntityParticle.h" />
+    <ClInclude Include="src\headers\CEntityUI.h" />
+    <ClInclude Include="src\headers\CGameStateManager.h" />
     <ClInclude Include="src\headers\CMoveableParticle.h" />
     <ClInclude Include="src\headers\CPhysics.h" />
     <ClInclude Include="src\headers\CRandom.h" />
