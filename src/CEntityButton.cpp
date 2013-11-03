@@ -7,7 +7,8 @@ CEntityButton::CEntityButton( unsigned int id_, std::unique_ptr< IMoveable > mov
 	mp_scene_to_switch_to( std::move( scene_to_switch_to_ ) )
 {}
 
-void CEntityButton::HandleMouseButtonDown( std::shared_ptr<C2DVector> cursor_position_ ) {}
+void CEntityButton::HandleMouseButtonDown( std::shared_ptr<C2DVector> cursor_position_ )
+{}
 
 void CEntityButton::HandleMouseButtonUp( std::shared_ptr<C2DVector> cursor_position_ )
 {
@@ -23,4 +24,3 @@ bool CEntityButton::IsHit( const C2DVector& coords_ ) const
 	}
 	return is_hit;
 }
-

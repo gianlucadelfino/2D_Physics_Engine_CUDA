@@ -21,6 +21,8 @@ public:
 	CSceneGalaxy( SDL_Surface* screen_, CWorld& world_, bool use_CUDA_ );
 	virtual void Init();
 
+	~CSceneGalaxy();
+
 private:
 	//TODO: define proper copy constructor & assignment
 	CSceneGalaxy( const CSceneGalaxy& );

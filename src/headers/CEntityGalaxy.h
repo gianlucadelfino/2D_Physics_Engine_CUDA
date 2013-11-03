@@ -15,8 +15,6 @@
 #include "cuda.h"
 #include "cuda_runtime.h"
 
-#define USE_CUDA
-
 /**
 * CEntityGalaxy is the Entity that manages the galaxy simulation. Given a Star Entity as a prototype, the constructor will populate the galaxy
 * with star_number_ elements.

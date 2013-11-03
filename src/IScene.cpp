@@ -1,7 +1,11 @@
 #include "IScene.h"
 #include "CWorld.h"
 
-IScene::IScene( SDL_Surface* screen_, CWorld& world_ ):mp_screen( screen_ ), mr_world( world_ )
+IScene::IScene( SDL_Surface* screen_, CWorld& world_, Uint32 background_color_ ):
+	mp_screen( screen_ ),
+	mr_world( world_ ),
+	m_background_color( background_color_ ),
+	m_mouse_coords( new C2DVector() )
 {}
 
 void IScene::Init()
@@ -18,22 +22,24 @@ void IScene::Update( float dt )
 
 void IScene::HandleEvent( CWorld& world_, const SDL_Event& event_ )
 {
-	//mouse coords
-	int x, y;
 	bool UI_element_hit = false;
 
 	switch( event_.type )
 	{
 	case SDL_KEYDOWN:
 		break;
+	case SDL_MOUSEMOTION:
+		this->m_mouse_coords->x = static_cast<float>(event_.motion.x);
+		this->m_mouse_coords->y = static_cast<float>(event_.motion.y);
+		break;
 	case SDL_MOUSEBUTTONDOWN:
-		SDL_GetMouseState(&x, &y);
 		//see if I hit a UI element first, if so, dont look at the entities!
 		for( unique_ptr< IEntity >& it : this->m_UI_elements )
 		{
-			if ( it->IsHit( C2DVector( x, y ) ) )
+			if ( it->IsHit( *this->m_mouse_coords ) )
 			{
-				it->HandleMouseButtonDown( std::shared_ptr<C2DVector>( new C2DVector( x, y ) ) );
+				printf("clicked on button!\n");
+				it->HandleMouseButtonDown( this->m_mouse_coords );
 				UI_element_hit = true;
 				break;
 			}
@@ -43,18 +49,17 @@ void IScene::HandleEvent( CWorld& world_, const SDL_Event& event_ )
 		{
 			for( unique_ptr< IEntity >& it : this->m_entities )
 			{
-				it->HandleMouseButtonDown( std::shared_ptr<C2DVector>( new C2DVector( x, y ) ) );
+				it->HandleMouseButtonDown( this->m_mouse_coords );
 			}
 		}
 		break;
 	case SDL_MOUSEBUTTONUP:
-		SDL_GetMouseState(&x, &y);
 		//see if I hit a UI element first, if so, dont look at the entities!
 		for( unique_ptr< IEntity >& it : this->m_UI_elements )
 		{
-			if ( it->IsHit( C2DVector( x, y ) ) )
+			if ( it->IsHit( *this->m_mouse_coords ) )
 			{
-				it->HandleMouseButtonUp( std::shared_ptr<C2DVector>( new C2DVector( x, y ) ) );
+				it->HandleMouseButtonUp( this->m_mouse_coords );
 				UI_element_hit = true;
 				break;
 			}
@@ -64,7 +69,7 @@ void IScene::HandleEvent( CWorld& world_, const SDL_Event& event_ )
 		{
 			for( unique_ptr< IEntity >& it : this->m_entities )
 			{
-				it->HandleMouseButtonUp( std::shared_ptr<C2DVector>( new C2DVector( x, y ) ) );
+				it->HandleMouseButtonUp( this->m_mouse_coords );
 			}
 		}
 		break;
@@ -79,8 +84,7 @@ void IScene::Draw() const
 	screen_rect.y = 0;
 	screen_rect.w = static_cast<Uint16>(this->mp_screen->w);
 	screen_rect.h = static_cast<Uint16>(this->mp_screen->h);
-	Uint32 color_black = SDL_MapRGB( this->mp_screen->format, 0	, 0, 0);
-	SDL_FillRect( this->mp_screen, &screen_rect, color_black );
+	SDL_FillRect( this->mp_screen, &screen_rect, this->m_background_color );
 
 	//Draw the "Entities"
 	for( vector< unique_ptr< IEntity > >::const_iterator cit = this->m_entities.begin(); cit != this->m_entities.end(); ++cit )

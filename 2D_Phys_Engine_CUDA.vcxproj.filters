@@ -75,6 +75,9 @@
     <ClInclude Include="src\headers\CFont.h">
       <Filter>src\headers</Filter>
     </ClInclude>
+    <ClInclude Include="src\headers\CSceneCloth.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\headers\DeviceArray.cuh">
@@ -116,6 +119,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\CEntityButton.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CSceneCloth.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

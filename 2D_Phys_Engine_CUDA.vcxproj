@@ -33,6 +33,7 @@
     <ClInclude Include="src\headers\CMoveableParticle.h" />
     <ClInclude Include="src\headers\CPhysics.h" />
     <ClInclude Include="src\headers\CRandom.h" />
+    <ClInclude Include="src\headers\CSceneCloth.h" />
     <ClInclude Include="src\headers\CSceneGalaxy.h" />
     <ClInclude Include="src\headers\IScene.h" />
     <ClInclude Include="src\headers\CSurface.h" />
@@ -52,6 +53,7 @@
     <ClCompile Include="src\CEntityGalaxy.cpp" />
     <ClCompile Include="src\CEntityParticle.cpp" />
     <ClCompile Include="src\CPhysics.cpp" />
+    <ClCompile Include="src\CSceneCloth.cpp" />
     <ClCompile Include="src\CSceneGalaxy.cpp" />
     <ClCompile Include="src\CSurface.cpp" />
     <ClCompile Include="src\CWorld.cpp" />

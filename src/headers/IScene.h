@@ -13,7 +13,7 @@ class CWorld;
 class IScene
 {
 public:
-	IScene( SDL_Surface* screen_, CWorld& world_ );
+	IScene( SDL_Surface* screen_, CWorld& world_, Uint32 background_color_ );
 
 	virtual void Init();
 
@@ -27,6 +27,8 @@ public:
 protected:
 	SDL_Surface* mp_screen;
 	CWorld& mr_world;
+	Uint32 m_background_color;
+	std::shared_ptr< C2DVector > m_mouse_coords;
 	std::vector< std::unique_ptr< IEntity > > m_entities;
 	std::vector< std::unique_ptr< IEntity > > m_UI_elements;
 private:

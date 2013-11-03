@@ -1,7 +1,8 @@
 #include "CSceneGalaxy.h"
+#include "CSceneCloth.h"
 
 CSceneGalaxy::CSceneGalaxy( SDL_Surface* screen_, CWorld& world_, bool use_CUDA_ ):
-	IScene( screen_, world_ ),
+	IScene( screen_, world_, SDL_MapRGB( screen_->format, 0, 0, 0 ) ),
 	m_use_CUDA( use_CUDA_ )
 {
 	//build prototype star for the galaxy
@@ -24,14 +25,34 @@ void CSceneGalaxy::Init()
 	//add UI elements to Scene
 	std::shared_ptr< CFont > button_font( new CFont( "pcseniorSmall.ttf", 20 ) );
 	std::string CUDA_CPU_switch_label = this->m_use_CUDA? "SWITCH TO CPU" : "SWITCH TO CUDA";
-	std::unique_ptr< CDrawableButton > cloth_button_drawable( new CDrawableButton( button_font, this->mp_screen, CUDA_CPU_switch_label, C2DVector( 320.0f, 22.0f ) ) );
-	std::unique_ptr< CMoveableButton > moveable_button( new CMoveableButton( C2DVector( 50.0f, 600.0f ), C2DVector( 320.0f, 22.0f ) ) );
+	Uint32 white_color = SDL_MapRGB( this->mp_screen->format, 255, 255, 255 );
+	SDL_Color button_label_color = { 0, 0, 0, 0 };
 
-	std::unique_ptr< IEntity > cloth_sim_switch_button( new CEntityButton(
-		1, std::move( moveable_button ),
-		std::move( cloth_button_drawable ),
+	std::unique_ptr< CDrawableButton > CUDA_CPU_button_drawable( new CDrawableButton( button_font, this->mp_screen, CUDA_CPU_switch_label, C2DVector( 320.0f, 22.0f ), white_color, button_label_color ) );
+	std::unique_ptr< CMoveableButton > CUDA_CPU_moveable_button( new CMoveableButton( C2DVector( 50.0f, 600.0f ), C2DVector( 320.0f, 22.0f ) ) );
+
+	std::unique_ptr< IEntity > CUDA_CPU_switch_button( new CEntityButton(
+		1, std::move( CUDA_CPU_moveable_button ),
+		std::move( CUDA_CPU_button_drawable ),
 		this->mr_world,
 		std::move( std::unique_ptr< IScene >( new CSceneGalaxy( this->mp_screen, this->mr_world, !this->m_use_CUDA ) ) )
 		));
+	this->m_UI_elements.push_back( std::move( CUDA_CPU_switch_button ) );
+
+	std::unique_ptr< CDrawableButton > cloth_button_drawable( new CDrawableButton( button_font, this->mp_screen, "SWITCH TO CLOTH", C2DVector( 320.0f, 22.0f ), white_color, button_label_color ) );
+	std::unique_ptr< CMoveableButton > cloth_moveable_button( new CMoveableButton( C2DVector( 400.0f, 600.0f ), C2DVector( 320.0f, 22.0f ) ) );
+
+	std::unique_ptr< IEntity > cloth_sim_switch_button( new CEntityButton(
+		1, std::move( cloth_moveable_button ),
+		std::move( cloth_button_drawable ),
+		this->mr_world,
+		std::move( std::unique_ptr< IScene >( new CSceneCloth( this->mp_screen, this->mr_world) ) )
+		));
 	this->m_UI_elements.push_back( std::move( cloth_sim_switch_button ) );
+}
+
+CSceneGalaxy::~CSceneGalaxy()
+{
+	if ( this->m_use_CUDA )
+		cudaDeviceReset();
 }

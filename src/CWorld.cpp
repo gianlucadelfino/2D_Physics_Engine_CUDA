@@ -17,8 +17,8 @@ CWorld::CWorld( SDL_Surface* screen_ ):
 	{
 		std::cerr << "Could NOT initialize SDL_ttf.." << std::endl;
 	}
-
-	std::unique_ptr< CSceneGalaxy > galaxy_scene( new CSceneGalaxy( this->mp_screen,  *this, true ) ); //start in CUDA mode!
+	//add the Galaxy simulation as first scene
+	std::unique_ptr< CSceneGalaxy > galaxy_scene( new CSceneGalaxy( this->mp_screen,  *this, true) ); //start in CUDA mode!
 
 	this->mp_cur_scene = std::move( galaxy_scene );
 	this->mp_cur_scene->Init();
