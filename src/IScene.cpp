@@ -38,7 +38,6 @@ void IScene::HandleEvent( CWorld& world_, const SDL_Event& event_ )
 		{
 			if ( it->IsHit( *this->m_mouse_coords ) )
 			{
-				printf("clicked on button!\n");
 				it->HandleMouseButtonDown( this->m_mouse_coords );
 				UI_element_hit = true;
 				break;

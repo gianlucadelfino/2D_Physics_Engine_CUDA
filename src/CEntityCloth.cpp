@@ -110,8 +110,6 @@ void CEntityCloth::Update( const C2DVector& external_force_, float dt )
 
 void CEntityCloth::Draw() const
 {
-#include <iostream>
-	std::cout<<"drawing"<<std::endl;
 	//draw each link, for each id, we draw the left and top link
 	for ( unsigned int id = 0; id < this->m_collection.size(); ++id )
 	{
@@ -133,7 +131,6 @@ void CEntityCloth::Draw() const
 			this->mp_drawable->Draw( left_id_position, id_pos );
 		}
 	}
-	std::cout<<"done drawing"<<std::endl;
 }
 
 void CEntityCloth::ApplyCollectiveConstraints( const unsigned int id )
