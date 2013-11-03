@@ -1,4 +1,4 @@
-2D_Physics_Engine_CUDA
+2D Physics Engine CUDA
 ======================
 
 C++ Physics Engine with CUDA integration:
