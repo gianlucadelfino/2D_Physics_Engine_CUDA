@@ -5,23 +5,23 @@
 class CDrawableImage: public IDrawable
 {
 public:
-	CDrawableImage( CSurface* _surf_to_blit, SDL_Surface* _destination_surf ):
-		IDrawable( _destination_surf ),
-		mp_surface( _surf_to_blit )
+	CDrawableImage( CSurface* surf_to_blit_, SDL_Surface* destination_surf_ ):
+		IDrawable( destination_surf_ ),
+		mp_surface( surf_to_blit_ )
 	{}
 
-	CDrawableImage( const CDrawableImage& _other ):
-		IDrawable(_other.mp_destination),
-		mp_surface(_other.mp_surface)
+	CDrawableImage( const CDrawableImage& other_ ):
+		IDrawable( other_.mp_destination ),
+		mp_surface( other_.mp_surface )
 	{}
 
-	virtual IDrawable* Clone() const
+	virtual std::unique_ptr< IDrawable > Clone() const
 	{
 		CDrawableImage* clone = new CDrawableImage( mp_surface, mp_destination );
 		clone->m_scale = this->m_scale;
 		clone->m_dimensions = this->m_dimensions;
 
-		return clone;
+		return std::unique_ptr<IDrawable>(clone);
 	}
 
 	CDrawableImage& operator=( const CDrawableImage& rhs )
@@ -34,12 +34,19 @@ public:
 		return *this;
 	}
 
-	virtual void Draw( const C2DVector& pos ) const
+	virtual void Draw( const C2DVector& pos, const C2DVector& orientation_ ) const
 	{
-		mp_surface->ApplySurface( static_cast<int>(pos.x), static_cast<int>(pos.y), mp_destination );
+		this->mp_surface->ApplySurface( static_cast<int>(pos.x), static_cast<int>(pos.y), this->mp_destination );
+	}
+
+	virtual ~CDrawableImage()
+	{
+		delete this->mp_surface;
+		this->mp_surface = NULL;
 	}
 
 private:
 	CSurface* mp_surface;
 };
+
 #endif

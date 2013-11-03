@@ -73,9 +73,9 @@ float C2DVector::Q_rsqrt( float number ) const
 	return y;
 }
 
-float C2DVector::ScalarProduct( const C2DVector& _other) const
+float C2DVector::ScalarProduct( const C2DVector& other_) const
 {
-	return this->x * _other.x + this->y * _other.y;
+	return this->x * other_.x + this->y * other_.y;
 }
 
 /******************

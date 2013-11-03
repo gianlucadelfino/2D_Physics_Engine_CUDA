@@ -23,15 +23,20 @@
     <ClInclude Include="src\headers\CDrawableImage.h" />
     <ClInclude Include="src\headers\CDrawableLink.h" />
     <ClInclude Include="src\headers\CDrawableStar.h" />
+    <ClInclude Include="src\headers\CEntityButton.h" />
     <ClInclude Include="src\headers\CEntityCloth.h" />
     <ClInclude Include="src\headers\CEntityGalaxy.h" />
     <ClInclude Include="src\headers\CEntityParticle.h" />
-    <ClInclude Include="src\headers\CEntityUI.h" />
-    <ClInclude Include="src\headers\CGameStateManager.h" />
+    <ClInclude Include="src\headers\CDrawableButton.h" />
+    <ClInclude Include="src\headers\CFont.h" />
+    <ClInclude Include="src\headers\CMoveableButton.h" />
     <ClInclude Include="src\headers\CMoveableParticle.h" />
     <ClInclude Include="src\headers\CPhysics.h" />
     <ClInclude Include="src\headers\CRandom.h" />
+    <ClInclude Include="src\headers\CSceneGalaxy.h" />
+    <ClInclude Include="src\headers\IScene.h" />
     <ClInclude Include="src\headers\CSurface.h" />
+    <ClInclude Include="src\headers\CWorld.h" />
     <ClInclude Include="src\headers\device_compute_grav_forces.h" />
     <ClInclude Include="src\headers\IDrawable.h" />
     <ClInclude Include="src\headers\IEntity.h" />
@@ -42,8 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\C2DVector.cpp" />
+    <ClCompile Include="src\CEntityButton.cpp" />
+    <ClCompile Include="src\CEntityCloth.cpp" />
+    <ClCompile Include="src\CEntityGalaxy.cpp" />
+    <ClCompile Include="src\CEntityParticle.cpp" />
     <ClCompile Include="src\CPhysics.cpp" />
+    <ClCompile Include="src\CSceneGalaxy.cpp" />
     <ClCompile Include="src\CSurface.cpp" />
+    <ClCompile Include="src\CWorld.cpp" />
+    <ClCompile Include="src\IDrawable.cpp" />
+    <ClCompile Include="src\IScene.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -109,7 +122,7 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(CudaToolkitIncludeDir);libs\SDL_gfx\include;src\headers;libs\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(CudaToolkitIncludeDir);libs\SDL_ttf-2.0.11\include;libs\SDL_gfx\include;src\headers;libs\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <CompileAsManaged>false</CompileAsManaged>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -117,8 +130,8 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>SDL.lib;SDLmain.lib;sdl_image.lib;SDL_gfx.lib;cudart.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>libs\SDL-1.2.15\lib\x86;libs\SDL_gfx\lib;$(CudaToolkitLibDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL.lib;SDLmain.lib;sdl_image.lib;SDL_gfx.lib;SDL_ttf.lib;cudart.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>libs\SDL_ttf-2.0.11\lib\x86;libs\SDL-1.2.15\lib\x86;libs\SDL_gfx\lib;$(CudaToolkitLibDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>echo copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"
@@ -160,7 +173,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(CudaToolkitIncludeDir);libs\SDL_gfx\include;src\headers;libs\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(CudaToolkitIncludeDir);libs\SDL_ttf-2.0.11\include;libs\SDL_gfx\include;src\headers;libs\SDL-1.2.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <SDLCheck>true</SDLCheck>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
@@ -169,8 +182,8 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>SDL.lib;SDLmain.lib;sdl_image.lib;SDL_gfx.lib;cudart.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>libs\SDL-1.2.15\lib\x86;libs\SDL_gfx\lib;$(CudaToolkitLibDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL.lib;SDLmain.lib;sdl_image.lib;SDL_gfx.lib;SDL_ttf.lib;cudart.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>libs\SDL_ttf-2.0.11\lib\x86;libs\SDL-1.2.15\lib\x86;libs\SDL_gfx\lib;$(CudaToolkitLibDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>echo copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"

@@ -16,14 +16,14 @@ public:
 		m_generator.seed(1337);
 	}
 
-	void SetRealBounds( float _from, float _to )
+	void SetRealBounds( float from_, float to_ )
 	{
-		m_real_distribution = std::uniform_real_distribution<float>( _from, _to );
+		m_real_distribution = std::uniform_real_distribution<float>( from_, to_ );
 	}
 
-	void SetIntBounds( int _from, int _to )
+	void SetIntBounds( int from_, int to_ )
 	{
-		m_int_distribution = std::uniform_int_distribution<int32_t>( _from, _to );
+		m_int_distribution = std::uniform_int_distribution<int32_t>( from_, to_ );
 	}
 
 	float RandReal(){ return m_real_distribution( m_generator ); }

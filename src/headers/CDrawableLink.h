@@ -9,32 +9,27 @@
 class CDrawableLink: public IDrawable
 {
 public:
-	CDrawableLink( SDL_Surface* _destination_surf ):
-		IDrawable( _destination_surf)
+	CDrawableLink( SDL_Surface* destination_surf_ ):
+		IDrawable( destination_surf_)
 	{}
 
-	virtual IDrawable* Clone() const
+	virtual std::unique_ptr< IDrawable > Clone() const
 	{
-		CDrawableLink* clone = new CDrawableLink( mp_destination );
-		clone->m_origin = this->m_origin;
+		CDrawableLink* clone = new CDrawableLink( this->mp_destination );
 		clone->m_scale = this->m_scale;
 		clone->m_dimensions = this->m_dimensions;
 
-		return clone;
+		return std::unique_ptr< IDrawable >(clone);
 	}
 
-	void SetOrigin( const C2DVector& _origin ) { m_origin = _origin; }
-
-	virtual void Draw( const C2DVector& _pos ) const
+	virtual void Draw( const C2DVector& pos_, const C2DVector& origin_ ) const
 	{
 		//draw line
-		lineRGBA( mp_destination,
-			static_cast<Sint16>(m_origin.x), static_cast<Sint16>(m_origin.y),
-			static_cast<Sint16>(_pos.x), static_cast<Sint16>(_pos.y),
+		lineRGBA( this->mp_destination,
+			static_cast<Sint16>(origin_.x), static_cast<Sint16>(origin_.y),
+			static_cast<Sint16>(pos_.x), static_cast<Sint16>(pos_.y),
 			0, 0, 0, 255);
 	}
-private:
-	C2DVector m_origin;
 };
 
 #endif

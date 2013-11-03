@@ -10,31 +10,37 @@
 class IMoveable
 {
 public:
-	IMoveable( float _x, float _y ):
-		pos( _x, _y ),
-		old_pos( _x, _y )
+	IMoveable( float x_, float y_ ):
+		pos( x_, y_ ),
+		old_pos( x_, y_ ),
+		orientation( 0, 0 )
 	{}
 
-	IMoveable( const C2DVector& _pos ):
-		pos( _pos ),
-		old_pos( _pos )
+	IMoveable( const C2DVector& pos_ ):
+		pos( pos_ ),
+		old_pos( pos_ ),
+		orientation( 0, 0 )
 	{}
-	IMoveable( const C2DVector& _pos, const C2DVector& _old_pos):
-		pos( _pos ),
-		old_pos( _old_pos )
+	IMoveable( const C2DVector& pos_, const C2DVector& old_pos_, const C2DVector& orientation_):
+		pos( pos_ ),
+		old_pos( old_pos_ ),
+		orientation( orientation_ )
 	{}
 
 	//copy constructor and assignment operator
-	IMoveable( const IMoveable& _other):
-		pos( _other.pos),
-		old_pos( _other.old_pos)
+	IMoveable( const IMoveable& other_):
+		pos( other_.pos),
+		old_pos( other_.old_pos),
+		orientation( other_.orientation )
 	{}
-	IMoveable& operator=( const IMoveable& _other )
+
+	IMoveable& operator=( const IMoveable& other_ )
 	{
-		if ( &_other != this )
+		if ( &other_ != this )
 		{
-			this->pos = _other.pos;
-			this->old_pos = _other.old_pos;
+			this->pos = other_.pos;
+			this->old_pos = other_.old_pos;
+			this->orientation = other_.orientation;
 		}
 		return *this;
 	}
@@ -42,31 +48,31 @@ public:
 	/*
 	* Boost offsets the particle which makes it gain speed
 	*/
-	void Boost( const C2DVector& _new_position )
+	void Boost( const C2DVector& new_position_ )
 	{
-		this->pos = _new_position;
+		this->pos = new_position_;
 	}
 
 	/*
 	* Reposition moves the particle and sets its speed to zero
 	*/
-	void Reposition( const C2DVector& _new_position )
+	void Reposition( const C2DVector& new_position_ )
 	{
-		this->pos = _new_position;
-		this->old_pos = _new_position;
+		this->pos = new_position_;
+		this->old_pos = new_position_;
 	}
 
 	/*
 	* Translate moves particle and its velocity vector by a shift vector
 	*/
-	void Translate( const C2DVector& _shift )
+	void Translate( const C2DVector& shift_ )
 	{
-		this->pos += _shift;
-		this->old_pos += _shift;
+		this->pos += shift_;
+		this->old_pos += shift_;
 	}
 
 	//need this to use in copy constructors!
-	virtual IMoveable* Clone() const = 0;
+	virtual std::unique_ptr< IMoveable > Clone() const = 0;
 
 	virtual ~IMoveable()
 	{}
@@ -79,10 +85,10 @@ public:
 		}
 	}
 
-	virtual void SetConstraint( std::shared_ptr<C2DVector> _origin, const C2DVector& _displacement )
+	virtual void SetConstraint( std::shared_ptr<C2DVector> origin_, const C2DVector& displacement_ )
 	{
-		m_constraint_origin = _origin;
-		m_constraint_disp = _displacement;
+		m_constraint_origin = origin_;
+		m_constraint_disp = displacement_;
 	}
 
 	virtual void UnsetConstraint()
@@ -91,10 +97,14 @@ public:
 		m_constraint_disp = C2DVector( 0.0f, 0.0f );
 	}
 
-	virtual bool IsHit( const C2DVector& _coords ) const = 0;
+	virtual bool IsHit( const C2DVector& coords_ ) const
+	{
+		return false;
+	}
 
 	C2DVector pos;
 	C2DVector old_pos;
+	C2DVector orientation;
 
 protected:
 	//constraints. The origin needs to be a pointer to be dynamic

@@ -9,30 +9,29 @@ class CMoveableParticle : public IMoveable
 {
 public:
 	CMoveableParticle():IMoveable( 0.0f, 0.0f ){}
-	CMoveableParticle( float _x, float _y ):IMoveable( _x, _y){}
-	CMoveableParticle( const C2DVector& _initial_pos):IMoveable( _initial_pos ){}
+	CMoveableParticle( float x_, float y_ ):IMoveable( x_, y_ ){}
+	CMoveableParticle( const C2DVector& initial_pos_ ):IMoveable( initial_pos_ ){}
 
-	CMoveableParticle( const CMoveableParticle& _other):IMoveable( _other ){}
+	CMoveableParticle( const CMoveableParticle& other_ ):IMoveable( other_ ){}
 
-	CMoveableParticle& operator=( const CMoveableParticle& _other )
+	CMoveableParticle& operator=( const CMoveableParticle& other_ )
 	{
-		if ( &_other != this )
+		if ( &other_ != this )
 		{
-			IMoveable::operator=( _other );
+			IMoveable::operator=( other_ );
 		}
 		return *this;
 	}
-
-	virtual IMoveable* Clone() const
+	virtual std::unique_ptr< IMoveable > Clone() const
 	{
-		return new CMoveableParticle( *this );
+		return std::unique_ptr< IMoveable >( new CMoveableParticle( *this ) );
 	}
 
-	virtual bool IsHit( const C2DVector& _coords ) const
+	virtual bool IsHit( const C2DVector& coords_ ) const
 	{
-		//check if _coords is in within the bounding box
-		bool check_x = _coords.x < (pos.x + boundingbox_half_side) && _coords.x > ( pos.x - boundingbox_half_side );
-		bool check_y = _coords.y < (pos.y + boundingbox_half_side) && _coords.y > ( pos.y - boundingbox_half_side );
+		//check if coords_ is in within the bounding box
+		bool check_x = coords_.x < (pos.x + boundingbox_half_side) && coords_.x > ( pos.x - boundingbox_half_side );
+		bool check_y = coords_.y < (pos.y + boundingbox_half_side) && coords_.y > ( pos.y - boundingbox_half_side );
 
 		return check_x && check_y;
 	}

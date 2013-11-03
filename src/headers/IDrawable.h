@@ -1,6 +1,7 @@
 #ifndef IDRAWABLE_H
 #define IDRAWABLE_H
 
+#include <memory>
 #include "SDL.h"
 #include "C2DVector.h"
 #include "CSurface.h"
@@ -11,44 +12,25 @@
 class IDrawable
 {
 public:
-	IDrawable( SDL_Surface* _destination_surf ):
-		mp_destination( _destination_surf ),
-		m_dimensions(),
-		m_scale(1)
-	{}
+	IDrawable( SDL_Surface* destination_surf_ );
 
-	IDrawable( const IDrawable& _other ):
-		mp_destination( _other.mp_destination ),
-		m_dimensions( _other.m_dimensions ),
-		m_scale( _other.m_scale )
-	{}
+	IDrawable( const IDrawable& other_ );
 
-	IDrawable& operator=( const IDrawable& _other )
-	{
-		if ( this != &_other )
-		{
-			this->mp_destination = _other.mp_destination;
-			this->m_dimensions = _other.m_dimensions;
-			this->m_scale = _other.m_scale;
-		}
-		return *this;
-	}
+	IDrawable& operator=( const IDrawable& other_ );
 
-	virtual IDrawable* Clone() const = 0;
+	virtual std::unique_ptr< IDrawable > Clone() const = 0;
 
-	virtual void Draw( const C2DVector& pos ) const = 0;
+	virtual void Draw( const C2DVector& position_, const C2DVector& orientation_ ) const = 0;
 
-	virtual ~IDrawable() = 0;
+	virtual ~IDrawable();
 
-	void SetSize( const C2DVector& _dimensions ) { m_dimensions = _dimensions; }
-	void SetScale( float _scale ) { m_scale = _scale; }
+	void SetSize( const C2DVector& _dimensions );
+	void SetScale( float scale_ );
 
 protected:
 	SDL_Surface* mp_destination;
 	C2DVector m_dimensions;
 	float m_scale;
 };
-
-IDrawable::~IDrawable() {}
 
 #endif

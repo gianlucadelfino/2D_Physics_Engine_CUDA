@@ -12,53 +12,53 @@
 class CPhysics
 {
 public:
-	CPhysics( float _mass )
-		:m_mass(_mass),
-		m_inverseMass(1/_mass),
+	CPhysics( float mass_ )
+		:m_mass(mass_),
+		m_inverseMass(1/mass_),
 		m_gravity_acc(C2DVector(0.0f, 9.8f))
 	{}
 
-	CPhysics( float _mass, const C2DVector& _gravity_accel )
-		:m_mass(_mass),
-		m_inverseMass(1/_mass),
-		m_gravity_acc(_gravity_accel)
+	CPhysics( float mass_, const C2DVector& gravity_accel_ )
+		:m_mass(mass_),
+		m_inverseMass(1/mass_),
+		m_gravity_acc(gravity_accel_)
 	{}
 
-	CPhysics( const CPhysics& _other ):
-		m_mass( _other.m_mass ),
-		m_inverseMass( _other.m_inverseMass ),
-		m_gravity_acc( _other.m_gravity_acc )
+	CPhysics( const CPhysics& other_ ):
+		m_mass( other_.m_mass ),
+		m_inverseMass( other_.m_inverseMass ),
+		m_gravity_acc( other_.m_gravity_acc )
 	{}
 
-	virtual CPhysics* Clone() const
+	virtual std::unique_ptr< CPhysics > Clone() const
 	{
-		CPhysics* clone = new CPhysics( m_mass, this->m_gravity_acc );
-		return clone;
+		return std::unique_ptr< CPhysics >( new CPhysics( m_mass, this->m_gravity_acc ) );
 	}
 
-	CPhysics& operator=( const CPhysics& _other )
+	CPhysics& operator=( const CPhysics& other_ )
 	{
-		if ( &_other != this )
+		if ( &other_ != this )
 		{
-			this->m_mass = _other.m_mass;
-			this->m_inverseMass = _other.m_inverseMass;
-			this->m_gravity_acc = _other.m_gravity_acc;
+			this->m_mass = other_.m_mass;
+			this->m_inverseMass = other_.m_inverseMass;
+			this->m_gravity_acc = other_.m_gravity_acc;
 		}
 		return *this;
 	}
 
 	virtual ~CPhysics(){}
 
-	//mind the reference to the shared ptr because we want to modify it!
-	virtual void Update( const C2DVector& _external_force, std::shared_ptr<IMoveable>& _moveable, float dt )
+	//mind the reference to the unique ptr because we want to modify it without sharing ownership!
+	//(remind that unique_ptr cant be passed by value without moving ownershipt and therfore destroying the original)
+	virtual void Update( const C2DVector& external_force_, std::unique_ptr<IMoveable>& moveable_, float dt )
 	{
-		this->Integrate( _moveable->pos, _moveable->old_pos, _external_force, dt );
+		this->Integrate( moveable_->pos, moveable_->old_pos, external_force_, dt );
 	}
 
 	virtual C2DVector GetForce( const C2DVector& pos ) const { return m_mass*m_gravity_acc; }
 
 	float GetMass() const { return m_mass; }
-	void SetMass( float _mass ) { m_mass = _mass; }
+	void SetMass( float mass_ ) { m_mass = mass_; }
 
 	void SetGravity( const C2DVector& _grav ){ m_gravity_acc = _grav; }
 
@@ -67,7 +67,7 @@ protected:
 	float m_inverseMass;
 	C2DVector m_gravity_acc;
 
-	void Integrate( C2DVector& pos, C2DVector& old_pos, const C2DVector& _external_force, float dt );
+	void Integrate( C2DVector& pos, C2DVector& old_pos, const C2DVector& external_force_, float dt );
 };
 
 #endif

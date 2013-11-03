@@ -9,14 +9,15 @@
 class C2DVector
 {
 public:
-	C2DVector():x(0.0f),y(0.0f){}
-	C2DVector( float _x, float _y ):x(_x),y(_y){}
+	C2DVector():x( 0.0f ), y( 0.0f ) {}
+	C2DVector( float x_, float y_ ):x( x_ ), y( y_ ) {}
+	C2DVector( int x_, int y_ ):x( static_cast<float>(x_) ), y( static_cast<float>(y_)  ) {}
 	C2DVector( const C2DVector& _vec );
 
-	C2DVector& operator=( const C2DVector& rhs);
+	C2DVector& operator=( const C2DVector& rhs );
 	C2DVector& operator*=( const float k );
-	C2DVector& operator+=( const C2DVector& rhs);
-	C2DVector& operator-=( const C2DVector& rhs);
+	C2DVector& operator+=( const C2DVector& rhs );
+	C2DVector& operator-=( const C2DVector& rhs );
 
 	float GetSquaredLength() const;
 	float GetLenght() const;

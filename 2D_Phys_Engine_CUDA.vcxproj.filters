@@ -54,10 +54,25 @@
     <ClInclude Include="src\headers\CSurface.h">
       <Filter>src\headers</Filter>
     </ClInclude>
-    <ClInclude Include="src\headers\CEntityUI.h">
+    <ClInclude Include="src\headers\CWorld.h">
       <Filter>src\headers</Filter>
     </ClInclude>
-    <ClInclude Include="src\headers\CGameStateManager.h">
+    <ClInclude Include="src\headers\IScene.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\CSceneGalaxy.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\CDrawableButton.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\CEntityButton.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\CMoveableButton.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\CFont.h">
       <Filter>src\headers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -77,6 +92,30 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\CSurface.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CWorld.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IDrawable.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CEntityParticle.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CEntityGalaxy.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CEntityCloth.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CSceneGalaxy.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CEntityButton.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

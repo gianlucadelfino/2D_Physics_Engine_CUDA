@@ -12,18 +12,20 @@ using namespace std;
 class CSurface
 {
 public:
-	explicit CSurface( string filename ) : m_surface( load_image( filename ) ){}
+	CSurface();
+	explicit CSurface( SDL_Surface* surface_ );
 	~CSurface();
-	SDL_Surface* GetSurface() const{ return m_surface; }
+	SDL_Surface* GetSurface() const{ return mp_surface; }
+	void LoadSurface( SDL_Surface* new_surface_ );
 	void ApplySurface( int x, int y, SDL_Surface* destination );
+	void load_image( string filename );
 	void Destroy();
 
 private:
 	CSurface( const CSurface& );
 	CSurface& operator=( const CSurface& );
 
-	SDL_Surface* load_image( string filename );
-	SDL_Surface* m_surface;
+	SDL_Surface* mp_surface;
 };
 
 #endif
