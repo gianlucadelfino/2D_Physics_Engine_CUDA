@@ -1,7 +1,7 @@
 #include <iostream>
 #include "SDL_TTF.h"
 #include "CWorld.h"
-#include "CSceneGalaxy.h"
+#include "CSceneMainMenu.h"
 
 CWorld::CWorld( SDL_Surface* screen_ ):
 	mp_screen( screen_ )
@@ -18,16 +18,16 @@ CWorld::CWorld( SDL_Surface* screen_ ):
 		std::cerr << "Could NOT initialize SDL_ttf.." << std::endl;
 	}
 	//add the Galaxy simulation as first scene
-	std::unique_ptr< CSceneGalaxy > galaxy_scene( new CSceneGalaxy( this->mp_screen,  *this, true) ); //start in CUDA mode!
+	std::unique_ptr< IScene > main_menu( new CSceneMainMenu( this->mp_screen,  *this ) );
 
-	this->mp_cur_scene = std::move( galaxy_scene );
+	this->mp_cur_scene = std::move( main_menu );
 	this->mp_cur_scene->Init();
 }
 
 void CWorld::Update( float dt ) const
 {
 	if ( this->mp_cur_scene )
-		this->mp_cur_scene->Update( dt);
+		this->mp_cur_scene->Update( dt );
 }
 
 void CWorld::HandleEvent( const SDL_Event& event_ )

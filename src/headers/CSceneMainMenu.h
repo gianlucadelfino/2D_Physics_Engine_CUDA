@@ -1,29 +1,30 @@
-#ifndef CSCENECLOTH_H
-#define CSCENECLOTH_H
+#ifndef CSCENEMAINMENU_H
+#define CSCENEMAINMENU_H
 
 #include <memory>
 #include "SDL.h"
 
+#include "CDrawableStar.h"
 #include "CPhysics.h"
 #include "C2DVector.h"
 #include "IScene.h"
+#include "CEntityGalaxy.h"
 #include "CDrawableButton.h"
 #include "CEntityButton.h"
 #include "CMoveableButton.h"
 
 class CWorld;
 
-class CSceneCloth: public IScene
+class CSceneMainMenu: public IScene
 {
 public:
-	CSceneCloth( SDL_Surface* screen_, CWorld& world_ );
+	CSceneMainMenu( SDL_Surface* screen_, CWorld& world_ );
 	virtual void Init();
 
 private:
 	//TODO: define proper copy constructor & assignment
-	CSceneCloth( const CSceneCloth& );
-	CSceneCloth& operator=( const CSceneCloth& );
-	std::shared_ptr< CFont > m_font;
+	CSceneMainMenu( const CSceneMainMenu& );
+	CSceneMainMenu& operator=( const CSceneMainMenu& );
 };
 
 #endif

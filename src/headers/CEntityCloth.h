@@ -12,7 +12,7 @@
 * CEntityCloth is a child of CEntityParticle to contain CEntities, following the Pattern of the "Composite".
 * Calling Update on the collection will update all the Entities in it and impose all the constraints.
 */
-class CEntityCloth: public IEntity
+class CEntityCloth: public CEntity
 {
 public:
 	CEntityCloth( unsigned int id_, const C2DVector& initial_pos_, std::unique_ptr< CDrawableLink > drawable_,  const CEntityParticle& seam_, unsigned int side_length_ );
@@ -27,10 +27,6 @@ public:
 
 	virtual void Update( const C2DVector& external_force_, float dt );
 	virtual void Draw() const;
-
-	//TODO: implement collision detection
-	virtual void SolveCollision( IEntity& other_Entity ) {}
-	virtual bool TestCollision( IEntity& other_Entity ) const { return false; }
 
 private:
 	//container, for now vector will do

@@ -14,7 +14,7 @@ void IScene::Init()
 void IScene::Update( float dt )
 {
 	//update the "Entities"
-	for( unique_ptr< IEntity >& it : this->m_entities )
+	for( unique_ptr< CEntity >& it : this->m_entities )
 	{
 		it->Update( C2DVector( 0.0f, 0.0f ), dt );
 	}
@@ -34,7 +34,7 @@ void IScene::HandleEvent( CWorld& world_, const SDL_Event& event_ )
 		break;
 	case SDL_MOUSEBUTTONDOWN:
 		//see if I hit a UI element first, if so, dont look at the entities!
-		for( unique_ptr< IEntity >& it : this->m_UI_elements )
+		for( unique_ptr< CEntity >& it : this->m_UI_elements )
 		{
 			if ( it->IsHit( *this->m_mouse_coords ) )
 			{
@@ -46,7 +46,7 @@ void IScene::HandleEvent( CWorld& world_, const SDL_Event& event_ )
 		//now propagate the click if to the entities if I didnt hit a UI element
 		if ( !UI_element_hit )
 		{
-			for( unique_ptr< IEntity >& it : this->m_entities )
+			for( unique_ptr< CEntity >& it : this->m_entities )
 			{
 				it->HandleMouseButtonDown( this->m_mouse_coords );
 			}
@@ -54,7 +54,7 @@ void IScene::HandleEvent( CWorld& world_, const SDL_Event& event_ )
 		break;
 	case SDL_MOUSEBUTTONUP:
 		//see if I hit a UI element first, if so, dont look at the entities!
-		for( unique_ptr< IEntity >& it : this->m_UI_elements )
+		for( unique_ptr< CEntity >& it : this->m_UI_elements )
 		{
 			if ( it->IsHit( *this->m_mouse_coords ) )
 			{
@@ -66,7 +66,7 @@ void IScene::HandleEvent( CWorld& world_, const SDL_Event& event_ )
 		//now propagate the click if to the entities if I didnt hit a UI element
 		if ( !UI_element_hit )
 		{
-			for( unique_ptr< IEntity >& it : this->m_entities )
+			for( unique_ptr< CEntity >& it : this->m_entities )
 			{
 				it->HandleMouseButtonUp( this->m_mouse_coords );
 			}
@@ -86,20 +86,15 @@ void IScene::Draw() const
 	SDL_FillRect( this->mp_screen, &screen_rect, this->m_background_color );
 
 	//Draw the "Entities"
-	for( vector< unique_ptr< IEntity > >::const_iterator cit = this->m_entities.begin(); cit != this->m_entities.end(); ++cit )
+	for( vector< unique_ptr< CEntity > >::const_iterator cit = this->m_entities.begin(); cit != this->m_entities.end(); ++cit )
 	{
 		(*cit)->Draw();
 	}
 	//Draw the HUD/UI
-	for( const unique_ptr< IEntity >& cit : this->m_UI_elements )
+	for( const unique_ptr< CEntity >& cit : this->m_UI_elements )
 	{
 		cit->Draw();
 	}
-}
-
-void IScene::AddUIelement( std::unique_ptr< IEntity > UI_element_ )
-{
-	this->m_UI_elements.push_back( std::move( UI_element_ ) );
 }
 
 IScene::~IScene(){}

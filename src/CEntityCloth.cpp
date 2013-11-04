@@ -1,10 +1,10 @@
 #include "CEntityCloth.h"
 
 CEntityCloth::CEntityCloth( unsigned int id_, const C2DVector& initial_pos_, std::unique_ptr< CDrawableLink > drawable_, const CEntityParticle& seam_, unsigned int side_length_ ):
-	IEntity( id_, std::unique_ptr< IMoveable > ( new CMoveableParticle( initial_pos_ ) ), std::move(drawable_) ),
+	CEntity( id_, std::unique_ptr< IMoveable > ( new CMoveableParticle( initial_pos_ ) ), std::move(drawable_) ),
 	m_side_length( side_length_ ),
 	m_total_seams( side_length_*side_length_ ),
-	m_max_dist( 15.0f )
+	m_max_dist( 10.0f )
 {
 	// build the cloth
 	for ( unsigned int i = 0; i < m_total_seams ; ++i )
@@ -33,7 +33,7 @@ CEntityCloth::CEntityCloth( unsigned int id_, const C2DVector& initial_pos_, std
 }
 
 CEntityCloth::CEntityCloth( const CEntityCloth& other_ ):
-	IEntity( other_ ), //assign the position of the first particle
+	CEntity( other_ ), //assign the position of the first particle
 	m_side_length( other_.m_side_length ),
 	m_total_seams( other_.m_side_length*other_.m_side_length ),
 	m_max_dist( other_.m_max_dist )
@@ -64,7 +64,7 @@ CEntityCloth& CEntityCloth::operator=( const CEntityCloth& rhs )
 {
 	if ( this != &rhs )
 	{
-		IEntity::operator=( rhs );
+		CEntity::operator=( rhs );
 		this->m_side_length = rhs.m_side_length;
 		this->m_total_seams = rhs.m_side_length*rhs.m_side_length;
 	}

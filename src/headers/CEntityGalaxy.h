@@ -4,7 +4,7 @@
 #include <vector>
 #include <memory>
 
-#include "IEntity.h"
+#include "CEntity.h"
 #include "IMoveable.h"
 #include "CMoveableParticle.h"
 #include "CEntityParticle.h"
@@ -20,7 +20,7 @@
 * with star_number_ elements.
 * CEntityGalaxy follows the "Composite" patter: it IS an IEnity and manages many IEnities underneath it.
 */
-class CEntityGalaxy : public IEntity
+class CEntityGalaxy : public CEntity
 {
 public:
 	CEntityGalaxy( unsigned int id_, const C2DVector& initial_pos_,  const CEntityParticle& star_, unsigned int star_number_, float max_dist_, bool use_CUDA_ );
@@ -30,10 +30,6 @@ public:
 
 	virtual void HandleMouseButtonDown( std::shared_ptr<C2DVector> coords_ );
 	virtual void HandleMouseButtonUp( std::shared_ptr<C2DVector> coords_ );
-
-	//TODO: implement collision detection
-	virtual void SolveCollision( IEntity& other_Entity ) {}
-	virtual bool TestCollision( IEntity& other_Entity ) const { return false; }
 
 	/**
 	* SetsUseCUDA sets whether to use the CUDA and the GPU or the CPU

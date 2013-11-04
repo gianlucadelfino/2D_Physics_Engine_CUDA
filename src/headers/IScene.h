@@ -4,7 +4,7 @@
 #include <vector>
 #include <memory>
 #include <string>
-#include "IEntity.h"
+#include "CEntity.h"
 #include "C2DVector.h"
 #include "SDL.h"
 
@@ -21,16 +21,14 @@ public:
 	virtual void HandleEvent( CWorld& world_, const SDL_Event& event_ );
 	void Draw() const;
 
-	void AddUIelement( std::unique_ptr< IEntity > UI_element_ );
-
 	virtual ~IScene();
 protected:
 	SDL_Surface* mp_screen;
 	CWorld& mr_world;
 	Uint32 m_background_color;
 	std::shared_ptr< C2DVector > m_mouse_coords;
-	std::vector< std::unique_ptr< IEntity > > m_entities;
-	std::vector< std::unique_ptr< IEntity > > m_UI_elements;
+	std::vector< std::unique_ptr< CEntity > > m_entities;
+	std::vector< std::unique_ptr< CEntity > > m_UI_elements;
 private:
 	//TODO: define assignment and copy constructor
 	IScene( const IScene& );

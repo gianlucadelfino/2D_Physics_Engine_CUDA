@@ -18,7 +18,7 @@ class CWorld;
 class CSceneGalaxy: public IScene
 {
 public:
-	CSceneGalaxy( SDL_Surface* screen_, CWorld& world_, bool use_CUDA_ );
+	CSceneGalaxy( SDL_Surface* screen_, CWorld& world_, bool use_CUDA_, unsigned int stars_num_ );
 	virtual void Init();
 
 	~CSceneGalaxy();
@@ -29,6 +29,8 @@ private:
 	CSceneGalaxy& operator=( const CSceneGalaxy& );
 
 	bool m_use_CUDA;
+	unsigned int m_stars_num;
+	std::shared_ptr< CFont > m_font;
 };
 
 #endif

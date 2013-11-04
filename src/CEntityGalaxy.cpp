@@ -1,7 +1,7 @@
 #include "CEntityGalaxy.h"
 
 CEntityGalaxy::CEntityGalaxy( unsigned int id_, const C2DVector& initial_pos_,  const CEntityParticle& star_, unsigned int star_number_, float _bounding_box_side, bool use_CUDA_ ):
-	IEntity( id_, std::unique_ptr< IMoveable >( new CMoveableParticle( initial_pos_ ) ), NULL ),
+	CEntity( id_, std::unique_ptr< IMoveable >( new CMoveableParticle( initial_pos_ ) ), NULL ),
 	m_rand_pos(),
 	m_rand_mass(),
 	m_use_CUDA( use_CUDA_ ),

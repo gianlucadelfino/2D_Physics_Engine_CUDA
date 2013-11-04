@@ -1,5 +1,5 @@
-#ifndef IENTITY_H
-#define IENTITY_H
+#ifndef CENTITY_H
+#define CENTITY_H
 
 #include <memory>
 #include "C2DVector.h"
@@ -9,22 +9,22 @@
 /**
 * This class defines the interface of the entities populating the game/simulation.
 */
-class IEntity
+class CEntity
 {
 public:
 	/**
-	* IEntity constructor
+	* CEntity constructor
 	* @param id_ the id of the entity
 	* @param unique_ptr moveable_ of the IMoveable object, of which takes owneship (using move semantics)
 	* @param shared_ptr drawable_ of which takes owneship (using move semantics)
 	*/
-	IEntity( unsigned int id_, std::unique_ptr< IMoveable > moveable_, std::unique_ptr< IDrawable > drawable_ ):
+	CEntity( unsigned int id_, std::unique_ptr< IMoveable > moveable_, std::unique_ptr< IDrawable > drawable_ ):
 		m_id( id_ ),
 		mp_moveable( std::move( moveable_ ) ), //transfer ownership with move semantics
 		mp_drawable( std::move( drawable_ ) )  //transfer ownership with move semantics
 	{}
 
-	IEntity( const IEntity& other_ ):
+	CEntity( const CEntity& other_ ):
 		m_id( other_.m_id )
 	{
 		//I need to deep copy the pointee, otherwise i am using the same IMovable!
@@ -40,7 +40,7 @@ public:
 			this->mp_drawable = NULL;
 	}
 
-	IEntity& operator=( const IEntity& rhs )
+	CEntity& operator=( const CEntity& rhs )
 	{
 		if ( this != &rhs )
 		{
@@ -58,12 +58,12 @@ public:
 		return *this;
 	}
 
-	virtual ~IEntity() {}
+	virtual ~CEntity() {}
 
 	void SetId( unsigned int id_ ) { m_id = id_; }
 	unsigned int GetId() const { return m_id; }
 
-	bool IsHit( const C2DVector& coords_ ) const
+	virtual bool IsHit( const C2DVector& coords_ ) const
 	{
 		if ( this->mp_moveable )
 			return this->mp_moveable->IsHit( coords_ );
@@ -80,8 +80,6 @@ public:
 		if( this->mp_drawable && this->mp_moveable	)
 			mp_drawable->Draw( this->mp_moveable->pos, this->mp_moveable->orientation );
 	}
-	virtual void SolveCollision( IEntity& otherEntity ) {}
-	virtual bool TestCollision( IEntity& otherEntity ) const { return false; }
 
 protected:
 	unsigned int m_id;

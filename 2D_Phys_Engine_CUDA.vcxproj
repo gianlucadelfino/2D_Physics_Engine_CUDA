@@ -35,12 +35,13 @@
     <ClInclude Include="src\headers\CRandom.h" />
     <ClInclude Include="src\headers\CSceneCloth.h" />
     <ClInclude Include="src\headers\CSceneGalaxy.h" />
+    <ClInclude Include="src\headers\CSceneMainMenu.h" />
     <ClInclude Include="src\headers\IScene.h" />
     <ClInclude Include="src\headers\CSurface.h" />
     <ClInclude Include="src\headers\CWorld.h" />
     <ClInclude Include="src\headers\device_compute_grav_forces.h" />
     <ClInclude Include="src\headers\IDrawable.h" />
-    <ClInclude Include="src\headers\IEntity.h" />
+    <ClInclude Include="src\headers\CEntity.h" />
     <ClInclude Include="src\headers\IMoveable.h" />
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +56,7 @@
     <ClCompile Include="src\CPhysics.cpp" />
     <ClCompile Include="src\CSceneCloth.cpp" />
     <ClCompile Include="src\CSceneGalaxy.cpp" />
+    <ClCompile Include="src\CSceneMainMenu.cpp" />
     <ClCompile Include="src\CSurface.cpp" />
     <ClCompile Include="src\CWorld.cpp" />
     <ClCompile Include="src\IDrawable.cpp" />

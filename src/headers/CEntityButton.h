@@ -2,14 +2,14 @@
 #define CENTITYBUTTON_H
 
 #include <memory>
-#include "IEntity.h"
+#include "CEntity.h"
 #include "IDrawable.h"
 #include "IMoveable.h"
 #include "IScene.h"
 
 class CWorld;
 
-class CEntityButton : public IEntity
+class CEntityButton : public CEntity
 {
 public:
 	CEntityButton( unsigned int id_, std::unique_ptr< IMoveable > moveable_, std::unique_ptr<IDrawable> drawable_, CWorld& world_, std::unique_ptr< IScene > scene_to_switch_to_ );

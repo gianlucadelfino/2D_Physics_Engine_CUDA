@@ -1,7 +1,7 @@
 #include "CEntityParticle.h"
 
 CEntityParticle::CEntityParticle( const unsigned int id_, std::unique_ptr<IMoveable> m_, std::unique_ptr<IDrawable> d_, std::unique_ptr<CPhysics> p_):
-	IEntity( id_, std::move( m_ ), std::move( d_ ) ),
+	CEntity( id_, std::move( m_ ), std::move( d_ ) ),
 	mp_physics(  std::move( p_ ) ),
 	m_is_static(false)
 {}
@@ -11,7 +11,7 @@ CEntityParticle::CEntityParticle( const unsigned int id_, std::unique_ptr<IMovea
 * so must clone 'em.
 */
 CEntityParticle::CEntityParticle( const CEntityParticle& other_ ):
-	IEntity( other_ ),
+	CEntity( other_ ),
 	m_is_static( other_.m_is_static )
 {
 	if ( other_.mp_physics )
@@ -28,7 +28,7 @@ CEntityParticle& CEntityParticle::operator=( const CEntityParticle& rhs)
 {
 	if( this != &rhs )
 	{
-		IEntity::operator=( rhs );
+		CEntity::operator=( rhs );
 		if ( rhs.mp_physics )
 			this->mp_physics  = std::move( rhs.mp_physics->Clone() );
 		else

@@ -2,12 +2,12 @@
 #define CENTITYPARTICLE_H
 
 #include <memory>
-#include "IEntity.h"
+#include "CEntity.h"
 #include "IDrawable.h"
 #include "CPhysics.h"
 #include "CMoveableParticle.h"
 
-class CEntityParticle: public IEntity
+class CEntityParticle: public CEntity
 {
 public:
 	CEntityParticle( const unsigned int id_, std::unique_ptr<IMoveable> m_, std::unique_ptr<IDrawable> d_, std::unique_ptr<CPhysics> p_ );
@@ -25,10 +25,6 @@ public:
 
 	void AddDrawable( std::unique_ptr<IDrawable> drawable_ );
 	void AddPhysics( std::unique_ptr<CPhysics> physics_ );
-
-	//TODO: implement collision detection
-	virtual void SolveCollision( IEntity& other_Entity ) {}
-	virtual bool TestCollision( IEntity& other_Entity ) const { return false; }
 
 	/* Accessors to pimpl properties  */
 	//IMoveable

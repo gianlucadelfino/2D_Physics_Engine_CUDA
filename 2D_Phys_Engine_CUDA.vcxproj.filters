@@ -36,9 +36,6 @@
     <ClInclude Include="src\headers\CMoveableParticle.h">
       <Filter>src\headers</Filter>
     </ClInclude>
-    <ClInclude Include="src\headers\IEntity.h">
-      <Filter>src\headers</Filter>
-    </ClInclude>
     <ClInclude Include="src\headers\CDrawableImage.h">
       <Filter>src\headers</Filter>
     </ClInclude>
@@ -76,6 +73,12 @@
       <Filter>src\headers</Filter>
     </ClInclude>
     <ClInclude Include="src\headers\CSceneCloth.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\CEntity.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\CSceneMainMenu.h">
       <Filter>src\headers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -122,6 +125,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\CSceneCloth.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CSceneMainMenu.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

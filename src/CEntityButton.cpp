@@ -2,7 +2,7 @@
 #include "CWorld.h"
 
 CEntityButton::CEntityButton( unsigned int id_, std::unique_ptr< IMoveable > moveable_, std::unique_ptr<IDrawable> drawable_, CWorld& world_, std::unique_ptr< IScene > scene_to_switch_to_ ):
-	IEntity( id_, std::move( moveable_ ), std::move( drawable_ ) ),
+	CEntity( id_, std::move( moveable_ ), std::move( drawable_ ) ),
 	mr_world( world_ ),
 	mp_scene_to_switch_to( std::move( scene_to_switch_to_ ) )
 {}
