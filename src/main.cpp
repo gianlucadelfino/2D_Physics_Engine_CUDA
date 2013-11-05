@@ -11,9 +11,9 @@ const unsigned int MS_PER_UPDATE = 32; // 30Hz
 int main ( int argc, char **argv )
 {
 	//init SDL
-	if( !SDL_Init( SDL_INIT_EVERYTHING ) )
+	if( SDL_Init( SDL_INIT_EVERYTHING ) ) //returns 0 if everything is ok!
 	{
-		std::cerr << "Could NOT initialize SDL.." << std::endl;
+		std::cerr << "Could NOT initialize SDL. Error: " << SDL_GetError() << std::endl;
 	}
 
 	SDL_WM_SetCaption( "2D Physics Engine. Gianluca.Delfino@gmail.com", NULL );
