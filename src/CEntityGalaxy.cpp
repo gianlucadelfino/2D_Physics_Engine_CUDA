@@ -4,7 +4,7 @@ CEntityGalaxy::CEntityGalaxy( unsigned int id_, const C2DVector& initial_pos_,  
 	CEntity( id_, std::unique_ptr< IMoveable >( new CMoveableParticle( initial_pos_ ) ), NULL ),
 	m_rand_pos(),
 	m_rand_mass(),
-	m_use_CUDA( use_CUDA_ ),
+	m_using_CUDA( use_CUDA_ ),
 	m_non_fixed_stars( star_number_ )
 {
 	m_rand_pos.SetRealBounds( - _bounding_box_side/2.0f, _bounding_box_side/2.0f );
@@ -52,12 +52,12 @@ CEntityGalaxy::CEntityGalaxy( unsigned int id_, const C2DVector& initial_pos_,  
 
 void CEntityGalaxy::SetUseCUDA( bool use_CUDA_ )
 {
-	this->m_use_CUDA = use_CUDA_;
+	this->m_using_CUDA = use_CUDA_;
 }
 
 void CEntityGalaxy::Update( const C2DVector& external_force_, float dt )
 {
-	if ( this->m_use_CUDA )
+	if ( this->m_using_CUDA )
 		this->UpdateCUDA( external_force_, dt );
 	else
 		this->UpdateCPU( external_force_, dt );

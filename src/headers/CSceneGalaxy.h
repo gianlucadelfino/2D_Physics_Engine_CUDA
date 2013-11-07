@@ -28,9 +28,10 @@ private:
 	CSceneGalaxy( const CSceneGalaxy& );
 	CSceneGalaxy& operator=( const CSceneGalaxy& );
 
-	bool m_use_CUDA;
+	bool m_using_CUDA;
 	unsigned int m_stars_num;
 	std::shared_ptr< CFont > m_font;
+	bool m_CUDA_capable_device_present;
 };
 
 #endif

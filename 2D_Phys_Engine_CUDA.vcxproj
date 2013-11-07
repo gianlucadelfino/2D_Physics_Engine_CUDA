@@ -45,6 +45,7 @@
     <ClInclude Include="src\headers\IMoveable.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="src\headers\CUDA_utils.cuh" />
     <None Include="src\headers\DeviceArray.cuh" />
   </ItemGroup>
   <ItemGroup>

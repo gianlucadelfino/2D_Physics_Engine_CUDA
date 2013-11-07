@@ -86,6 +86,9 @@
     <None Include="src\headers\DeviceArray.cuh">
       <Filter>src\headers</Filter>
     </None>
+    <None Include="src\headers\CUDA_utils.cuh">
+      <Filter>src\headers</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

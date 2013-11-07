@@ -47,7 +47,7 @@ private:
 	CRandom m_rand_pos;
 	CRandom m_rand_mass;
 
-	bool m_use_CUDA;
+	bool m_using_CUDA;
 
 	typedef std::vector< std::shared_ptr< CEntityParticle > > StarList;
 	StarList m_collection;

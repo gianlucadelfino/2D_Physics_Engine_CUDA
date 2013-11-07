@@ -44,11 +44,22 @@ void CSceneMainMenu::Init()
 	std::unique_ptr< CMoveableButton > moveable_button( new CMoveableButton( C2DVector( 500.0f, 400.0f ), C2DVector(  200.0f, 22.0f ) ) );
 	std::unique_ptr< CDrawableButton > galaxy_button_drawable( new CDrawableButton( button_font, this->mp_screen, "GALAXY", C2DVector(  200.0f, 22.0f ), white_color, button_label_color ) );
 
+	unsigned int initial_stars_num = 8*1024;  //assume CUDA
+	bool start_in_cuda_mode = true;
+	//check CUDA Availability
+	int deviceCount = 0;
+	cudaGetDeviceCount(&deviceCount);
+	if ( cudaSuccess != cudaGetDeviceCount(&deviceCount) || deviceCount == 0 )
+	{
+		initial_stars_num = 1024;
+		start_in_cuda_mode = false;
+	}
+
 	std::unique_ptr< CEntity > galaxy_sim_switch_button( new CEntityButton(
 		1, std::move( moveable_button ),
 		std::move( galaxy_button_drawable ),
 		this->mr_world,
-		std::move( std::unique_ptr< IScene >( new CSceneGalaxy( this->mp_screen, this->mr_world, true, 8*1024 ) ) )//start in CUDA mode!
+		std::move( std::unique_ptr< IScene >( new CSceneGalaxy( this->mp_screen, this->mr_world, start_in_cuda_mode, initial_stars_num ) ) )
 		));
 	this->m_UI_elements.push_back( std::move( galaxy_sim_switch_button ) );
 
