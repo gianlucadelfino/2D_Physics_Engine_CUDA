@@ -45,12 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\C2DVector.cpp" />
+    <ClCompile Include="src\CDrawableButton.cpp" />
     <ClCompile Include="src\CDrawableLink.cpp" />
     <ClCompile Include="src\CDrawableStar.cpp" />
     <ClCompile Include="src\CEntityButton.cpp" />
     <ClCompile Include="src\CEntityCloth.cpp" />
     <ClCompile Include="src\CEntityGalaxy.cpp" />
     <ClCompile Include="src\CEntityParticle.cpp" />
+    <ClCompile Include="src\CFont.cpp" />
+    <ClCompile Include="src\CMoveableButton.cpp" />
+    <ClCompile Include="src\CMoveableParticle.cpp" />
     <ClCompile Include="src\CPhysics.cpp" />
     <ClCompile Include="src\CSceneCloth.cpp" />
     <ClCompile Include="src\CSceneGalaxy.cpp" />
@@ -58,6 +62,7 @@
     <ClCompile Include="src\CSurface.cpp" />
     <ClCompile Include="src\CWorld.cpp" />
     <ClCompile Include="src\IDrawable.cpp" />
+    <ClCompile Include="src\IMoveable.cpp" />
     <ClCompile Include="src\IScene.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
