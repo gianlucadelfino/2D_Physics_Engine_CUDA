@@ -15,8 +15,8 @@ public:
 	/**
 	* CEntity constructor
 	* @param id_ the id of the entity
-	* @param unique_ptr moveable_ of the IMoveable object, of which takes owneship (using move semantics)
-	* @param shared_ptr drawable_ of which takes owneship (using move semantics)
+	* @param moveable_ unique_ptr of the IMoveable object, of which takes owneship (using move semantics)
+	* @param drawable_ shared_ptr of which takes owneship (using move semantics)
 	*/
 	CEntity( unsigned int id_, std::unique_ptr< IMoveable > moveable_, std::unique_ptr< IDrawable > drawable_ );
 	CEntity( const CEntity& other_ );
