@@ -14,8 +14,8 @@ class IDrawable
 public:
 	IDrawable( SDL_Surface* destination_surf_ );
 
+	//copy constructor and assignment operator
 	IDrawable( const IDrawable& other_ );
-
 	IDrawable& operator=( const IDrawable& other_ );
 
 	virtual std::unique_ptr< IDrawable > Clone() const = 0;
