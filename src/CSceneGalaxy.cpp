@@ -108,14 +108,33 @@ void CSceneGalaxy::Init()
 	//stars number label
 	Uint32 black_color = SDL_MapRGB( this->mp_screen->format, 0, 0, 0 );
 	SDL_Color label_color = { 255, 255, 255, 0 };
-	std::unique_ptr< CDrawableButton > stars_num_label_drawable( new CDrawableButton( this->m_font, this->mp_screen, "Stars in simulation: " + std::to_string(this->m_stars_num), C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
 	std::unique_ptr< CMoveableButton > stars_num_label_moveable( new CMoveableButton( C2DVector( 20.0f, 20.0f ), C2DVector( 220.0f, 22.0f ) ) );
+	std::unique_ptr< CDrawableButton > stars_num_label_drawable( new CDrawableButton( this->m_font, this->mp_screen, "Stars in simulation: " + std::to_string(this->m_stars_num), C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
 
 	std::unique_ptr< CEntity > stars_num_label( new CEntity(
 		1, std::move( stars_num_label_moveable ),
 		std::move( stars_num_label_drawable )
 		));
 	this->m_UI_elements.push_back( std::move( stars_num_label ) );
+
+	//instructions label (first half)
+	std::unique_ptr< CMoveableButton > instructions_first_label_moveable( new CMoveableButton( C2DVector( 900.0f, 300.0f ), C2DVector( 220.0f, 22.0f ) ) );
+	std::unique_ptr< CDrawableButton > instructions_first_label_drawable( new CDrawableButton( this->m_font, this->mp_screen, "click and hold to", C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
+
+	std::unique_ptr< CEntity > instructions_first_label( new CEntity(
+		1, std::move( instructions_first_label_moveable ),
+		std::move( instructions_first_label_drawable )
+		));
+	this->m_UI_elements.push_back( std::move( instructions_first_label ) );
+	//instructions label (second half)
+	std::unique_ptr< CMoveableButton > instructions_second_label_moveable( new CMoveableButton( C2DVector( 900.0f, 330.0f ), C2DVector( 220.0f, 22.0f ) ) );
+	std::unique_ptr< CDrawableButton > instructions_second_label_drawable( new CDrawableButton( this->m_font, this->mp_screen, "add a star", C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
+
+	std::unique_ptr< CEntity > instructions_second_label( new CEntity(
+		1, std::move( instructions_second_label_moveable ),
+		std::move( instructions_second_label_drawable )
+		));
+	this->m_UI_elements.push_back( std::move( instructions_second_label ) );
 }
 
 CSceneGalaxy::~CSceneGalaxy()

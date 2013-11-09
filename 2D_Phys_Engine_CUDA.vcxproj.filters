@@ -36,9 +36,6 @@
     <ClInclude Include="src\headers\CMoveableParticle.h">
       <Filter>src\headers</Filter>
     </ClInclude>
-    <ClInclude Include="src\headers\CDrawableImage.h">
-      <Filter>src\headers</Filter>
-    </ClInclude>
     <ClInclude Include="src\headers\IDrawable.h">
       <Filter>src\headers</Filter>
     </ClInclude>
@@ -131,6 +128,12 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\CSceneMainMenu.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CDrawableLink.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CDrawableStar.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
