@@ -15,6 +15,9 @@
 
 class CWorld;
 
+/**
+* CSceneGalaxy defines the scene with the galaxy.
+*/
 class CSceneGalaxy: public IScene
 {
 public:

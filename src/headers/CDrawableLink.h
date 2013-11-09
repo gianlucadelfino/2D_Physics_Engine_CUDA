@@ -5,6 +5,9 @@
 #include "IDrawable.h"
 #include "C2Dvector.h"
 
+/**
+* CDrawableLink defines how the cloth links are drawn on screen.
+*/
 class CDrawableLink: public IDrawable
 {
 public:

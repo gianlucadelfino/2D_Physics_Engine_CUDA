@@ -48,6 +48,7 @@
     <ClCompile Include="src\CDrawableButton.cpp" />
     <ClCompile Include="src\CDrawableLink.cpp" />
     <ClCompile Include="src\CDrawableStar.cpp" />
+    <ClCompile Include="src\CEntity.cpp" />
     <ClCompile Include="src\CEntityButton.cpp" />
     <ClCompile Include="src\CEntityCloth.cpp" />
     <ClCompile Include="src\CEntityGalaxy.cpp" />

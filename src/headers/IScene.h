@@ -10,15 +10,30 @@
 
 class CWorld;
 
+/**
+* IScene defines the interface for all the scenes that the CWorld contain.
+*/
 class IScene
 {
 public:
 	IScene( SDL_Surface* screen_, CWorld& world_, Uint32 background_color_ );
 
+	/**
+	* Init loads the scene elements. Should be called before calling uptate on it.
+	*/
 	virtual void Init();
 
+	/**
+	* Update takes care of updating all the IEnities in the scene
+	*/
 	virtual void Update( float dt );
+	/**
+	* HandleEvent dispatches the events (mouse/keyboars) to the UI and the other IEntities of the scene
+	*/
 	virtual void HandleEvent( CWorld& world_, const SDL_Event& event_ );
+	/**
+	* Draw renders all the IEntities of the scene
+	*/
 	void Draw() const;
 
 	virtual ~IScene();

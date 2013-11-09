@@ -4,7 +4,7 @@
 #include <random>
 
 /**
-* CRandom is a utility class to generate random ints and floats
+* CRandom is a utility class to generate random ints and floats.
 */
 class CRandom
 {

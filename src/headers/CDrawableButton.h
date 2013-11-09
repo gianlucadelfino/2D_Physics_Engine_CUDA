@@ -10,6 +10,9 @@
 #include "CSurface.h"
 #include "CFont.h"
 
+/**
+* CDrawableButton defines how buttons are drawn on screen.
+*/
 class CDrawableButton : public IDrawable
 {
 public:

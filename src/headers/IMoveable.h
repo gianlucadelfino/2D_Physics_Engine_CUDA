@@ -46,11 +46,19 @@ public:
 	virtual void ImposeConstraints();
 
 	/**
-	* SetConstraint add a constraint for the position
+	* SetConstraint adds the pointer to the position the current instance is supposed to stick to
 	*/
-	virtual void SetConstraint( std::shared_ptr<C2DVector> origin_, const C2DVector& displacement_ );
+	virtual void SetConstraint( std::shared_ptr<C2DVector> constrainted_pos_ );
+
+	/**
+	* UnsetConstraint frees the IMoveable from a set constraint
+	*/
 	virtual void UnsetConstraint();
 
+	/**
+	* IsHit receives a set of coordinates and returns true if hit (default to false)
+	* @param coords_ the position to test if is hitting the IMoveable
+	*/
 	virtual bool IsHit( const C2DVector& coords_ ) const { return false; }
 
 	C2DVector pos;
@@ -59,7 +67,6 @@ public:
 
 protected:
 	//constraints. The origin needs to be a pointer to be dynamic
-	std::shared_ptr<C2DVector> m_constraint_origin;
-	C2DVector m_constraint_disp;
+	std::shared_ptr<C2DVector> m_constraint;
 };
 #endif

@@ -71,12 +71,6 @@ CEntityCloth& CEntityCloth::operator=( const CEntityCloth& rhs )
 	return *this;
 }
 
-void CEntityCloth::AddToCollection( std::shared_ptr<CEntityParticle> _new_entity )
-{
-	_new_entity->SetId( m_collection.size() );
-	m_collection.push_back( _new_entity );
-}
-
 void CEntityCloth::HandleMouseButtonDown( std::shared_ptr<C2DVector> coords_ )
 {
 	for ( std::vector< shared_ptr< CEntityParticle > >::iterator it = m_collection.begin(); it != m_collection.end(); ++it )

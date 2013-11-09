@@ -8,7 +8,6 @@
 
 /**
 * CPhysics defines the interface and basic implementation for entities that are bound to follow physics laws.
-* It is intended to be used
 */
 class CPhysics
 {

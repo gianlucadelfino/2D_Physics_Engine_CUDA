@@ -74,7 +74,7 @@ void CEntityParticle::HandleMouseButtonDown( std::shared_ptr<C2DVector> coords_ 
 {
 	if ( this->mp_moveable->IsHit( *coords_ ) )
 	{
-		this->SetConstraint( coords_, C2DVector( 0.0f, 0.0f ) );
+		this->SetConstraint( coords_ );
 	}
 }
 
@@ -112,10 +112,10 @@ void CEntityParticle::Translate( const C2DVector& shift_ )
 		this->mp_moveable->Translate( shift_ );
 }
 
-void CEntityParticle::SetConstraint( std::shared_ptr<C2DVector> origin_, const C2DVector& displacement_ )
+void CEntityParticle::SetConstraint( std::shared_ptr<C2DVector> constrainted_pos_ )
 {
 	if ( this->mp_moveable )
-		this->mp_moveable->SetConstraint( origin_, displacement_ );
+		this->mp_moveable->SetConstraint( constrainted_pos_ );
 }
 
 float CEntityParticle::GetMass() const

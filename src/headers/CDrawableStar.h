@@ -6,6 +6,9 @@
 #include "IDrawable.h"
 #include "SDL_gfxPrimitives.h"
 
+/**
+* CDrawableStar defines how stars are drawn on screen.
+*/
 class CDrawableStar: public IDrawable
 {
 public:

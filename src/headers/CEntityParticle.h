@@ -7,6 +7,9 @@
 #include "CPhysics.h"
 #include "CMoveableParticle.h"
 
+/**
+* CEntityParticle defines the CEntity that is actually a physical particle, which reacts to forces acting on it.
+*/
 class CEntityParticle: public CEntity
 {
 public:
@@ -35,7 +38,7 @@ public:
 	void Block() { m_is_static = true; }
 	void Unblock() { m_is_static = false; }
 	C2DVector GetPosition() const { return mp_moveable->pos; }
-	void SetConstraint( std::shared_ptr<C2DVector> origin_, const C2DVector& displacement_ );
+	void SetConstraint( std::shared_ptr<C2DVector> constrainted_pos_ );
 
 	//IPhysics
 	float GetMass() const;

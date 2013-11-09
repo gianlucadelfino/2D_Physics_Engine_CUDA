@@ -13,6 +13,9 @@
 
 class CWorld;
 
+/**
+* CSceneCloth defines the scene with the moving cloth.
+*/
 class CSceneCloth: public IScene
 {
 public:

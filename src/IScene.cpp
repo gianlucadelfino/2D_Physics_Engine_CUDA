@@ -86,11 +86,11 @@ void IScene::Draw() const
 	SDL_FillRect( this->mp_screen, &screen_rect, this->m_background_color );
 
 	//Draw the "Entities"
-	for( vector< unique_ptr< CEntity > >::const_iterator cit = this->m_entities.begin(); cit != this->m_entities.end(); ++cit )
+	for( const unique_ptr< CEntity >& cit : this->m_entities )
 	{
-		(*cit)->Draw();
+		cit->Draw();
 	}
-	//Draw the HUD/UI
+	//Draw the HUD/UI last (on top)
 	for( const unique_ptr< CEntity >& cit : this->m_UI_elements )
 	{
 		cit->Draw();

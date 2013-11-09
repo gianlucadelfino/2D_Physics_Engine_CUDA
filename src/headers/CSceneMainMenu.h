@@ -15,6 +15,9 @@
 
 class CWorld;
 
+/**
+* CSceneMainMenu defines the scene with the main menu.
+*/
 class CSceneMainMenu: public IScene
 {
 public:

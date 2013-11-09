@@ -4,6 +4,9 @@
 #include "cuda.h"
 #include "cuda_runtime.h"
 
+/**
+* CUDA_utils is a namespace containing utility function related to the CUDA runtime
+*/
 namespace CUDA_utils
 {
 	/**

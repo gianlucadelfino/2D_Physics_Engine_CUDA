@@ -9,6 +9,9 @@
 
 class CWorld;
 
+/**
+* CEntityButton defines the CEntity to be used as a UI clickable Button.
+*/
 class CEntityButton : public CEntity
 {
 public:

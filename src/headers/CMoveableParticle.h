@@ -5,6 +5,9 @@
 #include "IMoveable.h"
 #include "C2DVector.h"
 
+/**
+* CMoveableParticle defines the IMoveable functions for a physical particle
+*/
 class CMoveableParticle : public IMoveable
 {
 public:

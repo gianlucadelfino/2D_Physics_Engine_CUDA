@@ -20,8 +20,6 @@ public:
 	CEntityCloth( const CEntityCloth& );
 	CEntityCloth& operator=( const CEntityCloth& );
 
-	void AddToCollection( std::shared_ptr<CEntityParticle> _new_entity );
-
 	virtual void HandleMouseButtonDown( std::shared_ptr<C2DVector> coords_ );
 	virtual void HandleMouseButtonUp( std::shared_ptr<C2DVector> coords_ );
 

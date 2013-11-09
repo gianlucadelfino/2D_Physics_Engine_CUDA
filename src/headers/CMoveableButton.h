@@ -5,6 +5,9 @@
 #include "IMoveable.h"
 #include "C2DVector.h"
 
+/**
+* CMoveableButton defines the IMoveable functions for a UI button.
+*/
 class CMoveableButton : public IMoveable
 {
 public:

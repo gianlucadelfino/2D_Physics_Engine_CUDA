@@ -151,6 +151,9 @@
     <ClCompile Include="src\IMoveable.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\CEntity.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="src\compute_grav.cu">

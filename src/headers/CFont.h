@@ -6,6 +6,9 @@
 #include "SDL.h"
 #include "SDL_TTF.h"
 
+/**
+* CFont is a RAII class to hold the font resource.
+*/
 class CFont
 {
 public:

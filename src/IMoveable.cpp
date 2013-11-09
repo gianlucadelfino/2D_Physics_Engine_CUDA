@@ -71,20 +71,18 @@ IMoveable::~IMoveable()
 
 void IMoveable::ImposeConstraints()
 {
-	if ( m_constraint_origin ){
+	if ( this->m_constraint ){
 		//remind that constraint origin is a pointer because the constraint can move ( e.g. mouse )
-		pos = *m_constraint_origin + m_constraint_disp;
+		this->pos = *this->m_constraint;
 	}
 }
 
-void IMoveable::SetConstraint( std::shared_ptr<C2DVector> origin_, const C2DVector& displacement_ )
+void IMoveable::SetConstraint( std::shared_ptr<C2DVector> constrainted_pos_ )
 {
-	m_constraint_origin = origin_;
-	m_constraint_disp = displacement_;
+	this->m_constraint = constrainted_pos_;
 }
 
 void IMoveable::UnsetConstraint()
 {
-	m_constraint_origin.reset();
-	m_constraint_disp = C2DVector( 0.0f, 0.0f );
+	this->m_constraint.reset();
 }

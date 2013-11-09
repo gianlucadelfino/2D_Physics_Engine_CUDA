@@ -9,6 +9,9 @@
 #include <string>
 using namespace std;
 
+/**
+* CSurface is a RAII class to handle an SDL surface.
+*/
 class CSurface
 {
 public:
