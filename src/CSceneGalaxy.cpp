@@ -84,7 +84,7 @@ void CSceneGalaxy::Init()
 	this->m_UI_elements.push_back( std::move( cloth_sim_switch_button ) );
 
 	//more stars buttons
-	unsigned int increment_num = this->m_using_CUDA? 1024 : 100;
+	unsigned int increment_num = this->m_using_CUDA? 1024 : 128;
 	std::unique_ptr< CMoveableButton > more_stars_moveable_button( new CMoveableButton( C2DVector( 630.0f, 600.0f ), C2DVector( 220.0f, 22.0f ) ) );
 	std::unique_ptr< CDrawableButton > more_stars_button_drawable( new CDrawableButton( this->m_font, this->mp_screen, "MORE STARS", C2DVector( 220.0f, 22.0f ), white_color, button_label_color ) );
 

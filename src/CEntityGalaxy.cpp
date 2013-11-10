@@ -32,7 +32,7 @@ CEntityGalaxy::CEntityGalaxy( unsigned int id_, const C2DVector& initial_pos_,  
 		new_star->SetScale( mass );
 
 		new_star->Reposition( pos );
-		new_star->Boost( pos + initial_vel);
+		new_star->Boost( pos + initial_vel );
 		new_star->SetMass( mass );
 
 		//set id
