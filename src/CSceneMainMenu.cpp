@@ -44,7 +44,9 @@ void CSceneMainMenu::Init()
 	std::unique_ptr< CMoveableButton > moveable_button( new CMoveableButton( C2DVector( 500.0f, 400.0f ), C2DVector(  200.0f, 22.0f ) ) );
 	std::unique_ptr< CDrawableButton > galaxy_button_drawable( new CDrawableButton( button_font, this->mp_screen, "GALAXY", C2DVector(  200.0f, 22.0f ), white_color, button_label_color ) );
 
-	unsigned int initial_stars_num = 8*1024;  //assume CUDA
+	/*The (-1) on the initial_stars_num accounts for the possible presence of the extra star when holding down the button.
+	Like so, the CUDA kernel will run the same amount of blocks, even if we add another star, and there is no performance hit.*/
+	unsigned int initial_stars_num = 8*1024 - 1;  //assume CUDA
 	bool start_in_cuda_mode = true;
 	//check CUDA Availability
 	int deviceCount = 0;

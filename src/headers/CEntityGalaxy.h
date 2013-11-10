@@ -49,9 +49,9 @@ private:
 
 	bool m_using_CUDA;
 
-	typedef std::vector< std::shared_ptr< CEntityParticle > > StarList;
+	typedef std::vector< std::unique_ptr< CEntityParticle > > StarList;
 	StarList m_collection;
-	unsigned int m_non_fixed_stars;
+	unsigned int m_original_star_num;
 };
 
 #endif

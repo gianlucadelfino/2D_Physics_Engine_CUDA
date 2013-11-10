@@ -1,3 +1,5 @@
+#include <stdexcept>
+
 #include "CEntityGalaxy.h"
 
 CEntityGalaxy::CEntityGalaxy( unsigned int id_, const C2DVector& initial_pos_,  const CEntityParticle& star_, unsigned int star_number_, float _bounding_box_side, bool use_CUDA_ ):
@@ -5,14 +7,20 @@ CEntityGalaxy::CEntityGalaxy( unsigned int id_, const C2DVector& initial_pos_,  
 	m_rand_pos(),
 	m_rand_mass(),
 	m_using_CUDA( use_CUDA_ ),
-	m_non_fixed_stars( star_number_ )
+	m_original_star_num( star_number_ )
 {
+	//first check proper number of stars is given
+	if ( this->m_original_star_num <= 1 )
+	{
+		throw std::runtime_error("ERROR: CEntityGalaxy must be given at least 2 stars!");
+	}
+
 	m_rand_pos.SetRealBounds( - _bounding_box_side/2.0f, _bounding_box_side/2.0f );
 	m_rand_mass.SetRealBounds( 1, 4);
 
-	for( unsigned int i = 0; i < this->m_non_fixed_stars; ++i )
+	for( unsigned int i = 0; i < this->m_original_star_num - 1; ++i ) //Mind the (-1), we want to add another massive star in the centre!
 	{
-		std::shared_ptr< CEntityParticle > new_star( new CEntityParticle( star_ ) );
+		std::unique_ptr< CEntityParticle > new_star( new CEntityParticle( star_ ) );
 
 		//randomize position.
 		C2DVector pos = initial_pos_ + C2DVector( m_rand_pos.RandReal(), m_rand_pos.RandReal() );
@@ -31,11 +39,11 @@ CEntityGalaxy::CEntityGalaxy( unsigned int id_, const C2DVector& initial_pos_,  
 		new_star->SetId(i);
 
 		//add a copy of star_ to the collection
-		this->m_collection.push_back( new_star );
+		this->m_collection.push_back( std::move( new_star ) );
 	}
 
 	//now add a supemassive black hole to be fixed in the center
-	std::shared_ptr< CEntityParticle > super_massive_black_hole( new CEntityParticle( star_ ) );
+	std::unique_ptr< CEntityParticle > super_massive_black_hole( new CEntityParticle( star_ ) );
 
 	super_massive_black_hole->SetScale( 10.0f );
 	super_massive_black_hole->Reposition( initial_pos_ );
@@ -44,10 +52,13 @@ CEntityGalaxy::CEntityGalaxy( unsigned int id_, const C2DVector& initial_pos_,  
 	super_massive_black_hole->SetMass( mass );
 
 	//set id
-	super_massive_black_hole->SetId(star_number_);
+	super_massive_black_hole->SetId( star_number_ );
+
+	//make super_massibe_black_hole static
+	super_massive_black_hole->Block();
 
 	//add a copy of star_ to the collection
-	this->m_collection.push_back( super_massive_black_hole );
+	this->m_collection.push_back( std::move( super_massive_black_hole ) );
 }
 
 void CEntityGalaxy::SetUseCUDA( bool use_CUDA_ )
@@ -84,7 +95,7 @@ void CEntityGalaxy::UpdateCUDA( const C2DVector& external_force_, float dt )
 	// call cuda kernel
 	compute_grav( star_positions, masses, grav_forces, this->m_collection.size() );
 
-	for( size_t i = 0; i < this->m_non_fixed_stars; ++i )//skip the super massive black hole (id = m_non_fixed_stars)
+	for( size_t i = 0; i < this->m_collection.size(); ++i )
 	{
 		float mass_i = this->m_collection[i]->GetMass();
 		this->m_collection[i]->Update( external_force_ + C2DVector( mass_i*grav_forces[i].x, mass_i*grav_forces[i].y ), dt );
@@ -132,7 +143,7 @@ void CEntityGalaxy::UpdateCPU( const C2DVector& external_force_, float dt )
 	}
 
 	//now add forces for each particle and apply it ( order N^2 )
-	for( unsigned int i = 0; i < m_non_fixed_stars; ++i )//skip massive black hole to make it stay in the center of the screen
+	for( unsigned int i = 0; i < this->m_collection.size(); ++i )
 	{
 		C2DVector force_on_i = C2DVector( 0.0f, 0.0f);
 		for( unsigned int j = 0 ; j < this->m_collection.size(); ++j ) // sum all the column of forces
@@ -158,9 +169,9 @@ void CEntityGalaxy::Draw() const
 void CEntityGalaxy::HandleMouseButtonDown( std::shared_ptr<C2DVector> coords_ )
 {
 	//onclick add another massive star like the last one, in the place we clicked
-	if ( this->m_collection.size() <= ( this->m_non_fixed_stars + 1 ) ) //m_non_fixed_stars + 1 is the current total of stars counting the black hole
+	if ( this->m_collection.size() <= ( this->m_original_star_num ) ) //m_original_star_num is the current total of stars counting the black hole
 	{
-		std::shared_ptr< CEntityParticle > new_star( new CEntityParticle( *(this->m_collection[this->m_non_fixed_stars]) ) );
+		std::unique_ptr< CEntityParticle > new_star( new CEntityParticle( *(this->m_collection[0]) ) ); //use the first star as a prototype
 
 		new_star->Reposition( *coords_ );
 
@@ -171,13 +182,13 @@ void CEntityGalaxy::HandleMouseButtonDown( std::shared_ptr<C2DVector> coords_ )
 
 		//set id
 		new_star->SetId( this->m_collection.size() );
-
-		this->m_collection.push_back( new_star );
+		new_star->HandleMouseButtonDown( coords_ );
+		this->m_collection.push_back( std::move( new_star ) );
 	}
 }
 void CEntityGalaxy::HandleMouseButtonUp( std::shared_ptr<C2DVector> coords_ )
 {
 	//remove the massive star just added
-	if ( this->m_collection.size() > ( this->m_non_fixed_stars + 1 ) ) //m_non_fixed_stars + 1 is the current total of stars counting the black hole
+	if ( this->m_collection.size() > ( this->m_original_star_num ) ) //m_original_star_num is the current total of stars counting the black hole
 		this->m_collection.pop_back();
 }
