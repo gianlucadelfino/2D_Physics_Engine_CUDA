@@ -30,7 +30,7 @@ A scalable C++ Physics Engine with CUDA integration.
   ![cloth_simulation](/Docs/Simulino_2000_galaxy.gif?raw=true)
 
 ## Link to win32 builds:
-1. https://dl.dropboxusercontent.com/u/3272164/Simulino2000_09112013.zip
+1. https://dl.dropboxusercontent.com/u/3272164/Simulino_2000.zip
 
 
 # Developer ReadMe
