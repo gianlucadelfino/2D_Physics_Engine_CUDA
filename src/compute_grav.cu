@@ -37,7 +37,7 @@ new stars' positions
 ------------------------------- <- End
 ******************************/
 
-__global__ void compute_gravs( float2* d_pos, float* d_masses, float2* d_gravs, int num_stars)
+__global__ void compute_gravs( float2* d_pos, float* d_masses, float2* d_gravs, int num_stars )
 {
 	//local coordinate on the block
 	int local_i = threadIdx.x;

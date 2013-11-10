@@ -47,7 +47,7 @@ CEntityGalaxy::CEntityGalaxy( unsigned int id_, const C2DVector& initial_pos_,  
 
 	super_massive_black_hole->SetScale( 10.0f );
 	super_massive_black_hole->Reposition( initial_pos_ );
-	float mass = 10.0f;
+	float mass = 100.0f;
 
 	super_massive_black_hole->SetMass( mass );
 
@@ -129,7 +129,7 @@ void CEntityGalaxy::UpdateCPU( const C2DVector& external_force_, float dt )
 
 			float dist = r.GetLenght();
 			const float min_dist = 50.0f; // to avoid infinities
-			const float NEWTON_CONST = 0.2f;
+			const float NEWTON_CONST = 1.0f; //higher than in CUDA case since we surely have less stars, so let's make it more interesting!
 
 			//force = G*m*M/ r^2
 			C2DVector force_ij = NEWTON_CONST * mass_i * mass_j/ ( dist * dist * dist + min_dist ) * r; //r is not normalized, therefore we divide by dist^3
