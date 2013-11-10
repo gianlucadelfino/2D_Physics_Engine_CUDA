@@ -22,8 +22,8 @@ void CSurface::Destroy()
 void CSurface::ApplySurface( int x, int y, SDL_Surface* destination )
 {
 	SDL_Rect offset;
-	offset.x = x;
-	offset.y = y;
+	offset.x = static_cast<Sint16>(x);
+	offset.y = static_cast<Sint16>(y);
 
 	SDL_BlitSurface( this->mp_surface, NULL, destination, &offset );
 }
