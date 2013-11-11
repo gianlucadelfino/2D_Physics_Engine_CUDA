@@ -128,8 +128,8 @@ void CEntityGalaxy::UpdateCPU( const C2DVector& external_force_, float dt )
 			C2DVector r =  pos_j - pos_i; // vector from i to j
 
 			float dist = r.GetLenght();
-			const float min_dist = 50.0f; // to avoid infinities
-			const float NEWTON_CONST = 1.0f; //higher than in CUDA case since we surely have less stars, so let's make it more interesting!
+			const float min_dist = 70.0f; // to avoid infinities
+			const float NEWTON_CONST = 2.0f; //higher than in CUDA case since we surely have less stars, so let's make it more interesting!
 
 			//force = G*m*M/ r^2
 			C2DVector force_ij = NEWTON_CONST * mass_i * mass_j/ ( dist * dist * dist + min_dist ) * r; //r is not normalized, therefore we divide by dist^3
@@ -179,7 +179,7 @@ void CEntityGalaxy::HandleMouseButtonDown( std::shared_ptr<C2DVector> coords_ )
 		float mass = 10000.0f;
 
 		new_star->SetMass( mass );
-
+		new_star->SetScale( 10.0f );
 		//set id
 		new_star->SetId( this->m_collection.size() );
 		new_star->HandleMouseButtonDown( coords_ );
