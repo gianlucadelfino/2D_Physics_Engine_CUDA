@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="src\compute_grav.cu" />
+    <CudaCompile Include="src\CUDA_utils.cu" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B3429653-37C4-420C-882E-B7CE4570B831}</ProjectGuid>

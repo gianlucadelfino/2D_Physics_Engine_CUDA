@@ -12,7 +12,7 @@ CEntityGalaxy::CEntityGalaxy( unsigned int id_, const C2DVector& initial_pos_,  
 	//first check proper number of stars is given
 	if ( this->m_original_star_num <= 1 )
 	{
-		throw std::runtime_error("ERROR: CEntityGalaxy must be given at least 2 stars!");
+		this->m_original_star_num = 1;
 	}
 
 	m_rand_pos.SetRealBounds( - _bounding_box_side/2.0f, _bounding_box_side/2.0f );

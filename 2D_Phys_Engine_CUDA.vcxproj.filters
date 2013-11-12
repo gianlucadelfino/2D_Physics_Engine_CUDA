@@ -159,5 +159,8 @@
     <CudaCompile Include="src\compute_grav.cu">
       <Filter>src</Filter>
     </CudaCompile>
+    <CudaCompile Include="src\CUDA_utils.cu">
+      <Filter>src</Filter>
+    </CudaCompile>
   </ItemGroup>
 </Project>

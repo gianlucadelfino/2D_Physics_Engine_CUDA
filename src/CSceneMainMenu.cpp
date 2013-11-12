@@ -1,7 +1,9 @@
 #include <string>
+
 #include "CSceneMainMenu.h"
 #include "CSceneGalaxy.h"
 #include "CSceneCloth.h"
+#include "CUDA_utils.cuh"
 
 CSceneMainMenu::CSceneMainMenu( SDL_Surface* screen_, CWorld& world_ ):
 	IScene( screen_, world_, SDL_MapRGB( screen_->format, 0, 0, 0 ) )
@@ -49,11 +51,9 @@ void CSceneMainMenu::Init()
 	unsigned int initial_stars_num = 8*1024 - 1;  //assume CUDA
 	bool start_in_cuda_mode = true;
 	//check CUDA Availability
-	int deviceCount = 0;
-	cudaGetDeviceCount(&deviceCount);
-	if ( cudaSuccess != cudaGetDeviceCount(&deviceCount) || deviceCount == 0 )
+	if ( !CUDA_utils::IsCUDACompatibleDeviceAvailable() )
 	{
-		initial_stars_num = 1024;
+		initial_stars_num = 512;
 		start_in_cuda_mode = false;
 	}
 
