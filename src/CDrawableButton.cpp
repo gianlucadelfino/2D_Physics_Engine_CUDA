@@ -11,6 +11,7 @@
 #include "CFont.h"
 CDrawableButton::CDrawableButton( std::shared_ptr< CFont > font_, SDL_Surface* destination_surf_, std::string label_, const C2DVector& size_, Uint32 background_color_, SDL_Color label_color_ ):
 	IDrawable( destination_surf_ ),
+	m_label( label_ ),
 	mp_font( font_ ),
 	mp_text_surface( new CSurface( NULL ) ),
 	m_size( size_ ),
@@ -37,6 +38,6 @@ void CDrawableButton::Draw( const C2DVector& pos, const C2DVector& orientation_ 
 	//draw the rectangle
 	SDL_FillRect( this->mp_destination, &button, this->m_background_color );
 
-	//draw the label in the pos(ition) + 10% padding
+	//draw the label in the position + 10% padding
 	this->mp_text_surface->ApplySurface( static_cast<int>(pos.x + this->m_size.x/10) , static_cast<int>(pos.y + this->m_size.y/10 ), this->mp_destination );
 }
