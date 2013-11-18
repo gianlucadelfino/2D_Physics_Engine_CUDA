@@ -45,3 +45,10 @@ A scalable C++ Physics Engine with CUDA integration.
 ![Class Diagram](/Docs/class_diagram.jpg?raw=true)
 
 
+License
+=======
+
+This Program is released under the MIT license:
+
+* http://www.opensource.org/licenses/MIT
+
