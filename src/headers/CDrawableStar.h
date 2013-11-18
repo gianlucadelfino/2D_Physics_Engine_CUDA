@@ -14,9 +14,10 @@ class CDrawableStar: public IDrawable
 public:
 	CDrawableStar( SDL_Surface* destination_surf_ );
 
-	virtual std::unique_ptr< IDrawable > Clone() const;
-
 	virtual void Draw( const C2DVector& pos_, const C2DVector& orientation_  ) const;
+
+private:
+	virtual std::unique_ptr< IDrawable > DoClone() const;
 };
 
 #endif

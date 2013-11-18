@@ -18,11 +18,12 @@ public:
 	CMoveableParticle( const CMoveableParticle& other_ );
 
 	CMoveableParticle& operator=( const CMoveableParticle& other_ );
-	virtual std::unique_ptr< IMoveable > Clone() const;
 
 	virtual bool IsHit( const C2DVector& coords_ ) const;
 
 private:
+	virtual std::unique_ptr< IMoveable > DoClone() const;
+
 	static const int boundingbox_half_side = 20;
 };
 #endif

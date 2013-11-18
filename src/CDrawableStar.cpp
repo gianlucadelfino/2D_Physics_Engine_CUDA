@@ -9,7 +9,7 @@ CDrawableStar::CDrawableStar( SDL_Surface* destination_surf_ ):
 	IDrawable( destination_surf_)
 {}
 
-std::unique_ptr< IDrawable > CDrawableStar::Clone() const
+std::unique_ptr< IDrawable > CDrawableStar::DoClone() const
 {
 	CDrawableStar* clone = new CDrawableStar( mp_destination );
 	clone->m_scale = this->m_scale;
@@ -18,7 +18,7 @@ std::unique_ptr< IDrawable > CDrawableStar::Clone() const
 	return std::unique_ptr< IDrawable >(clone);
 }
 
-void CDrawableStar::Draw( const C2DVector& pos_, const C2DVector& orientation_  ) const
+void CDrawableStar::Draw( const C2DVector& pos_, const C2DVector& /*orientation_*/  ) const
 {
 	circleRGBA( this->mp_destination,
 		static_cast<Sint16>(pos_.x),

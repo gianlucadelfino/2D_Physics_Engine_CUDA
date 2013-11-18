@@ -36,7 +36,7 @@ public:
 	/**
 	* Update should be overridden and called if the Entity is subject to external forces and has an IMoveable
 	*/
-	virtual void Update( const C2DVector& external_force_, float dt ) {}
+	virtual void Update( const C2DVector& /*external_force_*/, float /*dt*/ ) {}
 
 	/**
 	* Draw renders the Entity if an IDrawable is available

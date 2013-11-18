@@ -8,7 +8,11 @@ const unsigned int SCREEN_HEIGHT = 720;
 const unsigned int SCREEN_BPP = 16;
 const unsigned int MS_PER_UPDATE = 32; // 30Hz
 
-int main ( int argc, char **argv )
+//SDL Requires the arguments argc and **argv to be esplicitly referenced (see http://goo.gl/ak2E1e),
+//we must then silence the warning 4100 to compile cleanly!
+#pragma warning(push)
+#pragma warning(disable : 4100)
+int main( int argc, char **argv)
 {
 	//init SDL
 	if( SDL_Init( SDL_INIT_EVERYTHING ) ) //returns 0 if everything is ok!
@@ -78,3 +82,4 @@ int main ( int argc, char **argv )
 
 	return 0;
 }
+#pragma warning(pop)

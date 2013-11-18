@@ -122,7 +122,7 @@ void compute_grav(
 	//instantiate a vectors to contain the gravitational forces
 	DeviceArray<float2> d_gravs( num_stars );
 
-	int grid_side = (num_stars + BLOCK_SIZE - 1) / BLOCK_SIZE;
+	unsigned int grid_side = (num_stars + BLOCK_SIZE - 1) / BLOCK_SIZE;
 
 	//get regular pointers to be passed to the kernel
 	float2* d_pos_ptr = d_pos.GetPtr();

@@ -20,7 +20,7 @@ void IScene::Update( float dt )
 	}
 }
 
-void IScene::HandleEvent( CWorld& world_, const SDL_Event& event_ )
+void IScene::HandleEvent( CWorld& /*world_*/, const SDL_Event& event_ )
 {
 	bool UI_element_hit = false;
 

@@ -36,7 +36,7 @@ public:
 	/**
 	* Clone is needed to create a deep copy when IMoveable is used as pimpl
 	*/
-	virtual std::unique_ptr< IMoveable > Clone() const = 0;
+	std::unique_ptr< IMoveable > Clone() const; //non virtual to check that it has been overridden (see "c++ coding standards" elem 54)
 
 	virtual ~IMoveable();
 
@@ -59,7 +59,7 @@ public:
 	* IsHit receives a set of coordinates and returns true if hit (default to false)
 	* @param coords_ the position to test if is hitting the IMoveable
 	*/
-	virtual bool IsHit( const C2DVector& coords_ ) const { return false; }
+	virtual bool IsHit( const C2DVector& /*coords_*/ ) const { return false; }
 
 	C2DVector pos;
 	C2DVector old_pos;
@@ -68,5 +68,7 @@ public:
 protected:
 	//constraints. The origin needs to be a pointer to be dynamic
 	std::shared_ptr<C2DVector> m_constraint;
+private:
+	virtual std::unique_ptr< IMoveable > DoClone() const = 0;
 };
 #endif

@@ -18,7 +18,8 @@ CMoveableParticle& CMoveableParticle::operator=( const CMoveableParticle& other_
 	}
 	return *this;
 }
-std::unique_ptr< IMoveable > CMoveableParticle::Clone() const
+
+std::unique_ptr< IMoveable > CMoveableParticle::DoClone() const
 {
 	return std::unique_ptr< IMoveable >( new CMoveableParticle( *this ) );
 }

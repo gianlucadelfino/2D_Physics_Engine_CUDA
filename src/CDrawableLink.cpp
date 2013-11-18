@@ -8,7 +8,7 @@ CDrawableLink::CDrawableLink( SDL_Surface* destination_surf_ ):
 	IDrawable( destination_surf_)
 {}
 
-std::unique_ptr< IDrawable > CDrawableLink::Clone() const
+std::unique_ptr< IDrawable > CDrawableLink::DoClone() const
 {
 	CDrawableLink* clone = new CDrawableLink( this->mp_destination );
 	clone->m_scale = this->m_scale;

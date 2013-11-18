@@ -19,7 +19,7 @@ CMoveableButton& CMoveableButton::operator=( const CMoveableButton& other_ )
 	}
 	return *this;
 }
-std::unique_ptr< IMoveable > CMoveableButton::Clone() const
+std::unique_ptr< IMoveable > CMoveableButton::DoClone() const
 {
 	return std::unique_ptr< IMoveable >( new CMoveableButton( *this ) );
 }

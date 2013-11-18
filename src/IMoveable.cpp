@@ -1,4 +1,5 @@
 #include <memory>
+#include <cassert>
 
 #include "IMoveable.h"
 #include "C2DVector.h"
@@ -36,6 +37,17 @@ IMoveable& IMoveable::operator=( const IMoveable& other_ )
 		this->orientation = other_.orientation;
 	}
 	return *this;
+}
+
+/*
+* Clone is needed to create a deep copy when IMoveable is used as pimpl
+*/
+std::unique_ptr< IMoveable > IMoveable::Clone() const
+{
+	std::unique_ptr< IMoveable > clone( this->DoClone() );
+	//lets check that the derived class actually implemented clone and it does not come from a parent
+	assert( typeid(*clone) == typeid(*this) && "DoClone incorrectly overridden");
+	return clone;
 }
 
 /*

@@ -1,3 +1,5 @@
+#include <cassert>
+
 #include "CPhysics.h"
 
 CPhysics::CPhysics( float mass_ )
@@ -18,7 +20,18 @@ CPhysics::CPhysics( const CPhysics& other_ ):
 	m_gravity_acc( other_.m_gravity_acc )
 {}
 
+/*
+* Clone is needed to create a deep copy when IMoveable is used as pimpl
+*/
 std::unique_ptr< CPhysics > CPhysics::Clone() const
+{
+	std::unique_ptr< CPhysics > clone( this->DoClone() );
+	//lets check that the derived class actually implemented clone and it does not come from a parent
+	assert( typeid(*clone) == typeid(*this) && "DoClone incorrectly overridden");
+	return clone;
+}
+
+std::unique_ptr< CPhysics > CPhysics::DoClone() const
 {
 	return std::unique_ptr< CPhysics >( new CPhysics( m_mass, this->m_gravity_acc ) );
 }

@@ -15,11 +15,12 @@ public:
 
 	CMoveableButton( const CMoveableButton& other_ );
 	CMoveableButton& operator=( const CMoveableButton& other_ );
-	virtual std::unique_ptr< IMoveable > Clone() const;
 
 	virtual bool IsHit( const C2DVector& coords_ ) const;
 
 private:
+	virtual std::unique_ptr< IMoveable > DoClone() const;
+
 	C2DVector m_size;
 };
 #endif

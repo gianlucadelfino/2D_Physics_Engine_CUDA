@@ -17,11 +17,14 @@ class CDrawableButton : public IDrawable
 {
 public:
 	CDrawableButton( std::shared_ptr< CFont > font_, SDL_Surface* destination_surf_, std::string label_, const C2DVector& size_, Uint32 background_color_, SDL_Color label_color_ );
+	CDrawableButton( const CDrawableButton& other_ );
+	CDrawableButton& operator=( const CDrawableButton& other_ );
 
-	virtual std::unique_ptr< IDrawable > Clone() const;
 	virtual void Draw( const C2DVector& pos, const C2DVector& orientation_ ) const;
 
 private:
+	virtual std::unique_ptr< IDrawable > DoClone() const;
+
 	std::string m_label;
 	std::shared_ptr< CFont > mp_font;
 	std::unique_ptr<CSurface> mp_text_surface;
