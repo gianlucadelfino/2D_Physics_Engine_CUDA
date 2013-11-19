@@ -31,7 +31,8 @@ A scalable C++ Physics Engine with CUDA integration.
 
 ## Link to win32 builds:
 1. https://dl.dropboxusercontent.com/u/3272164/Simulino_2000.zip
-
+  - uncompress the .exe and the .ttf file in the same directory
+  - double click on .exe file or run with Wine if under Linux
 
 # Developer ReadMe
 
