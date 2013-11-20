@@ -26,6 +26,10 @@ public:
 	~CWorld();
 
 private:
+	/*forbid copy and assignment*/
+	CWorld( const CWorld& );
+	CWorld& operator=( const CWorld& );
+
 	std::unique_ptr< IScene > mp_cur_scene;
 	SDL_Surface* mp_screen;
 };

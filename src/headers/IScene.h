@@ -17,6 +17,8 @@ class IScene
 {
 public:
 	IScene( SDL_Surface* screen_, CWorld& world_, Uint32 background_color_ );
+	IScene( const IScene& other_ );
+	IScene& operator=( const IScene& rhs );
 
 	/**
 	* Init loads the scene elements. Should be called before calling uptate on it.
@@ -39,15 +41,11 @@ public:
 	virtual ~IScene();
 protected:
 	SDL_Surface* mp_screen;
-	CWorld& mr_world;
+	CWorld* mr_world;
 	Uint32 m_background_color;
 	std::shared_ptr< C2DVector > m_mouse_coords;
 	std::vector< std::unique_ptr< CEntity > > m_entities;
 	std::vector< std::unique_ptr< CEntity > > m_UI_elements;
-private:
-	//TODO: define assignment and copy constructor
-	IScene( const IScene& );
-	IScene& operator=( const IScene& );
 };
 
 #endif

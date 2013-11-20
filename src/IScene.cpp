@@ -3,10 +3,29 @@
 
 IScene::IScene( SDL_Surface* screen_, CWorld& world_, Uint32 background_color_ ):
 	mp_screen( screen_ ),
-	mr_world( world_ ),
+	mr_world( &world_ ),
 	m_background_color( background_color_ ),
 	m_mouse_coords( new C2DVector() )
 {}
+
+IScene::IScene( const IScene& other_ ):
+	mp_screen( other_.mp_screen ),
+	mr_world( other_.mr_world ),
+	m_background_color( other_.m_background_color ),
+	m_mouse_coords( other_.m_mouse_coords )
+{}
+
+IScene& IScene::operator=( const IScene& rhs )
+{
+	if ( this != &rhs )
+	{
+		this->mp_screen = rhs.mp_screen;
+		this->mr_world = rhs.mr_world;
+		this->m_background_color = rhs.m_background_color;
+		this->m_mouse_coords = rhs.m_mouse_coords;
+	}
+	return *this;
+}
 
 void IScene::Init()
 {}

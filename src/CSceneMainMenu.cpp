@@ -9,6 +9,19 @@ CSceneMainMenu::CSceneMainMenu( SDL_Surface* screen_, CWorld& world_ ):
 	IScene( screen_, world_, SDL_MapRGB( screen_->format, 0, 0, 0 ) )
 {}
 
+CSceneMainMenu::CSceneMainMenu( const CSceneMainMenu& other_ ):
+	IScene( other_ )
+{}
+
+CSceneMainMenu& CSceneMainMenu::operator=( const CSceneMainMenu& rhs )
+{
+	if ( this != &rhs )
+	{
+		IScene::operator=( rhs );
+	}
+	return *this;
+}
+
 void CSceneMainMenu::Init()
 {
 	//add UI elements to Scene
@@ -37,8 +50,8 @@ void CSceneMainMenu::Init()
 	std::unique_ptr< CEntity > cloth_sim_switch_button( new CEntityButton(
 		1, std::move( cloth_moveable_button ),
 		std::move( cloth_button_drawable ),
-		this->mr_world,
-		std::move( std::unique_ptr< IScene >( new CSceneCloth( this->mp_screen, this->mr_world) ) )
+		*this->mr_world,
+		std::move( std::unique_ptr< IScene >( new CSceneCloth( this->mp_screen, *this->mr_world) ) )
 		));
 	this->m_UI_elements.push_back( std::move( cloth_sim_switch_button ) );
 
@@ -60,8 +73,8 @@ void CSceneMainMenu::Init()
 	std::unique_ptr< CEntity > galaxy_sim_switch_button( new CEntityButton(
 		1, std::move( moveable_button ),
 		std::move( galaxy_button_drawable ),
-		this->mr_world,
-		std::move( std::unique_ptr< IScene >( new CSceneGalaxy( this->mp_screen, this->mr_world, start_in_cuda_mode, initial_stars_num ) ) )
+		*this->mr_world,
+		std::move( std::unique_ptr< IScene >( new CSceneGalaxy( this->mp_screen, *this->mr_world, start_in_cuda_mode, initial_stars_num ) ) )
 		));
 	this->m_UI_elements.push_back( std::move( galaxy_sim_switch_button ) );
 

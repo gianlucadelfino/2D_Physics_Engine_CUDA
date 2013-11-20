@@ -20,13 +20,13 @@ class CSceneCloth: public IScene
 {
 public:
 	CSceneCloth( SDL_Surface* screen_, CWorld& world_ );
+	CSceneCloth( const CSceneCloth& other_ );
+	CSceneCloth& operator=( const CSceneCloth& rhs );
+
 	virtual void Init();
 
 private:
-	//TODO: define proper copy constructor & assignment
-	CSceneCloth( const CSceneCloth& );
-	CSceneCloth& operator=( const CSceneCloth& );
-	std::shared_ptr< CFont > m_font;
+	std::shared_ptr< CFont > mp_font;
 };
 
 #endif

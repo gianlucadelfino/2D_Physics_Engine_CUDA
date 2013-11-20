@@ -9,7 +9,7 @@ CSceneGalaxy::CSceneGalaxy( SDL_Surface* screen_, CWorld& world_, bool use_CUDA_
 	IScene( screen_, world_, SDL_MapRGB( screen_->format, 0, 0, 0 ) ),
 	m_using_CUDA( use_CUDA_ ),
 	m_stars_num( stars_num_ ),
-	m_font(  new CFont( "pcseniorSmall.ttf", 20 ) ),
+	mp_font(  new CFont( "pcseniorSmall.ttf", 20 ) ),
 	m_CUDA_capable_device_present( CUDA_utils::IsCUDACompatibleDeviceAvailable() )
 {
 	//check CUDA Availability
@@ -20,7 +20,7 @@ CSceneGalaxy::CSceneGalaxy( SDL_Surface* screen_, CWorld& world_, bool use_CUDA_
 			//add warning label
 			Uint32 black_color = SDL_MapRGB( this->mp_screen->format, 0, 0, 0 );
 			SDL_Color label_color = { 255, 255, 255, 0 };
-			std::unique_ptr< CDrawableButton > stars_num_label_drawable( new CDrawableButton( this->m_font, this->mp_screen, "CUDA compatible device not found, still using CPU!", C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
+			std::unique_ptr< CDrawableButton > stars_num_label_drawable( new CDrawableButton( this->mp_font, this->mp_screen, "CUDA compatible device not found, still using CPU!", C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
 			std::unique_ptr< CMoveableButton > stars_num_label_moveable( new CMoveableButton( C2DVector( 250.0f, 660.0f ), C2DVector( 220.0f, 22.0f ) ) );
 
 			std::unique_ptr< CEntity > still_using_CPU_label( new CEntity(
@@ -46,6 +46,27 @@ CSceneGalaxy::CSceneGalaxy( SDL_Surface* screen_, CWorld& world_, bool use_CUDA_
 	this->m_entities.push_back( std::move( galaxy ) );
 }
 
+CSceneGalaxy::CSceneGalaxy( const CSceneGalaxy& other_ ):
+	IScene( other_ ),
+	m_using_CUDA( other_.m_using_CUDA ),
+	m_stars_num( other_.m_stars_num ),
+	mp_font( other_.mp_font ),
+	m_CUDA_capable_device_present( other_.m_CUDA_capable_device_present )
+{}
+
+CSceneGalaxy& CSceneGalaxy::operator=( const CSceneGalaxy& rhs )
+{
+	if ( this != &rhs )
+	{
+		IScene::operator=( rhs );
+		this->m_using_CUDA = rhs.m_using_CUDA;
+		this->m_stars_num = rhs.m_stars_num;
+		this->mp_font = rhs.mp_font;
+		this->m_CUDA_capable_device_present = rhs.m_CUDA_capable_device_present;
+	}
+	return *this;
+}
+
 void CSceneGalaxy::Init()
 {
 	//add UI elements to Scene
@@ -56,7 +77,7 @@ void CSceneGalaxy::Init()
 	SDL_Color button_label_color = { 0, 0, 0, 0 };
 
 	std::unique_ptr< CMoveableButton > CUDA_CPU_moveable_button( new CMoveableButton( C2DVector( 50.0f, 600.0f ), C2DVector( 320.0f, 22.0f ) ) );
-	std::unique_ptr< CDrawableButton > CUDA_CPU_button_drawable( new CDrawableButton( this->m_font, this->mp_screen, CUDA_CPU_switch_label, C2DVector( 320.0f, 22.0f ), white_color, button_label_color ) );
+	std::unique_ptr< CDrawableButton > CUDA_CPU_button_drawable( new CDrawableButton( this->mp_font, this->mp_screen, CUDA_CPU_switch_label, C2DVector( 320.0f, 22.0f ), white_color, button_label_color ) );
 
 	/*start from less stars if we are switching to CPU. The starting number of stars should be high ONLY if we clicked on "SWITCH TO CUDA"
 	and we actually have a CUDA capable device. In all other instances we'll be using the CPU anyway, so better start with little number of stars.
@@ -66,47 +87,47 @@ void CSceneGalaxy::Init()
 	std::unique_ptr< CEntity > CUDA_CPU_switch_button( new CEntityButton(
 		1, std::move( CUDA_CPU_moveable_button ),
 		std::move( CUDA_CPU_button_drawable ),
-		this->mr_world,
-		std::move( std::unique_ptr< IScene >( new CSceneGalaxy( this->mp_screen, this->mr_world, !this->m_using_CUDA, starting_stars_num ) ) )
+		*this->mr_world,
+		std::move( std::unique_ptr< IScene >( new CSceneGalaxy( this->mp_screen, *this->mr_world, !this->m_using_CUDA, starting_stars_num ) ) )
 		));
 	this->m_UI_elements.push_back( std::move( CUDA_CPU_switch_button ) );
 
 	//switch to Main Menu button
 	std::unique_ptr< CMoveableButton > main_menu_moveable_button( new CMoveableButton( C2DVector( 400.0f, 600.0f ), C2DVector( 200.0f, 22.0f ) ) );
-	std::unique_ptr< CDrawableButton > main_menu_button_drawable( new CDrawableButton( this->m_font, this->mp_screen, "MAIN MENU", C2DVector( 200.0f, 22.0f ), white_color, button_label_color ) );
+	std::unique_ptr< CDrawableButton > main_menu_button_drawable( new CDrawableButton( this->mp_font, this->mp_screen, "MAIN MENU", C2DVector( 200.0f, 22.0f ), white_color, button_label_color ) );
 
 	std::unique_ptr< CEntity > cloth_sim_switch_button( new CEntityButton(
 		1, std::move( main_menu_moveable_button ),
 		std::move( main_menu_button_drawable ),
-		this->mr_world,
-		std::move( std::unique_ptr< IScene >( new CSceneMainMenu( this->mp_screen, this->mr_world) ) )
+		*this->mr_world,
+		std::move( std::unique_ptr< IScene >( new CSceneMainMenu( this->mp_screen, *this->mr_world) ) )
 		));
 	this->m_UI_elements.push_back( std::move( cloth_sim_switch_button ) );
 
 	//more stars buttons
 	unsigned int increment_num = this->m_using_CUDA? 1024 : 128;
 	std::unique_ptr< CMoveableButton > more_stars_moveable_button( new CMoveableButton( C2DVector( 630.0f, 600.0f ), C2DVector( 220.0f, 22.0f ) ) );
-	std::unique_ptr< CDrawableButton > more_stars_button_drawable( new CDrawableButton( this->m_font, this->mp_screen, "MORE STARS", C2DVector( 220.0f, 22.0f ), white_color, button_label_color ) );
+	std::unique_ptr< CDrawableButton > more_stars_button_drawable( new CDrawableButton( this->mp_font, this->mp_screen, "MORE STARS", C2DVector( 220.0f, 22.0f ), white_color, button_label_color ) );
 
 	std::unique_ptr< CEntity > more_stars_button( new CEntityButton(
 		1, std::move( more_stars_moveable_button ),
 		std::move( more_stars_button_drawable ),
-		this->mr_world,
-		std::move( std::unique_ptr< IScene >( new CSceneGalaxy( this->mp_screen, this->mr_world, this->m_using_CUDA, this->m_stars_num + increment_num ) ) )
+		*this->mr_world,
+		std::move( std::unique_ptr< IScene >( new CSceneGalaxy( this->mp_screen, *this->mr_world, this->m_using_CUDA, this->m_stars_num + increment_num ) ) )
 		));
 	this->m_UI_elements.push_back( std::move( more_stars_button ) );
 
 	//less stars buttons (appears only if there are more stars than increment_num)
 	if ( this->m_stars_num > increment_num )
 	{
-		std::unique_ptr< CDrawableButton > less_stars_button_drawable( new CDrawableButton( this->m_font, this->mp_screen, "LESS STARS", C2DVector( 220.0f, 22.0f ), white_color, button_label_color ) );
+		std::unique_ptr< CDrawableButton > less_stars_button_drawable( new CDrawableButton( this->mp_font, this->mp_screen, "LESS STARS", C2DVector( 220.0f, 22.0f ), white_color, button_label_color ) );
 		std::unique_ptr< CMoveableButton > less_stars_moveable_button( new CMoveableButton( C2DVector( 870.0f, 600.0f ), C2DVector( 220.0f, 22.0f ) ) );
 
 		std::unique_ptr< CEntity > less_stars_button( new CEntityButton(
 			1, std::move( less_stars_moveable_button ),
 			std::move( less_stars_button_drawable ),
-			this->mr_world,
-			std::move( std::unique_ptr< IScene >( new CSceneGalaxy( this->mp_screen, this->mr_world, this->m_using_CUDA, this->m_stars_num - increment_num ) ) )
+			*this->mr_world,
+			std::move( std::unique_ptr< IScene >( new CSceneGalaxy( this->mp_screen, *this->mr_world, this->m_using_CUDA, this->m_stars_num - increment_num ) ) )
 			));
 		this->m_UI_elements.push_back( std::move( less_stars_button ) );
 	}
@@ -114,7 +135,7 @@ void CSceneGalaxy::Init()
 	Uint32 black_color = SDL_MapRGB( this->mp_screen->format, 0, 0, 0 );
 	SDL_Color label_color = { 255, 255, 255, 0 };
 	std::unique_ptr< CMoveableButton > stars_num_label_moveable( new CMoveableButton( C2DVector( 20.0f, 20.0f ), C2DVector( 220.0f, 22.0f ) ) );
-	std::unique_ptr< CDrawableButton > stars_num_label_drawable( new CDrawableButton( this->m_font, this->mp_screen, "Stars in simulation: " + std::to_string(this->m_stars_num), C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
+	std::unique_ptr< CDrawableButton > stars_num_label_drawable( new CDrawableButton( this->mp_font, this->mp_screen, "Stars in simulation: " + std::to_string(this->m_stars_num), C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
 
 	std::unique_ptr< CEntity > stars_num_label( new CEntity(
 		1, std::move( stars_num_label_moveable ),
@@ -124,7 +145,7 @@ void CSceneGalaxy::Init()
 
 	//instructions label (first part)
 	std::unique_ptr< CMoveableButton > instructions_first_label_moveable( new CMoveableButton( C2DVector( 850.0f, 240.0f ), C2DVector( 220.0f, 22.0f ) ) );
-	std::unique_ptr< CDrawableButton > instructions_first_label_drawable( new CDrawableButton( this->m_font, this->mp_screen, "Each star gravitates", C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
+	std::unique_ptr< CDrawableButton > instructions_first_label_drawable( new CDrawableButton( this->mp_font, this->mp_screen, "Each star gravitates", C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
 
 	std::unique_ptr< CEntity > instructions_first_label( new CEntity(
 		1, std::move( instructions_first_label_moveable ),
@@ -134,7 +155,7 @@ void CSceneGalaxy::Init()
 
 	//instructions label (second part)
 	std::unique_ptr< CMoveableButton > instructions_second_label_moveable( new CMoveableButton( C2DVector( 850.0f, 270.0f ), C2DVector( 220.0f, 22.0f ) ) );
-	std::unique_ptr< CDrawableButton > instructions_second_label_drawable( new CDrawableButton( this->m_font, this->mp_screen, "with all the others.", C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
+	std::unique_ptr< CDrawableButton > instructions_second_label_drawable( new CDrawableButton( this->mp_font, this->mp_screen, "with all the others.", C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
 
 	std::unique_ptr< CEntity > instructions_second_label( new CEntity(
 		1, std::move( instructions_second_label_moveable ),
@@ -144,7 +165,7 @@ void CSceneGalaxy::Init()
 
 	//instructions label (third part)
 	std::unique_ptr< CMoveableButton > instructions_third_label_moveable( new CMoveableButton( C2DVector( 850.0f, 300.0f ), C2DVector( 220.0f, 22.0f ) ) );
-	std::unique_ptr< CDrawableButton > instructions_third_label_drawable( new CDrawableButton( this->m_font, this->mp_screen, "Click and hold to", C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
+	std::unique_ptr< CDrawableButton > instructions_third_label_drawable( new CDrawableButton( this->mp_font, this->mp_screen, "Click and hold to", C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
 
 	std::unique_ptr< CEntity > instructions_third_label( new CEntity(
 		1, std::move( instructions_third_label_moveable ),
@@ -154,7 +175,7 @@ void CSceneGalaxy::Init()
 
 	//instructions label (fourth half)
 	std::unique_ptr< CMoveableButton > instructions_fourth_label_moveable( new CMoveableButton( C2DVector( 850.0f, 330.0f ), C2DVector( 220.0f, 22.0f ) ) );
-	std::unique_ptr< CDrawableButton > instructions_fourth_label_drawable( new CDrawableButton( this->m_font, this->mp_screen, "attract them.", C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
+	std::unique_ptr< CDrawableButton > instructions_fourth_label_drawable( new CDrawableButton( this->mp_font, this->mp_screen, "attract them.", C2DVector( 220.0f, 22.0f ), black_color, label_color ) );
 
 	std::unique_ptr< CEntity > instructions_fourth_label( new CEntity(
 		1, std::move( instructions_fourth_label_moveable ),

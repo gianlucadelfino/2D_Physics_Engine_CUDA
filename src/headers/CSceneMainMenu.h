@@ -22,12 +22,10 @@ class CSceneMainMenu: public IScene
 {
 public:
 	CSceneMainMenu( SDL_Surface* screen_, CWorld& world_ );
-	virtual void Init();
+	CSceneMainMenu( const CSceneMainMenu& other_ );
+	CSceneMainMenu& operator=( const CSceneMainMenu& rhs );
 
-private:
-	//TODO: define proper copy constructor & assignment
-	CSceneMainMenu( const CSceneMainMenu& );
-	CSceneMainMenu& operator=( const CSceneMainMenu& );
+	virtual void Init();
 };
 
 #endif
