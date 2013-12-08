@@ -12,7 +12,7 @@ public:
 	C2DVector():x( 0.0f ), y( 0.0f ) {}
 	C2DVector( float x_, float y_ ):x( x_ ), y( y_ ) {}
 	C2DVector( int x_, int y_ ):x( static_cast<float>(x_) ), y( static_cast<float>(y_)  ) {}
-	C2DVector( const C2DVector& _vec );
+	C2DVector( const C2DVector& vec );
 
 	C2DVector& operator=( const C2DVector& rhs );
 	C2DVector& operator*=( const float k );
@@ -24,11 +24,11 @@ public:
 	float GetApproxInverseSqrt() const;
 	float ScalarProduct( const C2DVector& ) const;
 
-	friend C2DVector operator*( const float k, const C2DVector& _vec );
-	friend C2DVector operator*( const C2DVector& _vec, const float k );
+	friend C2DVector operator*( const float k, const C2DVector& vec );
+	friend C2DVector operator*( const C2DVector& vec, const float k );
 
-	friend C2DVector operator+( const C2DVector& _first, const C2DVector& _second);
-	friend C2DVector operator-( const C2DVector& _first, const C2DVector& _second);
+	friend C2DVector operator+( const C2DVector& first, const C2DVector& second);
+	friend C2DVector operator-( const C2DVector& first, const C2DVector& second);
 
 	friend std::ostream& operator<< ( std::ostream& out, const C2DVector& vec);
 

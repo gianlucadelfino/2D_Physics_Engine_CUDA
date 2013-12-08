@@ -151,14 +151,14 @@ void CEntityCloth::EnforceMaxDist( int id_a, int id_b )
 	C2DVector b_pos = m_collection[id_b]->GetPosition();
 
 	//compute the difference vector and the distance
-	C2DVector ab_vect = a_pos - b_pos;
-	float ab_length = sqrt( ab_vect.GetSquaredLength() );
+	C2DVector abvect = a_pos - b_pos;
+	float ab_length = sqrt( abvect.GetSquaredLength() );
 	float delta = ( ab_length - m_max_dist ) / ab_length;
 
 	if ( delta > 0.01f ) //impose only if be greater than a small treshold
 	{
-		a_pos -= ab_vect * delta * 0.5f;
-		b_pos += ab_vect * delta * 0.5f;
+		a_pos -= abvect * delta * 0.5f;
+		b_pos += abvect * delta * 0.5f;
 
 		//apply the changes
 		m_collection[id_a]->Boost( a_pos );

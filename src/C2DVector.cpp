@@ -1,10 +1,10 @@
 #include "C2DVector.h"
 #include <cmath>
 
-C2DVector::C2DVector( const C2DVector& _vec )
+C2DVector::C2DVector( const C2DVector& vec )
 {
-	x = _vec.x;
-	y = _vec.y;
+	x = vec.x;
+	y = vec.y;
 }
 
 C2DVector& C2DVector::operator=( const C2DVector& rhs)
@@ -82,24 +82,24 @@ float C2DVector::ScalarProduct( const C2DVector& other_) const
 *friend functions*
 *****************/
 
-C2DVector operator*( const float k, const C2DVector& _vec )
+C2DVector operator*( const float k, const C2DVector& vec )
 {
-	return C2DVector( k * _vec.x, k * _vec.y );
+	return C2DVector( k * vec.x, k * vec.y );
 }
 
-C2DVector operator*( const C2DVector& _vec, const float k )
+C2DVector operator*( const C2DVector& vec, const float k )
 {
-	return C2DVector( k * _vec.x, k * _vec.y );
+	return C2DVector( k * vec.x, k * vec.y );
 }
 
-C2DVector operator+( const C2DVector& _first, const C2DVector& _second )
+C2DVector operator+( const C2DVector& first, const C2DVector& second )
 {
-	return C2DVector( _first.x + _second.x, _first.y + _second.y );
+	return C2DVector( first.x + second.x, first.y + second.y );
 }
 
-C2DVector operator-( const C2DVector& _first, const C2DVector& _second )
+C2DVector operator-( const C2DVector& first, const C2DVector& second )
 {
-	return C2DVector( _first.x - _second.x, _first.y - _second.y );
+	return C2DVector( first.x - second.x, first.y - second.y );
 }
 
 std::ostream& operator<< ( std::ostream& out, const C2DVector& vec) {

@@ -53,21 +53,21 @@ void CSceneCloth::Init()
 	Uint32 white_color = SDL_MapRGB( this->mp_screen->format, 255, 255, 255 );
 	SDL_Color label_color = { 0, 0, 0, 0 };
 
-	std::unique_ptr< CMoveableButton > instructions_first_label_moveable( new CMoveableButton( C2DVector( 900.0f, 300.0f ), C2DVector( 220.0f, 22.0f ) ) );
-	std::unique_ptr< CDrawableButton > instructions_first_label_drawable( new CDrawableButton( this->mp_font, this->mp_screen, "click and hold to", C2DVector( 220.0f, 22.0f ), white_color, label_color ) );
+	std::unique_ptr< CMoveableButton > instructionsfirst_label_moveable( new CMoveableButton( C2DVector( 900.0f, 300.0f ), C2DVector( 220.0f, 22.0f ) ) );
+	std::unique_ptr< CDrawableButton > instructionsfirst_label_drawable( new CDrawableButton( this->mp_font, this->mp_screen, "click and hold to", C2DVector( 220.0f, 22.0f ), white_color, label_color ) );
 
-	std::unique_ptr< CEntity > instructions_first_label( new CEntity(
-		1, std::move( instructions_first_label_moveable ),
-		std::move( instructions_first_label_drawable )
+	std::unique_ptr< CEntity > instructionsfirst_label( new CEntity(
+		1, std::move( instructionsfirst_label_moveable ),
+		std::move( instructionsfirst_label_drawable )
 		));
-	this->m_UI_elements.push_back( std::move( instructions_first_label ) );
+	this->m_UI_elements.push_back( std::move( instructionsfirst_label ) );
 	//instructions label (second half)
-	std::unique_ptr< CMoveableButton > instructions_second_label_moveable( new CMoveableButton( C2DVector( 900.0f, 330.0f ), C2DVector( 220.0f, 22.0f ) ) );
-	std::unique_ptr< CDrawableButton > instructions_second_label_drawable( new CDrawableButton( this->mp_font, this->mp_screen, "drag the cloth", C2DVector( 220.0f, 22.0f ), white_color, label_color ) );
+	std::unique_ptr< CMoveableButton > instructionssecond_label_moveable( new CMoveableButton( C2DVector( 900.0f, 330.0f ), C2DVector( 220.0f, 22.0f ) ) );
+	std::unique_ptr< CDrawableButton > instructionssecond_label_drawable( new CDrawableButton( this->mp_font, this->mp_screen, "drag the cloth", C2DVector( 220.0f, 22.0f ), white_color, label_color ) );
 
-	std::unique_ptr< CEntity > instructions_second_label( new CEntity(
-		1, std::move( instructions_second_label_moveable ),
-		std::move( instructions_second_label_drawable )
+	std::unique_ptr< CEntity > instructionssecond_label( new CEntity(
+		1, std::move( instructionssecond_label_moveable ),
+		std::move( instructionssecond_label_drawable )
 		));
-	this->m_UI_elements.push_back( std::move( instructions_second_label ) );
+	this->m_UI_elements.push_back( std::move( instructionssecond_label ) );
 }
