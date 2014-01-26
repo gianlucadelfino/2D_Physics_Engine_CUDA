@@ -8,7 +8,7 @@ A scalable C++ Physics Engine with CUDA integration.
 1. Integration with Nvidia CUDA run time library (on available devices) for N-body simulation.
 1. Scalable architecture and easy to add new simulations.
 1. Basic UI, with buttons and labels.
-1. Asynchronous level loading in parallel thread.
+1. Asynchronous multi-threaded level loading.
 1. Extensive documentation (in Docs/html/index.html).
 
 ## Interactive Simulations:
