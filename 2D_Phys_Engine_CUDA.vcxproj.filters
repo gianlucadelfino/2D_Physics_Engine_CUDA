@@ -78,6 +78,9 @@
     <ClInclude Include="src\headers\CSceneMainMenu.h">
       <Filter>src\headers</Filter>
     </ClInclude>
+    <ClInclude Include="src\headers\CSceneLoadingScreen.h">
+      <Filter>src\headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\headers\DeviceArray.cuh">
@@ -152,6 +155,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\CEntity.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CSceneLoadingScreen.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

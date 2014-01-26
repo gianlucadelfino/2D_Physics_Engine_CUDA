@@ -21,7 +21,7 @@ public:
 	IScene& operator=( const IScene& rhs );
 
 	/**
-	* Init loads the scene elements. Should be called before calling uptate on it.
+	* Init loads the scene elements. Should be called before calling update on it.
 	*/
 	virtual void Init();
 

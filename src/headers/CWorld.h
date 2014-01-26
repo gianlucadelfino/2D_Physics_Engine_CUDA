@@ -30,6 +30,12 @@ private:
 	CWorld( const CWorld& );
 	CWorld& operator=( const CWorld& );
 
+	/**************************************************************
+	* DUE TO LIMITATIONS WITH VS12/13, WE CANNOT MOVE a unique_ptr to another thread (it works in g++4.8.1.)
+	* We have to resort to storing the next scene into another member variable to be able to access it from the other thread :( 
+	**************************************************************/
+	std::unique_ptr< IScene > mp_scene_to_load;
+
 	std::unique_ptr< IScene > mp_cur_scene;
 	SDL_Surface* mp_screen;
 };
