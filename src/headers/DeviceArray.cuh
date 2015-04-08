@@ -38,12 +38,12 @@ public:
 		gpuErrorCheck( cudaMemset( this->m_ptr, val, m_size*sizeof(ValueType) ) );
 	}
 
-	void copyHostToDevice( const ValueType* const other_array)
+	void copyHostToDevice( const ValueType* const other_array )
 	{
 		gpuErrorCheck( cudaMemcpy( this->m_ptr, other_array, m_size*sizeof(ValueType), cudaMemcpyHostToDevice ) );
 	}
 
-	void copyDeviceToHost( ValueType* other_array)
+	void copyDeviceToHost( ValueType* other_array )
 	{
 		gpuErrorCheck( cudaMemcpy( other_array, this->m_ptr, m_size*sizeof(ValueType), cudaMemcpyDeviceToHost ) );
 	}

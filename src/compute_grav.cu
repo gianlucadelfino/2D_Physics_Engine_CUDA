@@ -130,7 +130,7 @@ void compute_grav(
 	float2* d_gravs_ptr = d_gravs.GetPtr();
 	//take the positions and compute the partial sums of the forces acting on each star. We need to store partials because
 	//we had to tile the matrix of the forces..
-	compute_gravs<<<grid_side, BLOCK_SIZE, BLOCK_SIZE*3*sizeof(float) >>>( d_pos_ptr, d_masses_ptr, d_gravs_ptr, num_stars);
+	compute_gravs<<< grid_side, BLOCK_SIZE, BLOCK_SIZE*3*sizeof(float) >>>( d_pos_ptr, d_masses_ptr, d_gravs_ptr, num_stars );
 	cudaDeviceSynchronize();
 
 	//transfer gravs back to host
