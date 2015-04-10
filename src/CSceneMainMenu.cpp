@@ -61,7 +61,7 @@ void CSceneMainMenu::Init()
 
     /*The (-1) on the initial_stars_num accounts for the possible presence of the extra star when holding down the button.
     Like so, the CUDA kernel will run the same amount of blocks, even if we add another star, and there is no performance hit.*/
-    unsigned int initial_stars_num = 16*1024 - 1;  //assume CUDA
+    unsigned int initial_stars_num = 8*1024 - 1;  //assume CUDA
     bool start_in_cuda_mode = true;
     //check CUDA Availability
     if ( !CUDA_utils::IsCUDACompatibleDeviceAvailable() )
