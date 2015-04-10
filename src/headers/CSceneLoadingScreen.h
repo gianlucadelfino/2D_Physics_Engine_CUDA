@@ -13,11 +13,11 @@ class CWorld;
 class CSceneLoadingScreen: public IScene
 {
 public:
-	CSceneLoadingScreen( SDL_Surface* screen_, CWorld& world_ );
-	CSceneLoadingScreen( const CSceneLoadingScreen& other_ );
-	CSceneLoadingScreen& operator=( const CSceneLoadingScreen& rhs );
+    CSceneLoadingScreen( SDL_Surface* screen_, CWorld& world_ );
+    CSceneLoadingScreen( const CSceneLoadingScreen& other_ );
+    CSceneLoadingScreen& operator=( const CSceneLoadingScreen& rhs );
 
-	virtual void Init();
+    virtual void Init();
 };
 
 #endif

@@ -6,10 +6,10 @@
 */
 namespace CUDA_utils
 {
-	/**
-	* IsCUDACompatibleDeviceAvailable returns true if a CUDA compatible device was found.
-	*/
-	bool IsCUDACompatibleDeviceAvailable();
+    /**
+    * IsCUDACompatibleDeviceAvailable returns true if a CUDA compatible device was found.
+    */
+    bool IsCUDACompatibleDeviceAvailable();
 }
 
 #endif

@@ -12,23 +12,23 @@ CMoveableParticle::CMoveableParticle( const CMoveableParticle& other_ ):IMoveabl
 
 CMoveableParticle& CMoveableParticle::operator=( const CMoveableParticle& other_ )
 {
-	if ( &other_ != this )
-	{
-		IMoveable::operator=( other_ );
-	}
-	return *this;
+    if ( &other_ != this )
+    {
+        IMoveable::operator=( other_ );
+    }
+    return *this;
 }
 
 std::unique_ptr< IMoveable > CMoveableParticle::DoClone() const
 {
-	return std::unique_ptr< IMoveable >( new CMoveableParticle( *this ) );
+    return std::unique_ptr< IMoveable >( new CMoveableParticle( *this ) );
 }
 
 bool CMoveableParticle::IsHit( const C2DVector& coords_ ) const
 {
-	//check if coords_ is in within the bounding box
-	bool check_x = coords_.x < (pos.x + boundingbox_half_side) && coords_.x > ( pos.x - boundingbox_half_side );
-	bool check_y = coords_.y < (pos.y + boundingbox_half_side) && coords_.y > ( pos.y - boundingbox_half_side );
+    //check if coords_ is in within the bounding box
+    bool check_x = coords_.x < (pos.x + boundingbox_half_side) && coords_.x > ( pos.x - boundingbox_half_side );
+    bool check_y = coords_.y < (pos.y + boundingbox_half_side) && coords_.y > ( pos.y - boundingbox_half_side );
 
-	return check_x && check_y;
+    return check_x && check_y;
 }

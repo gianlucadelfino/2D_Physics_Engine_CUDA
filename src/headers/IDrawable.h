@@ -12,27 +12,27 @@
 class IDrawable
 {
 public:
-	IDrawable( SDL_Surface* destination_surf_ );
+    IDrawable( SDL_Surface* destination_surf_ );
 
-	//copy constructor and assignment operator
-	IDrawable( const IDrawable& other_ );
-	IDrawable& operator=( const IDrawable& other_ );
+    //copy constructor and assignment operator
+    IDrawable( const IDrawable& other_ );
+    IDrawable& operator=( const IDrawable& other_ );
 
-	std::unique_ptr< IDrawable > Clone() const; //non virtual to check that it has been overridden (see "c++ coding standards" elem 54)
+    std::unique_ptr< IDrawable > Clone() const; //non virtual to check that it has been overridden (see "c++ coding standards" elem 54)
 
-	virtual void Draw( const C2DVector& position_, const C2DVector& orientation_ ) const = 0;
+    virtual void Draw( const C2DVector& position_, const C2DVector& orientation_ ) const = 0;
 
-	virtual ~IDrawable();
+    virtual ~IDrawable();
 
-	void SetSize( const C2DVector& _dimensions );
-	void SetScale( float scale_ );
+    void SetSize( const C2DVector& _dimensions );
+    void SetScale( float scale_ );
 
 protected:
-	SDL_Surface* mp_destination;
-	C2DVector m_dimensions;
-	float m_scale;
+    SDL_Surface* mp_destination;
+    C2DVector m_dimensions;
+    float m_scale;
 private:
-	virtual std::unique_ptr< IDrawable > DoClone() const = 0;
+    virtual std::unique_ptr< IDrawable > DoClone() const = 0;
 };
 
 #endif

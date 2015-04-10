@@ -11,16 +11,16 @@
 class CMoveableButton : public IMoveable
 {
 public:
-	CMoveableButton( const C2DVector& initial_pos_, const C2DVector& size_ );
+    CMoveableButton( const C2DVector& initial_pos_, const C2DVector& size_ );
 
-	CMoveableButton( const CMoveableButton& other_ );
-	CMoveableButton& operator=( const CMoveableButton& other_ );
+    CMoveableButton( const CMoveableButton& other_ );
+    CMoveableButton& operator=( const CMoveableButton& other_ );
 
-	virtual bool IsHit( const C2DVector& coords_ ) const;
+    virtual bool IsHit( const C2DVector& coords_ ) const;
 
 private:
-	virtual std::unique_ptr< IMoveable > DoClone() const;
+    virtual std::unique_ptr< IMoveable > DoClone() const;
 
-	C2DVector m_size;
+    C2DVector m_size;
 };
 #endif

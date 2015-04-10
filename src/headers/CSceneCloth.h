@@ -19,14 +19,14 @@ class CWorld;
 class CSceneCloth: public IScene
 {
 public:
-	CSceneCloth( SDL_Surface* screen_, CWorld& world_ );
-	CSceneCloth( const CSceneCloth& other_ );
-	CSceneCloth& operator=( const CSceneCloth& rhs );
+    CSceneCloth( SDL_Surface* screen_, CWorld& world_ );
+    CSceneCloth( const CSceneCloth& other_ );
+    CSceneCloth& operator=( const CSceneCloth& rhs );
 
-	virtual void Init();
+    virtual void Init();
 
 private:
-	std::shared_ptr< CFont > mp_font;
+    std::shared_ptr< CFont > mp_font;
 };
 
 #endif

@@ -23,35 +23,35 @@
 class CEntityGalaxy : public CEntity
 {
 public:
-	CEntityGalaxy( unsigned int id_, const C2DVector& initial_pos_,  const CEntityParticle& star_, unsigned int star_number_, float max_dist_, bool use_CUDA_ );
+    CEntityGalaxy( unsigned int id_, const C2DVector& initial_pos_,  const CEntityParticle& star_, unsigned int star_number_, float max_dist_, bool use_CUDA_ );
 
-	virtual void Update( const C2DVector& external_force_, float dt );
-	virtual void Draw() const;
+    virtual void Update( const C2DVector& external_force_, float dt );
+    virtual void Draw() const;
 
-	virtual void HandleMouseButtonDown( std::shared_ptr<C2DVector> coords_ );
-	virtual void HandleMouseButtonUp( std::shared_ptr<C2DVector> coords_ );
+    virtual void HandleMouseButtonDown( std::shared_ptr<C2DVector> coords_ );
+    virtual void HandleMouseButtonUp( std::shared_ptr<C2DVector> coords_ );
 
-	/**
-	* SetsUseCUDA sets whether to use the CUDA and the GPU or the CPU
-	*/
-	void SetUseCUDA( bool use_CUDA_ );
+    /**
+    * SetsUseCUDA sets whether to use the CUDA and the GPU or the CPU
+    */
+    void SetUseCUDA( bool use_CUDA_ );
 
 private:
-	//forbid copy and assignment
-	CEntityGalaxy( const CEntityGalaxy& );
-	CEntityGalaxy& operator=( const CEntityGalaxy& );
+    //forbid copy and assignment
+    CEntityGalaxy( const CEntityGalaxy& );
+    CEntityGalaxy& operator=( const CEntityGalaxy& );
 
-	void UpdateCUDA( const C2DVector& external_force_, float dt );
-	void UpdateCPU( const C2DVector& external_force_, float dt );
+    void UpdateCUDA( const C2DVector& external_force_, float dt );
+    void UpdateCPU( const C2DVector& external_force_, float dt );
 
-	CRandom m_rand_pos;
-	CRandom m_rand_mass;
+    CRandom m_rand_pos;
+    CRandom m_rand_mass;
 
-	bool m_using_CUDA;
+    bool m_using_CUDA;
 
-	typedef std::vector< std::unique_ptr< CEntityParticle > > StarList;
-	StarList m_collection;
-	unsigned int m_original_star_num;
+    typedef std::vector< std::unique_ptr< CEntityParticle > > StarList;
+    StarList m_collection;
+    unsigned int m_original_star_num;
 };
 
 #endif

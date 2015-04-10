@@ -21,11 +21,11 @@ class CWorld;
 class CSceneMainMenu: public IScene
 {
 public:
-	CSceneMainMenu( SDL_Surface* screen_, CWorld& world_ );
-	CSceneMainMenu( const CSceneMainMenu& other_ );
-	CSceneMainMenu& operator=( const CSceneMainMenu& rhs );
+    CSceneMainMenu( SDL_Surface* screen_, CWorld& world_ );
+    CSceneMainMenu( const CSceneMainMenu& other_ );
+    CSceneMainMenu& operator=( const CSceneMainMenu& rhs );
 
-	virtual void Init();
+    virtual void Init();
 };
 
 #endif
