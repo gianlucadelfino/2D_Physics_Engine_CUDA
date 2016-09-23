@@ -12,17 +12,17 @@ class CMoveableParticle : public IMoveable
 {
 public:
     CMoveableParticle();
-    CMoveableParticle( float x_, float y_ );
-    CMoveableParticle( const C2DVector& initial_pos_ );
+    CMoveableParticle(float x_, float y_);
+    CMoveableParticle(const C2DVector& initial_pos_);
 
-    CMoveableParticle( const CMoveableParticle& other_ );
+    CMoveableParticle(const CMoveableParticle& other_);
 
-    CMoveableParticle& operator=( const CMoveableParticle& other_ );
+    CMoveableParticle& operator=(const CMoveableParticle& other_);
 
-    virtual bool IsHit( const C2DVector& coords_ ) const;
+    virtual bool IsHit(const C2DVector& coords_) const;
 
 private:
-    virtual std::unique_ptr< IMoveable > DoClone() const;
+    virtual std::unique_ptr<IMoveable> DoClone() const;
 
     static const int boundingbox_half_side = 20;
 };

@@ -8,15 +8,15 @@
 /**
 * CDrawableLink defines how the cloth links are drawn on screen.
 */
-class CDrawableLink: public IDrawable
+class CDrawableLink : public IDrawable
 {
 public:
-    CDrawableLink( SDL_Surface* destination_surf_ );
+    CDrawableLink(SDL_Surface* destination_surf_);
 
-    virtual void Draw( const C2DVector& pos_, const C2DVector& origin_ ) const;
+    virtual void Draw(const C2DVector& pos_, const C2DVector& origin_) const;
 
 private:
-    virtual std::unique_ptr< IDrawable > DoClone() const;
+    virtual std::unique_ptr<IDrawable> DoClone() const;
 };
 
 #endif

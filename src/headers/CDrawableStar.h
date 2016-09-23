@@ -9,15 +9,16 @@
 /**
 * CDrawableStar defines how stars are drawn on screen.
 */
-class CDrawableStar: public IDrawable
+class CDrawableStar : public IDrawable
 {
 public:
-    CDrawableStar( SDL_Surface* destination_surf_ );
+    CDrawableStar(SDL_Surface* destination_surf_);
 
-    virtual void Draw( const C2DVector& pos_, const C2DVector& orientation_  ) const;
+    virtual void Draw(const C2DVector& pos_,
+                      const C2DVector& orientation_) const;
 
 private:
-    virtual std::unique_ptr< IDrawable > DoClone() const;
+    virtual std::unique_ptr<IDrawable> DoClone() const;
 };
 
 #endif

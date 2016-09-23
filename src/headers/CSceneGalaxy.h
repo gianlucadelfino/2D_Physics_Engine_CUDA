@@ -18,12 +18,15 @@ class CWorld;
 /**
 * CSceneGalaxy defines the scene with the galaxy.
 */
-class CSceneGalaxy: public IScene
+class CSceneGalaxy : public IScene
 {
 public:
-    CSceneGalaxy( SDL_Surface* screen_, CWorld& world_, bool use_CUDA_, unsigned int stars_num_ );
-    CSceneGalaxy( const CSceneGalaxy& other_ );
-    CSceneGalaxy& operator=( const CSceneGalaxy& rhs );
+    CSceneGalaxy(SDL_Surface* screen_,
+                 CWorld& world_,
+                 bool use_CUDA_,
+                 unsigned int stars_num_);
+    CSceneGalaxy(const CSceneGalaxy& other_);
+    CSceneGalaxy& operator=(const CSceneGalaxy& rhs);
 
     virtual void Init();
 
@@ -32,7 +35,7 @@ public:
 private:
     bool m_using_CUDA;
     unsigned int m_stars_num;
-    std::shared_ptr< CFont > mp_font;
+    std::shared_ptr<CFont> mp_font;
     bool m_CUDA_capable_device_present;
 };
 
