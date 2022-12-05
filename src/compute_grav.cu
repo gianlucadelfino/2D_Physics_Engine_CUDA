@@ -1,9 +1,8 @@
-#include "CUDA.h"
-#include "CUDA_runtime.h"
+#include "cuda_runtime.h"
 #include "device_launch_parameters.h"
 #include "DeviceArray.cuh"
 
-#include "assert.h"
+#include <cassert>
 
 #define BLOCK_SIZE 256
 #define NEWTON 0.2f
@@ -38,17 +37,17 @@ new stars' positions
 ******************************/
 
 __global__ void compute_gravs(const float* d_pos_x, const float* d_pos_y,
-                              const float* d_masses, float2* d_gravs, int num_stars )
+                              const float* d_masses, float2* d_gravs, int nu_stars )
 {
     //local coordinate on the block
-    int local_i = threadIdx.x;
+    const int local_i = threadIdx.x;
 
     //global coordinate on the grid
-    int global_i = blockIdx.x*blockDim.x + local_i;
+    const int global_i = blockIdx.x*blockDim.x + local_i;
 
     //this is safe from G80, since the device shuold keep track of the active threads and not wait for
     //the inactive ones in case of __syncthread
-    if( global_i >= num_stars ) return;
+    if( global_i >= nu_stars ) return;
 
     extern __shared__ float s[];
     // Partition the SMEM stores so that each instruction
@@ -56,9 +55,7 @@ __global__ void compute_gravs(const float* d_pos_x, const float* d_pos_y,
     float2* pos = (float2*)s;
     float* mass = (float*)&s[2*blockDim.x];
 
-    float2 total_acc;
-    total_acc.x = 0.0f;
-    total_acc.y = 0.0f;
+    float2 total_acc = make_float2(0.0f, 0.0f);
 
     float2 cur_pos = make_float2(d_pos_x[global_i], d_pos_y[global_i]);
 
@@ -66,7 +63,7 @@ __global__ void compute_gravs(const float* d_pos_x, const float* d_pos_y,
     {
         //current vertical position (the j we are at in this block)
         int current_j = tile*blockDim.x;
-        if( (current_j+local_i) < num_stars )
+        if( (current_j+local_i) < nu_stars )
         {
             pos[local_i] = make_float2(
                 d_pos_x[current_j + local_i], d_pos_y[current_j + local_i]);
@@ -77,8 +74,8 @@ __global__ void compute_gravs(const float* d_pos_x, const float* d_pos_y,
         //summing all the j's, we need to make sure we don't step outside the
         //matrix.
         int iterate_till = blockDim.x;
-        if ( current_j + blockDim.x >= num_stars )
-            iterate_till = num_stars - current_j;
+        if ( current_j + blockDim.x >= nu_stars )
+            iterate_till = nu_stars - current_j;
 
 #pragma unroll 128
         for( unsigned int k = 0; k < iterate_till; ++k )
@@ -90,11 +87,11 @@ __global__ void compute_gravs(const float* d_pos_x, const float* d_pos_y,
                 r.x = pos[k].x - cur_pos.x;
                 r.y = pos[k].y - cur_pos.y ;
 
-                float dist_square =  r.x*r.x + r.y*r.y + MIN_DIST; // impose min_dist to avoid infinities
-                float inv_sqrt_dist = rsqrtf( dist_square ); // for computing the real gravity interaction
+                const float dist_square =  r.x*r.x + r.y*r.y + MIN_DIST; // impose min_dist to avoid infinities
+                const float inv_sqrt_dist = rsqrtf( dist_square ); // for computing the real gravity interaction
 
                 //force = G*m*M/ r^2, here G = NEWTON, is multiplied only once at the end
-                float acc_strength = mass[k] * inv_sqrt_dist * inv_sqrt_dist * inv_sqrt_dist;
+                const float acc_strength = mass[k] * inv_sqrt_dist * inv_sqrt_dist * inv_sqrt_dist;
 
                 total_acc.x += acc_strength * r.x;
                 total_acc.y += acc_strength * r.y;
@@ -115,21 +112,21 @@ void compute_grav(
     float* h_pos_y,
     float* h_masses,
     float2* h_gravs,
-    unsigned int num_stars)
+    unsigned int nu_stars)
 {
     //transfer data on the device
-    DeviceArray<float> d_pos_x( num_stars );
-    DeviceArray<float> d_pos_y( num_stars );
+    DeviceArray<float> d_pos_x( nu_stars );
+    DeviceArray<float> d_pos_y( nu_stars );
     d_pos_x.copyHostToDevice( h_pos_x );
     d_pos_y.copyHostToDevice( h_pos_y );
 
-    DeviceArray<float> d_masses( num_stars );
+    DeviceArray<float> d_masses( nu_stars );
     d_masses.copyHostToDevice( h_masses );
 
     //instantiate a vectors to contain the gravitational forces
-    DeviceArray<float2> d_gravs( num_stars );
+    DeviceArray<float2> d_gravs( nu_stars );
 
-    unsigned int grid_side = (num_stars + BLOCK_SIZE - 1) / BLOCK_SIZE;
+    const unsigned int grid_side = (nu_stars + BLOCK_SIZE - 1) / BLOCK_SIZE;
 
     //get regular pointers to be passed to the kernel
     float* d_pos_x_ptr = d_pos_x.GetPtr();
@@ -139,7 +136,7 @@ void compute_grav(
     //take the positions and compute the partial sums of the forces acting on each star. We need to store partials because
     //we had to tile the matrix of the forces..
     compute_gravs<<< grid_side, BLOCK_SIZE, BLOCK_SIZE*3*sizeof(float) >>>(
-        d_pos_x_ptr, d_pos_y_ptr, d_masses_ptr, d_gravs_ptr, num_stars );
+        d_pos_x_ptr, d_pos_y_ptr, d_masses_ptr, d_gravs_ptr, nu_stars );
     cudaDeviceSynchronize();
 
     //transfer gravs back to host

@@ -7,28 +7,28 @@ CEntityButton::CEntityButton(unsigned int id_,
                              CWorld& world_,
                              std::unique_ptr<IScene> scene_to_switch_to_)
     : CEntity(id_, std::move(moveable_), std::move(drawable_)),
-      mr_world(world_),
-      mp_scene_to_switch_to(std::move(scene_to_switch_to_))
+      _world(world_),
+      _scene_to_switch_to(std::move(scene_to_switch_to_))
 {
 }
 
 void CEntityButton::HandleMouseButtonDown(
-    std::shared_ptr<C2DVector> cursor_position_)
+    std::shared_ptr<C2DVector> /*cursor_position_*/)
 {
 }
 
 void CEntityButton::HandleMouseButtonUp(
-    std::shared_ptr<C2DVector> cursor_position_)
+    std::shared_ptr<C2DVector> /*cursor_position_*/)
 {
-    this->mr_world.ChangeScene(std::move(this->mp_scene_to_switch_to));
+    _world.ChangeScene(std::move(_scene_to_switch_to));
 }
 
 bool CEntityButton::IsHit(const C2DVector& coords_) const
 {
     bool is_hit = false;
-    if (this->mp_moveable)
+    if (_moveable)
     {
-        is_hit = this->mp_moveable->IsHit(coords_);
+        is_hit = _moveable->IsHit(coords_);
     }
     return is_hit;
 }

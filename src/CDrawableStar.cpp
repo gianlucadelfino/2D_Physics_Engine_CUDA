@@ -1,33 +1,28 @@
 #include "SDL.h"
-#include "SDL_gfxPrimitives.h"
+// #include "SDL_gfxPrimitives.h"
 
+#include "C2DVector.h"
 #include "CDrawableStar.h"
-#include "C2Dvector.h"
 #include "IDrawable.h"
+#include <SDL_rect.h>
 
-CDrawableStar::CDrawableStar(SDL_Surface* destination_surf_)
-    : IDrawable(destination_surf_)
-{
-}
+CDrawableStar::CDrawableStar(SDL_Renderer* renderer_) : IDrawable(renderer_) {}
 
 std::unique_ptr<IDrawable> CDrawableStar::DoClone() const
 {
-    CDrawableStar* clone = new CDrawableStar(mp_destination);
-    clone->m_scale = this->m_scale;
-    clone->m_dimensions = this->m_dimensions;
+  std::unique_ptr<CDrawableStar> clone = std::make_unique<CDrawableStar>(_renderer);
+  clone->_scale = _scale;
+  clone->_dimensions = _dimensions;
 
-    return std::unique_ptr<IDrawable>(clone);
+  return clone;
 }
 
-void CDrawableStar::Draw(const C2DVector& pos_,
-                         const C2DVector& /*orientation_*/) const
+void CDrawableStar::Draw(const C2DVector& pos_, const C2DVector& /*orientation_*/) const
 {
-    circleRGBA(this->mp_destination,
-               static_cast<Sint16>(pos_.x),
-               static_cast<Sint16>(pos_.y),
-               static_cast<Sint16>(m_scale * 0.4f),
-               255,
-               255,
-               200,
-               255);
+  const SDL_Rect star{static_cast<int>(pos_.x),
+                      static_cast<int>(pos_.y),
+                      static_cast<int>(_scale * 0.4f),
+                      static_cast<int>(_scale * 0.4f)};
+  SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 255);
+  SDL_RenderFillRect(_renderer, &star);
 }

@@ -1,8 +1,7 @@
-#### THIS PROJECT IS NOT BEING MAINTAINED, I KEEP IT HERE BECAUSE I LIKE THE IDEA THAT'LL FIX IT UP SOME DAY ;)
-
-
-# SIMULINO 2000 (2D Physics Engine CUDA)
+# 2D Physics Engine CUDA
 ======================
+
+## NB: This project is currently being refactored and being modernized
 
 A scalable C++ Physics Engine with CUDA integration.
 
@@ -28,7 +27,7 @@ A scalable C++ Physics Engine with CUDA integration.
 1. Galaxy Simulation
   - click and hold the left mouse button anywhere on screen and a (very massive) star will be temporarily added there.
   - Use the buttons `MORE\LESS STARS` to increase\decrease the number of stars (by 1024 stars for CUDA or 128 on CPU)
-  - Use the button `SWITCH TO CPU\CUDA` to toggle the cpu\CUDA integration 
+  - Use the button `SWITCH TO CPU\CUDA` to toggle the cpu\CUDA integration
     (CUDA integration is available only if an Nvidia device is present)
 
   ![cloth_simulation](/Docs/Simulino_2000_galaxy.gif?raw=true)
@@ -42,8 +41,29 @@ A scalable C++ Physics Engine with CUDA integration.
 
 ## Instructions to compile:
 1. Install CUDA Toolkit (available upon free registration on https://developer.nvidia.com/cuda-toolkit).
-1. Clone repository.
-1. Open "2D_Phys_Engine_CUDA.vcxproj" with Visual Studio 2012.
+2. Install Conan Package Manager
+
+```
+    pip install conan
+```
+
+3. Build with cmake
+
+```
+    mkdir build
+    cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release
+    cmake --build . --parallel
+```
+
+Then the program can be launched from the "app" directory
+
+```
+    cd build
+    ./app/engine
+```
+
+
 
 ## Class Diagram (editable version in `Docs\` folder)
 - (click to magnify)
