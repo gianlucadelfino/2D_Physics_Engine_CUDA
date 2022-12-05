@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('classes.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
@@ -111,14 +111,14 @@ $(document).ready(function(){initNavTree('classes.html','');});
 <div class="qindex"><a class="qindex" href="#letter_C">C</a>&#160;|&#160;<a class="qindex" href="#letter_I">I</a></div>
 <table style="margin: 10px; white-space: nowrap;" align="center" width="95%" border="0" cellspacing="0" cellpadding="0">
 <tr><td rowspan="2" valign="bottom"><a name="letter_C"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;C&#160;&#160;</div></td></tr></table>
-</td><td valign="top"><a class="el" href="class_c_drawable_star.html">CDrawableStar</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_font.html">CFont</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_scene_galaxy.html">CSceneGalaxy</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_i_moveable.html">IMoveable</a>&#160;&#160;&#160;</td></tr>
-<tr><td valign="top"><a class="el" href="class_c_entity.html">CEntity</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_moveable_button.html">CMoveableButton</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_scene_main_menu.html">CSceneMainMenu</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_i_scene.html">IScene</a>&#160;&#160;&#160;</td></tr>
-<tr><td valign="top"><a class="el" href="class_c2_d_vector.html">C2DVector</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_entity_button.html">CEntityButton</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_moveable_particle.html">CMoveableParticle</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_surface.html">CSurface</a>&#160;&#160;&#160;</td><td></td></tr>
-<tr><td valign="top"><a class="el" href="class_c_drawable_button.html">CDrawableButton</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_entity_cloth.html">CEntityCloth</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_physics.html">CPhysics</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_world.html">CWorld</a>&#160;&#160;&#160;</td><td></td></tr>
-<tr><td valign="top"><a class="el" href="class_c_drawable_image.html">CDrawableImage</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_entity_galaxy.html">CEntityGalaxy</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_random.html">CRandom</a>&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_I"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;I&#160;&#160;</div></td></tr></table>
+</td><td valign="top"><a class="el" href="class_c_drawable_star.html">drawable_star</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_font.html">font_handler</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_scene_galaxy.html">scene_galaxy</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_i_moveable.html">moveable_base</a>&#160;&#160;&#160;</td></tr>
+<tr><td valign="top"><a class="el" href="class_c_entity.html">entity_base</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_moveable_button.html">moveable_button</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_scene_main_menu.html">scene_main_menu</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_i_scene.html">scene_base</a>&#160;&#160;&#160;</td></tr>
+<tr><td valign="top"><a class="el" href="class_c2_d_vector.html">vec2</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_entity_button.html">entity_button</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_moveable_particle.html">moveable_particle</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_surface.html">surface_handler</a>&#160;&#160;&#160;</td><td></td></tr>
+<tr><td valign="top"><a class="el" href="class_c_drawable_button.html">drawable_button</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_entity_cloth.html">entity_cloth</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_physics.html">physics_base</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_world.html">world_manager</a>&#160;&#160;&#160;</td><td></td></tr>
+<tr><td valign="top"><a class="el" href="class_c_drawable_image.html">CDrawableImage</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_entity_galaxy.html">entity_galaxy</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_random.html">random_generator</a>&#160;&#160;&#160;</td><td rowspan="2" valign="bottom"><a name="letter_I"></a><table border="0" cellspacing="0" cellpadding="0"><tr><td><div class="ah">&#160;&#160;I&#160;&#160;</div></td></tr></table>
 </td><td></td></tr>
-<tr><td valign="top"><a class="el" href="class_c_drawable_link.html">CDrawableLink</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_entity_particle.html">CEntityParticle</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_scene_cloth.html">CSceneCloth</a>&#160;&#160;&#160;</td><td></td></tr>
-<tr><td></td><td></td><td></td><td valign="top"><a class="el" href="class_i_drawable.html">IDrawable</a>&#160;&#160;&#160;</td><td></td></tr>
+<tr><td valign="top"><a class="el" href="class_c_drawable_link.html">drawable_link</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_entity_particle.html">entity_particle</a>&#160;&#160;&#160;</td><td valign="top"><a class="el" href="class_c_scene_cloth.html">scene_cloth</a>&#160;&#160;&#160;</td><td></td></tr>
+<tr><td></td><td></td><td></td><td valign="top"><a class="el" href="class_i_drawable.html">drawable_base</a>&#160;&#160;&#160;</td><td></td></tr>
 <tr><td></td><td></td><td></td><td></td><td></td></tr>
 </table>
 <div class="qindex"><a class="qindex" href="#letter_C">C</a>&#160;|&#160;<a class="qindex" href="#letter_I">I</a></div>

@@ -1,5 +1,5 @@
-#include "CWorld.h"
 #include "SDL.h"
+#include "world_manager.h"
 #include <SDL_video.h>
 #include <iostream>
 #include <memory>
@@ -46,7 +46,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
     exit(EXIT_FAILURE);
   }
   // instantiate World
-  CWorld world(renderer.get());
+  world_manager world(renderer.get());
 
   bool quit = false;
   SDL_Event event{};
@@ -74,19 +74,19 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
       // event handling
       while (SDL_PollEvent(&event))
       {
-        world.HandleEvent(event);
+        world.handle_event(event);
         if (event.type == SDL_QUIT)
           quit = true;
       }
       // update World (constant in front of time is arbitrary to set
       // "distances")
-      world.Update(static_cast<float>(MS_PER_UPDATE) * 0.01f);
+      world.update(static_cast<float>(MS_PER_UPDATE) * 0.01f);
 
       lag -= MS_PER_UPDATE;
     }
 
     // draw world
-    world.Draw();
+    world.draw();
 
     // update Screen
     SDL_RenderPresent(renderer.get());

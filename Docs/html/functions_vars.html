@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -89,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
@@ -114,67 +114,67 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <div class="contents">
 &#160;<ul>
 <li>m_background_color
-: <a class="el" href="class_i_scene.html#ab1d70760a22020b3ba1ba64efb8f3afd">IScene</a>
+: <a class="el" href="class_i_scene.html#ab1d70760a22020b3ba1ba64efb8f3afd">scene_base</a>
 </li>
 <li>m_constraint
-: <a class="el" href="class_i_moveable.html#a4ea085f33430ead929bca5bb6783afd3">IMoveable</a>
+: <a class="el" href="class_i_moveable.html#a4ea085f33430ead929bca5bb6783afd3">moveable_base</a>
 </li>
 <li>m_dimensions
-: <a class="el" href="class_i_drawable.html#ae684dcc67f26a697e214b42371658ab0">IDrawable</a>
+: <a class="el" href="class_i_drawable.html#ae684dcc67f26a697e214b42371658ab0">drawable_base</a>
 </li>
 <li>m_entities
-: <a class="el" href="class_i_scene.html#a30cdcc054494030c0c5382b19ff9b748">IScene</a>
+: <a class="el" href="class_i_scene.html#a30cdcc054494030c0c5382b19ff9b748">scene_base</a>
 </li>
 <li>m_gravity_acc
-: <a class="el" href="class_c_physics.html#a4213a342474a1e3de0aca10358d1ab1a">CPhysics</a>
+: <a class="el" href="class_c_physics.html#a4213a342474a1e3de0aca10358d1ab1a">physics_base</a>
 </li>
 <li>m_id
-: <a class="el" href="class_c_entity.html#a9c11358eeaddd5637ba6f0193db1b90c">CEntity</a>
+: <a class="el" href="class_c_entity.html#a9c11358eeaddd5637ba6f0193db1b90c">entity_base</a>
 </li>
 <li>m_inverseMass
-: <a class="el" href="class_c_physics.html#a1744f3a0241b2069fd819f66ec269092">CPhysics</a>
+: <a class="el" href="class_c_physics.html#a1744f3a0241b2069fd819f66ec269092">physics_base</a>
 </li>
 <li>m_mass
-: <a class="el" href="class_c_physics.html#aa91e91fbea96fdfd7b9f297ae2e43448">CPhysics</a>
+: <a class="el" href="class_c_physics.html#aa91e91fbea96fdfd7b9f297ae2e43448">physics_base</a>
 </li>
 <li>m_mouse_coords
-: <a class="el" href="class_i_scene.html#ae2a9b4d42cb62d12d32ec1cd9e165430">IScene</a>
+: <a class="el" href="class_i_scene.html#ae2a9b4d42cb62d12d32ec1cd9e165430">scene_base</a>
 </li>
 <li>m_scale
-: <a class="el" href="class_i_drawable.html#a278d0394daf07d1d8d19df632186d2b7">IDrawable</a>
+: <a class="el" href="class_i_drawable.html#a278d0394daf07d1d8d19df632186d2b7">drawable_base</a>
 </li>
 <li>m_UI_elements
-: <a class="el" href="class_i_scene.html#ab38b142ce56c46b73dec73872b46f809">IScene</a>
+: <a class="el" href="class_i_scene.html#ab38b142ce56c46b73dec73872b46f809">scene_base</a>
 </li>
 <li>mp_destination
-: <a class="el" href="class_i_drawable.html#a7c7a03a2dd5c2f5f8dda000a98c312b7">IDrawable</a>
+: <a class="el" href="class_i_drawable.html#a7c7a03a2dd5c2f5f8dda000a98c312b7">drawable_base</a>
 </li>
 <li>mp_drawable
-: <a class="el" href="class_c_entity.html#a2f268ee9a72b0fe48edb8e2888277e72">CEntity</a>
+: <a class="el" href="class_c_entity.html#a2f268ee9a72b0fe48edb8e2888277e72">entity_base</a>
 </li>
 <li>mp_moveable
-: <a class="el" href="class_c_entity.html#aa77531416353e4541a1b2db50fdc4b4f">CEntity</a>
+: <a class="el" href="class_c_entity.html#aa77531416353e4541a1b2db50fdc4b4f">entity_base</a>
 </li>
 <li>mp_screen
-: <a class="el" href="class_i_scene.html#a54a4e1f6b851925d51eca37de12e89ab">IScene</a>
+: <a class="el" href="class_i_scene.html#a54a4e1f6b851925d51eca37de12e89ab">scene_base</a>
 </li>
 <li>mr_world
-: <a class="el" href="class_i_scene.html#a5bbb646bd3d687c9e9f3c8ac279c49ee">IScene</a>
+: <a class="el" href="class_i_scene.html#a5bbb646bd3d687c9e9f3c8ac279c49ee">scene_base</a>
 </li>
 <li>old_pos
-: <a class="el" href="class_i_moveable.html#affa28a79a914c7df7c23078f6b7518f5">IMoveable</a>
+: <a class="el" href="class_i_moveable.html#affa28a79a914c7df7c23078f6b7518f5">moveable_base</a>
 </li>
 <li>orientation
-: <a class="el" href="class_i_moveable.html#a8733e83126c06e0c4d47302b1db0f61d">IMoveable</a>
+: <a class="el" href="class_i_moveable.html#a8733e83126c06e0c4d47302b1db0f61d">moveable_base</a>
 </li>
 <li>pos
-: <a class="el" href="class_i_moveable.html#aeba5c894a071818a528dbeade26f727d">IMoveable</a>
+: <a class="el" href="class_i_moveable.html#aeba5c894a071818a528dbeade26f727d">moveable_base</a>
 </li>
 <li>x
-: <a class="el" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">C2DVector</a>
+: <a class="el" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">vec2</a>
 </li>
 <li>y
-: <a class="el" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">C2DVector</a>
+: <a class="el" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">vec2</a>
 </li>
 </ul>
 </div><!-- contents -->

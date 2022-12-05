@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -98,35 +98,35 @@ $(document).ready(function(){initNavTree('class_c_entity_galaxy.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CEntityGalaxy Member List</div>  </div>
+<div class="title">entity_galaxy Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="class_c_entity_galaxy.html">CEntityGalaxy</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="class_c_entity_galaxy.html">entity_galaxy</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#afad5bdba8a17ebb2cde0e5f9845bf2d0">CEntity</a>(unsigned int id_, std::unique_ptr&lt; IMoveable &gt; moveable_, std::unique_ptr&lt; IDrawable &gt; drawable_)</td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity.html#af57f7c90e989fce855a9620a829fcd02">CEntity</a>(const CEntity &amp;other_)</td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity_galaxy.html#ac2f0bfd94cd7214c9a213155ff3ffdf2">CEntityGalaxy</a>(unsigned int id_, const C2DVector &amp;initial_pos_, const CEntityParticle &amp;star_, unsigned int star_number_, float max_dist_, bool use_CUDA_)</td><td class="entry"><a class="el" href="class_c_entity_galaxy.html">CEntityGalaxy</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity_galaxy.html#a15381d62cbd4f96187732b4b588884b4">Draw</a>() const </td><td class="entry"><a class="el" href="class_c_entity_galaxy.html">CEntityGalaxy</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a6f116b326955cf2ffc727e4cfd6022af">GetId</a>() const </td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity_galaxy.html#adac96a7ca3bc65e2944ed0cab54964d7">HandleMouseButtonDown</a>(std::shared_ptr&lt; C2DVector &gt; coords_)</td><td class="entry"><a class="el" href="class_c_entity_galaxy.html">CEntityGalaxy</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity_galaxy.html#a0022b7993b76df5ee1c0f31fbc9fe373">HandleMouseButtonUp</a>(std::shared_ptr&lt; C2DVector &gt; coords_)</td><td class="entry"><a class="el" href="class_c_entity_galaxy.html">CEntityGalaxy</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity.html#a7e4f3894d85677f83016bdc2755b12a2">IsHit</a>(const C2DVector &amp;coords_) const </td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a9c11358eeaddd5637ba6f0193db1b90c">m_id</a></td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity.html#a2f268ee9a72b0fe48edb8e2888277e72">mp_drawable</a></td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#aa77531416353e4541a1b2db50fdc4b4f">mp_moveable</a></td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity.html#a9c53734e50ebc523a3075c415e8528b3">CEntity::operator=</a>(const CEntity &amp;rhs)</td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a3c539337a7c232de857e0157743e6e48">SetId</a>(unsigned int id_)</td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity_galaxy.html#a7c4ed0a13e4bb840c284c1a119807b56">SetUseCUDA</a>(bool use_CUDA_)</td><td class="entry"><a class="el" href="class_c_entity_galaxy.html">CEntityGalaxy</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity_galaxy.html#afe764d4ed88763e57311882e4ea8a27d">Update</a>(const C2DVector &amp;external_force_, float dt)</td><td class="entry"><a class="el" href="class_c_entity_galaxy.html">CEntityGalaxy</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity.html#a11b9405b57ca1b32d270c6a661c11683">~CEntity</a>()</td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#afad5bdba8a17ebb2cde0e5f9845bf2d0">entity_base</a>(unsigned int id_, std::unique_ptr&lt; moveable_base &gt; moveable_, std::unique_ptr&lt; drawable_base &gt; drawable_)</td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity.html#af57f7c90e989fce855a9620a829fcd02">entity_base</a>(const entity_base &amp;other_)</td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity_galaxy.html#ac2f0bfd94cd7214c9a213155ff3ffdf2">entity_galaxy</a>(unsigned int id_, const vec2 &amp;initial_pos_, const entity_particle &amp;star_, unsigned int star_number_, float max_dist_, bool use_CUDA_)</td><td class="entry"><a class="el" href="class_c_entity_galaxy.html">entity_galaxy</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity_galaxy.html#a15381d62cbd4f96187732b4b588884b4">draw</a>() const </td><td class="entry"><a class="el" href="class_c_entity_galaxy.html">entity_galaxy</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a6f116b326955cf2ffc727e4cfd6022af">GetId</a>() const </td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity_galaxy.html#adac96a7ca3bc65e2944ed0cab54964d7">handle_mouse_buttondown</a>(std::shared_ptr&lt; vec2 &gt; coords_)</td><td class="entry"><a class="el" href="class_c_entity_galaxy.html">entity_galaxy</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity_galaxy.html#a0022b7993b76df5ee1c0f31fbc9fe373">handle_mouse_buttonup</a>(std::shared_ptr&lt; vec2 &gt; coords_)</td><td class="entry"><a class="el" href="class_c_entity_galaxy.html">entity_galaxy</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity.html#a7e4f3894d85677f83016bdc2755b12a2">is_hit</a>(const vec2 &amp;coords_) const </td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a9c11358eeaddd5637ba6f0193db1b90c">m_id</a></td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity.html#a2f268ee9a72b0fe48edb8e2888277e72">mp_drawable</a></td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#aa77531416353e4541a1b2db50fdc4b4f">mp_moveable</a></td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity.html#a9c53734e50ebc523a3075c415e8528b3">entity_base::operator=</a>(const entity_base &amp;rhs)</td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a3c539337a7c232de857e0157743e6e48">SetId</a>(unsigned int id_)</td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity_galaxy.html#a7c4ed0a13e4bb840c284c1a119807b56">set_use_cuda</a>(bool use_CUDA_)</td><td class="entry"><a class="el" href="class_c_entity_galaxy.html">entity_galaxy</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity_galaxy.html#afe764d4ed88763e57311882e4ea8a27d">update</a>(const vec2 &amp;external_force_, float dt)</td><td class="entry"><a class="el" href="class_c_entity_galaxy.html">entity_galaxy</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity.html#a11b9405b57ca1b32d270c6a661c11683">~entity_base</a>()</td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

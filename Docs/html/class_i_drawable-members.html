@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -98,30 +98,30 @@ $(document).ready(function(){initNavTree('class_i_drawable.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
 
 <div class="header">
   <div class="headertitle">
-<div class="title">IDrawable Member List</div>  </div>
+<div class="title">drawable_base Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="class_i_drawable.html">IDrawable</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="class_i_drawable.html">drawable_base</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_i_drawable.html#a0ae9672412f42985f0008472e9239671">Clone</a>() const =0</td><td class="entry"><a class="el" href="class_i_drawable.html">IDrawable</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_drawable.html#a2acec7f9bc527264bf6f1116687db30f">Draw</a>(const C2DVector &amp;position_, const C2DVector &amp;orientation_) const =0</td><td class="entry"><a class="el" href="class_i_drawable.html">IDrawable</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_drawable.html#aeaeef2cdc953f715f66a7ecac193c826">IDrawable</a>(SDL_Surface *destination_surf_)</td><td class="entry"><a class="el" href="class_i_drawable.html">IDrawable</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_drawable.html#a1a27e43100d5e8e9e036127bf777ca7b">IDrawable</a>(const IDrawable &amp;other_)</td><td class="entry"><a class="el" href="class_i_drawable.html">IDrawable</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_drawable.html#ae684dcc67f26a697e214b42371658ab0">m_dimensions</a></td><td class="entry"><a class="el" href="class_i_drawable.html">IDrawable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_drawable.html#a278d0394daf07d1d8d19df632186d2b7">m_scale</a></td><td class="entry"><a class="el" href="class_i_drawable.html">IDrawable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_drawable.html#a7c7a03a2dd5c2f5f8dda000a98c312b7">mp_destination</a></td><td class="entry"><a class="el" href="class_i_drawable.html">IDrawable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_drawable.html#a25c60b9d9bdb8c41f3b4f98c2a20bb35">operator=</a>(const IDrawable &amp;other_)</td><td class="entry"><a class="el" href="class_i_drawable.html">IDrawable</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_drawable.html#ac7ece2e09bb5f8cbcc1a98d511772123">SetScale</a>(float scale_)</td><td class="entry"><a class="el" href="class_i_drawable.html">IDrawable</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_drawable.html#ac6f9b8e2b89d8c845c79d40b4f53852d">SetSize</a>(const C2DVector &amp;_dimensions)</td><td class="entry"><a class="el" href="class_i_drawable.html">IDrawable</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_drawable.html#a1f05b1ab962f708c43f514f07c839e64">~IDrawable</a>()</td><td class="entry"><a class="el" href="class_i_drawable.html">IDrawable</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_drawable.html#a0ae9672412f42985f0008472e9239671">clone</a>() const =0</td><td class="entry"><a class="el" href="class_i_drawable.html">drawable_base</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_drawable.html#a2acec7f9bc527264bf6f1116687db30f">draw</a>(const vec2 &amp;position_, const vec2 &amp;orientation_) const =0</td><td class="entry"><a class="el" href="class_i_drawable.html">drawable_base</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_drawable.html#aeaeef2cdc953f715f66a7ecac193c826">drawable_base</a>(SDL_Surface *destination_surf_)</td><td class="entry"><a class="el" href="class_i_drawable.html">drawable_base</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_drawable.html#a1a27e43100d5e8e9e036127bf777ca7b">drawable_base</a>(const drawable_base &amp;other_)</td><td class="entry"><a class="el" href="class_i_drawable.html">drawable_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_drawable.html#ae684dcc67f26a697e214b42371658ab0">m_dimensions</a></td><td class="entry"><a class="el" href="class_i_drawable.html">drawable_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_drawable.html#a278d0394daf07d1d8d19df632186d2b7">m_scale</a></td><td class="entry"><a class="el" href="class_i_drawable.html">drawable_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_drawable.html#a7c7a03a2dd5c2f5f8dda000a98c312b7">mp_destination</a></td><td class="entry"><a class="el" href="class_i_drawable.html">drawable_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_drawable.html#a25c60b9d9bdb8c41f3b4f98c2a20bb35">operator=</a>(const drawable_base &amp;other_)</td><td class="entry"><a class="el" href="class_i_drawable.html">drawable_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_drawable.html#ac7ece2e09bb5f8cbcc1a98d511772123">set_scale</a>(float scale_)</td><td class="entry"><a class="el" href="class_i_drawable.html">drawable_base</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_drawable.html#ac6f9b8e2b89d8c845c79d40b4f53852d">set_size</a>(const vec2 &amp;_dimensions)</td><td class="entry"><a class="el" href="class_i_drawable.html">drawable_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_drawable.html#a1f05b1ab962f708c43f514f07c839e64">~drawable_base</a>()</td><td class="entry"><a class="el" href="class_i_drawable.html">drawable_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

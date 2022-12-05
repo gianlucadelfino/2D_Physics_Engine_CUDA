@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -98,34 +98,34 @@ $(document).ready(function(){initNavTree('class_c_entity_button.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CEntityButton Member List</div>  </div>
+<div class="title">entity_button Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="class_c_entity_button.html">CEntityButton</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="class_c_entity_button.html">entity_button</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#afad5bdba8a17ebb2cde0e5f9845bf2d0">CEntity</a>(unsigned int id_, std::unique_ptr&lt; IMoveable &gt; moveable_, std::unique_ptr&lt; IDrawable &gt; drawable_)</td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity.html#af57f7c90e989fce855a9620a829fcd02">CEntity</a>(const CEntity &amp;other_)</td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity_button.html#adee37e408b23970496a4b918b14ed0dc">CEntityButton</a>(unsigned int id_, std::unique_ptr&lt; IMoveable &gt; moveable_, std::unique_ptr&lt; IDrawable &gt; drawable_, CWorld &amp;world_, std::unique_ptr&lt; IScene &gt; scene_to_switch_to_)</td><td class="entry"><a class="el" href="class_c_entity_button.html">CEntityButton</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity.html#a816178dbe4506e4721ed93b4c9c54406">Draw</a>() const </td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a6f116b326955cf2ffc727e4cfd6022af">GetId</a>() const </td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity_button.html#ac7ac8652a6e965a0f96f4a52195004b7">HandleMouseButtonDown</a>(std::shared_ptr&lt; C2DVector &gt; cursor_position_)</td><td class="entry"><a class="el" href="class_c_entity_button.html">CEntityButton</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity_button.html#aef45f3615f7cd71f8fda70cade17d11a">HandleMouseButtonUp</a>(std::shared_ptr&lt; C2DVector &gt; cursor_position_)</td><td class="entry"><a class="el" href="class_c_entity_button.html">CEntityButton</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity_button.html#aa8c285fa257463b7bec356a3ce987789">IsHit</a>(const C2DVector &amp;coords_) const </td><td class="entry"><a class="el" href="class_c_entity_button.html">CEntityButton</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a9c11358eeaddd5637ba6f0193db1b90c">m_id</a></td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity.html#a2f268ee9a72b0fe48edb8e2888277e72">mp_drawable</a></td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#aa77531416353e4541a1b2db50fdc4b4f">mp_moveable</a></td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity.html#a9c53734e50ebc523a3075c415e8528b3">operator=</a>(const CEntity &amp;rhs)</td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a3c539337a7c232de857e0157743e6e48">SetId</a>(unsigned int id_)</td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_entity.html#a463fcec293dfdb51b11c3bdae14e0a7a">Update</a>(const C2DVector &amp;external_force_, float dt)</td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a11b9405b57ca1b32d270c6a661c11683">~CEntity</a>()</td><td class="entry"><a class="el" href="class_c_entity.html">CEntity</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#afad5bdba8a17ebb2cde0e5f9845bf2d0">entity_base</a>(unsigned int id_, std::unique_ptr&lt; moveable_base &gt; moveable_, std::unique_ptr&lt; drawable_base &gt; drawable_)</td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity.html#af57f7c90e989fce855a9620a829fcd02">entity_base</a>(const entity_base &amp;other_)</td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity_button.html#adee37e408b23970496a4b918b14ed0dc">entity_button</a>(unsigned int id_, std::unique_ptr&lt; moveable_base &gt; moveable_, std::unique_ptr&lt; drawable_base &gt; drawable_, world_manager &amp;world_, std::unique_ptr&lt; scene_base &gt; scene_to_switch_to_)</td><td class="entry"><a class="el" href="class_c_entity_button.html">entity_button</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity.html#a816178dbe4506e4721ed93b4c9c54406">draw</a>() const </td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a6f116b326955cf2ffc727e4cfd6022af">GetId</a>() const </td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity_button.html#ac7ac8652a6e965a0f96f4a52195004b7">handle_mouse_buttondown</a>(std::shared_ptr&lt; vec2 &gt; cursor_position_)</td><td class="entry"><a class="el" href="class_c_entity_button.html">entity_button</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity_button.html#aef45f3615f7cd71f8fda70cade17d11a">handle_mouse_buttonup</a>(std::shared_ptr&lt; vec2 &gt; cursor_position_)</td><td class="entry"><a class="el" href="class_c_entity_button.html">entity_button</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity_button.html#aa8c285fa257463b7bec356a3ce987789">is_hit</a>(const vec2 &amp;coords_) const </td><td class="entry"><a class="el" href="class_c_entity_button.html">entity_button</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a9c11358eeaddd5637ba6f0193db1b90c">m_id</a></td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity.html#a2f268ee9a72b0fe48edb8e2888277e72">mp_drawable</a></td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#aa77531416353e4541a1b2db50fdc4b4f">mp_moveable</a></td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity.html#a9c53734e50ebc523a3075c415e8528b3">operator=</a>(const entity_base &amp;rhs)</td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a3c539337a7c232de857e0157743e6e48">SetId</a>(unsigned int id_)</td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_entity.html#a463fcec293dfdb51b11c3bdae14e0a7a">update</a>(const vec2 &amp;external_force_, float dt)</td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_entity.html#a11b9405b57ca1b32d270c6a661c11683">~entity_base</a>()</td><td class="entry"><a class="el" href="class_c_entity.html">entity_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

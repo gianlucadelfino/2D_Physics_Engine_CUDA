@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -79,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('_c_drawable_image_8h_source.html','');
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
@@ -108,43 +108,43 @@ $(document).ready(function(){initNavTree('_c_drawable_image_8h_source.html','');
 <div class="contents">
 <a href="_c_drawable_image_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CDRAWABLEIMAGE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CDRAWABLEIMAGE_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_i_drawable_8h.html">IDrawable.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_i_drawable_8h.html">drawable_base.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="code" href="class_c_drawable_image.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_drawable_image.html">CDrawableImage</a>: <span class="keyword">public</span> <a class="code" href="class_i_drawable.html">IDrawable</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="code" href="class_c_drawable_image.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_drawable_image.html">CDrawableImage</a>: <span class="keyword">public</span> <a class="code" href="class_i_drawable.html">drawable_base</a></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="code" href="class_c_drawable_image.html#a467920f80084539200f7e1ac3156abc1">    8</a></span>&#160;    <a class="code" href="class_c_drawable_image.html#a467920f80084539200f7e1ac3156abc1">CDrawableImage</a>( <a class="code" href="class_c_surface.html">CSurface</a>* surf_to_blit_, SDL_Surface* destination_surf_ ):</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <a class="code" href="class_i_drawable.html">IDrawable</a>( destination_surf_ ),</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="code" href="class_c_drawable_image.html#a467920f80084539200f7e1ac3156abc1">    8</a></span>&#160;    <a class="code" href="class_c_drawable_image.html#a467920f80084539200f7e1ac3156abc1">CDrawableImage</a>( <a class="code" href="class_c_surface.html">surface_handler</a>* surf_to_blit_, SDL_Surface* destination_surf_ ):</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <a class="code" href="class_i_drawable.html">drawable_base</a>( destination_surf_ ),</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        mp_surface( surf_to_blit_ )</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {}</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="class_c_drawable_image.html#a5adbc6b92f5e474a067e29d059b48092">   13</a></span>&#160;    <a class="code" href="class_c_drawable_image.html#a5adbc6b92f5e474a067e29d059b48092">CDrawableImage</a>( <span class="keyword">const</span> <a class="code" href="class_c_drawable_image.html">CDrawableImage</a>&amp; other_ ):</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="class_i_drawable.html">IDrawable</a>( other_.<a class="code" href="class_i_drawable.html#a7c7a03a2dd5c2f5f8dda000a98c312b7">mp_destination</a> ),</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="class_i_drawable.html">drawable_base</a>( other_.<a class="code" href="class_i_drawable.html#a7c7a03a2dd5c2f5f8dda000a98c312b7">mp_destination</a> ),</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        mp_surface( other_.mp_surface )</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="class_c_drawable_image.html#a87db6f34a5502c2b2e57e6f077f3ebad">   18</a></span>&#160;    <span class="keyword">virtual</span> std::unique_ptr&lt; IDrawable &gt; <a class="code" href="class_c_drawable_image.html#a87db6f34a5502c2b2e57e6f077f3ebad">Clone</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="class_c_drawable_image.html#a87db6f34a5502c2b2e57e6f077f3ebad">   18</a></span>&#160;    <span class="keyword">virtual</span> std::unique_ptr&lt; drawable_base &gt; <a class="code" href="class_c_drawable_image.html#a87db6f34a5502c2b2e57e6f077f3ebad">clone</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="class_c_drawable_image.html">CDrawableImage</a>* clone = <span class="keyword">new</span> <a class="code" href="class_c_drawable_image.html#a467920f80084539200f7e1ac3156abc1">CDrawableImage</a>( mp_surface, <a class="code" href="class_i_drawable.html#a7c7a03a2dd5c2f5f8dda000a98c312b7">mp_destination</a> );</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        clone-&gt;<a class="code" href="class_i_drawable.html#a278d0394daf07d1d8d19df632186d2b7">m_scale</a> = this-&gt;<a class="code" href="class_i_drawable.html#a278d0394daf07d1d8d19df632186d2b7">m_scale</a>;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        clone-&gt;<a class="code" href="class_i_drawable.html#ae684dcc67f26a697e214b42371658ab0">m_dimensions</a> = this-&gt;<a class="code" href="class_i_drawable.html#ae684dcc67f26a697e214b42371658ab0">m_dimensions</a>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> std::unique_ptr&lt;IDrawable&gt;(clone);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> std::unique_ptr&lt;drawable_base&gt;(clone);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="class_c_drawable_image.html#a5a511dbeaa9fe53383cde9cbc327ad08">   27</a></span>&#160;    <a class="code" href="class_c_drawable_image.html">CDrawableImage</a>&amp; <a class="code" href="class_c_drawable_image.html#a5a511dbeaa9fe53383cde9cbc327ad08">operator=</a>( <span class="keyword">const</span> <a class="code" href="class_c_drawable_image.html">CDrawableImage</a>&amp; rhs )</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">if</span>( <span class="keyword">this</span> != &amp;rhs)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="class_i_drawable.html#a25c60b9d9bdb8c41f3b4f98c2a20bb35">IDrawable::operator=</a>( rhs );</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="class_i_drawable.html#a25c60b9d9bdb8c41f3b4f98c2a20bb35">drawable_base::operator=</a>( rhs );</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            this-&gt;mp_surface = rhs.mp_surface;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="class_c_drawable_image.html#a49375b3fb0d1789d4758f117f10cfee3">   37</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_drawable_image.html#a49375b3fb0d1789d4758f117f10cfee3">Draw</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; pos, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; orientation_ )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="class_c_drawable_image.html#a49375b3fb0d1789d4758f117f10cfee3">   37</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_drawable_image.html#a49375b3fb0d1789d4758f117f10cfee3">draw</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; pos, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; orientation_ )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        this-&gt;mp_surface-&gt;<a class="code" href="class_c_surface.html#a4231dc04dddfba3016bc0512fabe23fd">ApplySurface</a>( static_cast&lt;int&gt;(pos.<a class="code" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">x</a>), static_cast&lt;int&gt;(pos.<a class="code" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">y</a>), this-&gt;mp_destination );</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        this-&gt;mp_surface-&gt;<a class="code" href="class_c_surface.html#a4231dc04dddfba3016bc0512fabe23fd">apply_surface</a>( static_cast&lt;int&gt;(pos.<a class="code" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">x</a>), static_cast&lt;int&gt;(pos.<a class="code" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">y</a>), this-&gt;mp_destination );</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="class_c_drawable_image.html#ac2e62a8fefc90bc375cf26d9a284056e">   42</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_c_drawable_image.html#ac2e62a8fefc90bc375cf26d9a284056e">~CDrawableImage</a>()</div>
@@ -154,7 +154,7 @@ $(document).ready(function(){initNavTree('_c_drawable_image_8h_source.html','');
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_c_surface.html">CSurface</a>* mp_surface;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_c_surface.html">surface_handler</a>* mp_surface;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>

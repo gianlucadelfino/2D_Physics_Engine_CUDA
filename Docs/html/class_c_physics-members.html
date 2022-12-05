@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -98,34 +98,34 @@ $(document).ready(function(){initNavTree('class_c_physics.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CPhysics Member List</div>  </div>
+<div class="title">physics_base Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="class_c_physics.html">CPhysics</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="class_c_physics.html">physics_base</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#aa6455610ea8e143389eb039d4620b1fd">Clone</a>() const </td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_physics.html#a900c26a6d4ef986dfa88812d46ff4f29">CPhysics</a>(float mass_)</td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#af66e736ebe23e2cf04445612ab9cf2b1">CPhysics</a>(float mass_, const C2DVector &amp;gravity_accel_)</td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_physics.html#a19f3044b27b75b908351a534d8ca6bd8">CPhysics</a>(const CPhysics &amp;other_)</td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#ac797f5c8fc07776e65efbd6707b199e1">GetForce</a>(const C2DVector &amp;pos) const </td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_physics.html#a987437d5e09b1af1192c56837b1852c0">GetMass</a>() const </td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#aac5e9cc32526aa2dafc30585d0d232f6">Integrate</a>(C2DVector &amp;pos, C2DVector &amp;old_pos, const C2DVector &amp;external_force_, float dt)</td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_physics.html#a4213a342474a1e3de0aca10358d1ab1a">m_gravity_acc</a></td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#a1744f3a0241b2069fd819f66ec269092">m_inverseMass</a></td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_physics.html#aa91e91fbea96fdfd7b9f297ae2e43448">m_mass</a></td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#a957cfb1d7f4cd452e48d98c4b80b1b17">operator=</a>(const CPhysics &amp;other_)</td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_physics.html#a163688fcc790cfa5a0e52195061d02f1">SetGravity</a>(const C2DVector &amp;_grav)</td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#ade7aad72ead3faf070698fe2ab2a9e1a">SetMass</a>(float mass_)</td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_physics.html#a40568042121f9f0b9cc180a45a3f0f9b">Update</a>(const C2DVector &amp;external_force_, std::unique_ptr&lt; IMoveable &gt; &amp;moveable_, float dt)</td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#acbfde92ab8af436a734756fdb9c469ab">~CPhysics</a>()</td><td class="entry"><a class="el" href="class_c_physics.html">CPhysics</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#aa6455610ea8e143389eb039d4620b1fd">clone</a>() const </td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_physics.html#a900c26a6d4ef986dfa88812d46ff4f29">physics_base</a>(float mass_)</td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#af66e736ebe23e2cf04445612ab9cf2b1">physics_base</a>(float mass_, const vec2 &amp;gravity_accel_)</td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_physics.html#a19f3044b27b75b908351a534d8ca6bd8">physics_base</a>(const physics_base &amp;other_)</td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#ac797f5c8fc07776e65efbd6707b199e1">get_force</a>(const vec2 &amp;pos) const </td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_physics.html#a987437d5e09b1af1192c56837b1852c0">get_mass</a>() const </td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#aac5e9cc32526aa2dafc30585d0d232f6">integrate</a>(vec2 &amp;pos, vec2 &amp;old_pos, const vec2 &amp;external_force_, float dt)</td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_physics.html#a4213a342474a1e3de0aca10358d1ab1a">m_gravity_acc</a></td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#a1744f3a0241b2069fd819f66ec269092">m_inverseMass</a></td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_physics.html#aa91e91fbea96fdfd7b9f297ae2e43448">m_mass</a></td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#a957cfb1d7f4cd452e48d98c4b80b1b17">operator=</a>(const physics_base &amp;other_)</td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_physics.html#a163688fcc790cfa5a0e52195061d02f1">set_gravity</a>(const vec2 &amp;_grav)</td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#ade7aad72ead3faf070698fe2ab2a9e1a">set_mass</a>(float mass_)</td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_physics.html#a40568042121f9f0b9cc180a45a3f0f9b">update</a>(const vec2 &amp;external_force_, std::unique_ptr&lt; moveable_base &gt; &amp;moveable_, float dt)</td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_physics.html#acbfde92ab8af436a734756fdb9c469ab">~physics_base</a>()</td><td class="entry"><a class="el" href="class_c_physics.html">physics_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

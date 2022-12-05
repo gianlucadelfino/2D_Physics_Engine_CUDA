@@ -1,6 +1,6 @@
 #include "cuda_runtime.h"
 #include "device_launch_parameters.h"
-#include "DeviceArray.cuh"
+#include "device_array.cuh"
 
 #include <cassert>
 
@@ -115,16 +115,16 @@ void compute_grav(
     unsigned int nu_stars)
 {
     //transfer data on the device
-    DeviceArray<float> d_pos_x( nu_stars );
-    DeviceArray<float> d_pos_y( nu_stars );
+    device_array<float> d_pos_x( nu_stars );
+    device_array<float> d_pos_y( nu_stars );
     d_pos_x.copyHostToDevice( h_pos_x );
     d_pos_y.copyHostToDevice( h_pos_y );
 
-    DeviceArray<float> d_masses( nu_stars );
+    device_array<float> d_masses( nu_stars );
     d_masses.copyHostToDevice( h_masses );
 
     //instantiate a vectors to contain the gravitational forces
-    DeviceArray<float2> d_gravs( nu_stars );
+    device_array<float2> d_gravs( nu_stars );
 
     const unsigned int grid_side = (nu_stars + BLOCK_SIZE - 1) / BLOCK_SIZE;
 

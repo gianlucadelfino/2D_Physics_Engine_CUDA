@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -98,42 +98,42 @@ $(document).ready(function(){initNavTree('class_c_moveable_particle.html','');})
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CMoveableParticle Member List</div>  </div>
+<div class="title">moveable_particle Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="class_c_moveable_particle.html">CMoveableParticle</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="class_c_moveable_particle.html">moveable_particle</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a131dfc2d4b42bada22d2565fd8599e36">Boost</a>(const C2DVector &amp;new_position_)</td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_moveable_particle.html#ac4bf7a8a6c3a77de7b30240cf9a5e8a1">Clone</a>() const </td><td class="entry"><a class="el" href="class_c_moveable_particle.html">CMoveableParticle</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_moveable_particle.html#a40847587a6bb60af5db394271a543495">CMoveableParticle</a>()</td><td class="entry"><a class="el" href="class_c_moveable_particle.html">CMoveableParticle</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_moveable_particle.html#a10c317ba098ab5a5101be406e0e1145f">CMoveableParticle</a>(float x_, float y_)</td><td class="entry"><a class="el" href="class_c_moveable_particle.html">CMoveableParticle</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_moveable_particle.html#a03ba225c683716b678dbec641971abd1">CMoveableParticle</a>(const C2DVector &amp;initial_pos_)</td><td class="entry"><a class="el" href="class_c_moveable_particle.html">CMoveableParticle</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_moveable_particle.html#a7ec7c901d3c12c418c3cde0d3d5221e9">CMoveableParticle</a>(const CMoveableParticle &amp;other_)</td><td class="entry"><a class="el" href="class_c_moveable_particle.html">CMoveableParticle</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a8b98bd19f6cdb8e778557921137d8da3">IMoveable</a>(float x_, float y_)</td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_moveable.html#addd5ecd0e23fa80c35dedbbe488a2ab5">IMoveable</a>(const C2DVector &amp;pos_)</td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a25a25f84408a4f65f186adb03ed6a328">IMoveable</a>(const C2DVector &amp;pos_, const C2DVector &amp;old_pos_, const C2DVector &amp;orientation_)</td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_moveable.html#a1cb1c7d6c29597ea7179532f0aa9e7c3">IMoveable</a>(const IMoveable &amp;other_)</td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a83fccbae0f916982ddd897c9b017179a">ImposeConstraints</a>()</td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_moveable_particle.html#a82963a3bed0ed2d2e6a1be4653557587">IsHit</a>(const C2DVector &amp;coords_) const </td><td class="entry"><a class="el" href="class_c_moveable_particle.html">CMoveableParticle</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a4ea085f33430ead929bca5bb6783afd3">m_constraint</a></td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_moveable.html#affa28a79a914c7df7c23078f6b7518f5">old_pos</a></td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_moveable_particle.html#a0e9c14f0d965bd151cb79e16bf4c19ec">operator=</a>(const CMoveableParticle &amp;other_)</td><td class="entry"><a class="el" href="class_c_moveable_particle.html">CMoveableParticle</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_moveable.html#a73a92f0ec64fa02648ff630b761d371b">IMoveable::operator=</a>(const IMoveable &amp;other_)</td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a8733e83126c06e0c4d47302b1db0f61d">orientation</a></td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_moveable.html#aeba5c894a071818a528dbeade26f727d">pos</a></td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a24c3d6f0b8ed8615a3ef4d1a65def4cd">Reposition</a>(const C2DVector &amp;new_position_)</td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_moveable.html#a43f51697635e0abae7a8742d55ddeb68">SetConstraint</a>(std::shared_ptr&lt; C2DVector &gt; constrainted_pos_)</td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a99379e96add7c34d0754193d2e678c1f">Translate</a>(const C2DVector &amp;shift_)</td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_moveable.html#ac07dbfbc191b522264de9d5199d9158f">UnsetConstraint</a>()</td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a73cb9504617aa26e28372bcca3400f97">~IMoveable</a>()</td><td class="entry"><a class="el" href="class_i_moveable.html">IMoveable</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a131dfc2d4b42bada22d2565fd8599e36">boost</a>(const vec2 &amp;new_position_)</td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_moveable_particle.html#ac4bf7a8a6c3a77de7b30240cf9a5e8a1">clone</a>() const </td><td class="entry"><a class="el" href="class_c_moveable_particle.html">moveable_particle</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_moveable_particle.html#a40847587a6bb60af5db394271a543495">moveable_particle</a>()</td><td class="entry"><a class="el" href="class_c_moveable_particle.html">moveable_particle</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_moveable_particle.html#a10c317ba098ab5a5101be406e0e1145f">moveable_particle</a>(float x_, float y_)</td><td class="entry"><a class="el" href="class_c_moveable_particle.html">moveable_particle</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_moveable_particle.html#a03ba225c683716b678dbec641971abd1">moveable_particle</a>(const vec2 &amp;initial_pos_)</td><td class="entry"><a class="el" href="class_c_moveable_particle.html">moveable_particle</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_moveable_particle.html#a7ec7c901d3c12c418c3cde0d3d5221e9">moveable_particle</a>(const moveable_particle &amp;other_)</td><td class="entry"><a class="el" href="class_c_moveable_particle.html">moveable_particle</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a8b98bd19f6cdb8e778557921137d8da3">moveable_base</a>(float x_, float y_)</td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_moveable.html#addd5ecd0e23fa80c35dedbbe488a2ab5">moveable_base</a>(const vec2 &amp;pos_)</td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a25a25f84408a4f65f186adb03ed6a328">moveable_base</a>(const vec2 &amp;pos_, const vec2 &amp;old_pos_, const vec2 &amp;orientation_)</td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_moveable.html#a1cb1c7d6c29597ea7179532f0aa9e7c3">moveable_base</a>(const moveable_base &amp;other_)</td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a83fccbae0f916982ddd897c9b017179a">ImposeConstraints</a>()</td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_moveable_particle.html#a82963a3bed0ed2d2e6a1be4653557587">is_hit</a>(const vec2 &amp;coords_) const </td><td class="entry"><a class="el" href="class_c_moveable_particle.html">moveable_particle</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a4ea085f33430ead929bca5bb6783afd3">m_constraint</a></td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_moveable.html#affa28a79a914c7df7c23078f6b7518f5">old_pos</a></td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_moveable_particle.html#a0e9c14f0d965bd151cb79e16bf4c19ec">operator=</a>(const moveable_particle &amp;other_)</td><td class="entry"><a class="el" href="class_c_moveable_particle.html">moveable_particle</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_moveable.html#a73a92f0ec64fa02648ff630b761d371b">moveable_base::operator=</a>(const moveable_base &amp;other_)</td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a8733e83126c06e0c4d47302b1db0f61d">orientation</a></td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_moveable.html#aeba5c894a071818a528dbeade26f727d">pos</a></td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a24c3d6f0b8ed8615a3ef4d1a65def4cd">reposition</a>(const vec2 &amp;new_position_)</td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_moveable.html#a43f51697635e0abae7a8742d55ddeb68">set_constraint</a>(std::shared_ptr&lt; vec2 &gt; constrainted_pos_)</td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a99379e96add7c34d0754193d2e678c1f">translate</a>(const vec2 &amp;shift_)</td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_moveable.html#ac07dbfbc191b522264de9d5199d9158f">UnsetConstraint</a>()</td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_moveable.html#a73cb9504617aa26e28372bcca3400f97">~moveable_base</a>()</td><td class="entry"><a class="el" href="class_i_moveable.html">moveable_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

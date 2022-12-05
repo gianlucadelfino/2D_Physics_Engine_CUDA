@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>Simulino 2000: C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/CEntityGalaxy.h Source File</title>
+<title>Simulino 2000: C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/entity_galaxy.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -79,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -96,14 +96,14 @@ $(document).ready(function(){initNavTree('_c_entity_galaxy_8h_source.html','');}
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CEntityGalaxy.h</div>  </div>
+<div class="title">entity_galaxy.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="_c_entity_galaxy_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CENTITYGALAXY_H</span></div>
@@ -112,44 +112,44 @@ $(document).ready(function(){initNavTree('_c_entity_galaxy_8h_source.html','');}
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_entity_8h.html">CEntity.h</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_i_moveable_8h.html">IMoveable.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_moveable_particle_8h.html">CMoveableParticle.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_entity_particle_8h.html">CEntityParticle.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_random_8h.html">CRandom.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c2_d_vector_8h.html">C2DVector.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_entity_8h.html">entity_base.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_i_moveable_8h.html">moveable_base.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_moveable_particle_8h.html">moveable_particle.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_entity_particle_8h.html">entity_particle.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_random_8h.html">random_generator.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c2_d_vector_8h.html">vec2.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="device__compute__grav__forces_8h.html">device_compute_grav_forces.h</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;cuda.h&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;cuda_runtime.h&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="class_c_entity_galaxy.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_entity_galaxy.html">CEntityGalaxy</a> : <span class="keyword">public</span> <a class="code" href="class_c_entity.html">CEntity</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="class_c_entity_galaxy.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_entity_galaxy.html">entity_galaxy</a> : <span class="keyword">public</span> <a class="code" href="class_c_entity.html">entity_base</a></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_c_entity_galaxy.html#ac2f0bfd94cd7214c9a213155ff3ffdf2">CEntityGalaxy</a>( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id_, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; initial_pos_,  <span class="keyword">const</span> <a class="code" href="class_c_entity_particle.html">CEntityParticle</a>&amp; star_, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> star_number_, <span class="keywordtype">float</span> max_dist_, <span class="keywordtype">bool</span> use_CUDA_ );</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_c_entity_galaxy.html#ac2f0bfd94cd7214c9a213155ff3ffdf2">entity_galaxy</a>( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id_, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; initial_pos_,  <span class="keyword">const</span> <a class="code" href="class_c_entity_particle.html">entity_particle</a>&amp; star_, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> star_number_, <span class="keywordtype">float</span> max_dist_, <span class="keywordtype">bool</span> use_CUDA_ );</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity_galaxy.html#afe764d4ed88763e57311882e4ea8a27d">Update</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; external_force_, <span class="keywordtype">float</span> dt );</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity_galaxy.html#a15381d62cbd4f96187732b4b588884b4">Draw</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity_galaxy.html#afe764d4ed88763e57311882e4ea8a27d">update</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; external_force_, <span class="keywordtype">float</span> dt );</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity_galaxy.html#a15381d62cbd4f96187732b4b588884b4">draw</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity_galaxy.html#adac96a7ca3bc65e2944ed0cab54964d7">HandleMouseButtonDown</a>( std::shared_ptr&lt;C2DVector&gt; coords_ );</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity_galaxy.html#a0022b7993b76df5ee1c0f31fbc9fe373">HandleMouseButtonUp</a>( std::shared_ptr&lt;C2DVector&gt; coords_ );</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity_galaxy.html#adac96a7ca3bc65e2944ed0cab54964d7">handle_mouse_buttondown</a>( std::shared_ptr&lt;vec2&gt; coords_ );</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity_galaxy.html#a0022b7993b76df5ee1c0f31fbc9fe373">handle_mouse_buttonup</a>( std::shared_ptr&lt;vec2&gt; coords_ );</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_entity_galaxy.html#a7c4ed0a13e4bb840c284c1a119807b56">SetUseCUDA</a>( <span class="keywordtype">bool</span> use_CUDA_ );</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_entity_galaxy.html#a7c4ed0a13e4bb840c284c1a119807b56">set_use_cuda</a>( <span class="keywordtype">bool</span> use_CUDA_ );</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">//forbid copy and assignment</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_c_entity_galaxy.html#ac2f0bfd94cd7214c9a213155ff3ffdf2">CEntityGalaxy</a>( <span class="keyword">const</span> <a class="code" href="class_c_entity_galaxy.html">CEntityGalaxy</a>&amp; );</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="class_c_entity_galaxy.html">CEntityGalaxy</a>&amp; operator=( <span class="keyword">const</span> <a class="code" href="class_c_entity_galaxy.html">CEntityGalaxy</a>&amp; );</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_c_entity_galaxy.html#ac2f0bfd94cd7214c9a213155ff3ffdf2">entity_galaxy</a>( <span class="keyword">const</span> <a class="code" href="class_c_entity_galaxy.html">entity_galaxy</a>&amp; );</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="class_c_entity_galaxy.html">entity_galaxy</a>&amp; operator=( <span class="keyword">const</span> <a class="code" href="class_c_entity_galaxy.html">entity_galaxy</a>&amp; );</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> UpdateCUDA( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; external_force_, <span class="keywordtype">float</span> dt );</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> UpdateCPU( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; external_force_, <span class="keywordtype">float</span> dt );</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> update_cuda( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; external_force_, <span class="keywordtype">float</span> dt );</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> update_cpu( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; external_force_, <span class="keywordtype">float</span> dt );</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="class_c_random.html">CRandom</a> m_rand_pos;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_c_random.html">CRandom</a> m_rand_mass;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="class_c_random.html">random_generator</a> m_rand_pos;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_c_random.html">random_generator</a> m_rand_mass;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> m_using_CUDA;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">typedef</span> std::vector&lt; std::unique_ptr&lt; CEntityParticle &gt; &gt; StarList;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">typedef</span> std::vector&lt; std::unique_ptr&lt; entity_particle &gt; &gt; StarList;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    StarList m_collection;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_original_star_num;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
@@ -160,7 +160,7 @@ $(document).ready(function(){initNavTree('_c_entity_galaxy_8h_source.html','');}
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8ceffd4ee35c3518d4e8bdc7e638efe8.html">Users</a></li><li class="navelem"><a class="el" href="dir_acc6bfcc6fa193beee391bebf45fb04a.html">gia</a></li><li class="navelem"><a class="el" href="dir_17f6dd4c8ed53c888a90ed4aa4aefaee.html">Documents</a></li><li class="navelem"><a class="el" href="dir_39bde259ea96f0dfb8acfd14f60f3cf0.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_6a3cdddb667c10fe919e9cd2025db3d5.html">2D_Physics_Engine_CUDA</a></li><li class="navelem"><a class="el" href="dir_f265ec9d600906b4a6204c695d23d079.html">src</a></li><li class="navelem"><a class="el" href="dir_17daf06d2171afbecd78a5637d1e3acd.html">headers</a></li><li class="navelem"><a class="el" href="_c_entity_galaxy_8h.html">CEntityGalaxy.h</a></li>
+    <li class="navelem"><a class="el" href="dir_8ceffd4ee35c3518d4e8bdc7e638efe8.html">Users</a></li><li class="navelem"><a class="el" href="dir_acc6bfcc6fa193beee391bebf45fb04a.html">gia</a></li><li class="navelem"><a class="el" href="dir_17f6dd4c8ed53c888a90ed4aa4aefaee.html">Documents</a></li><li class="navelem"><a class="el" href="dir_39bde259ea96f0dfb8acfd14f60f3cf0.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_6a3cdddb667c10fe919e9cd2025db3d5.html">2D_Physics_Engine_CUDA</a></li><li class="navelem"><a class="el" href="dir_f265ec9d600906b4a6204c695d23d079.html">src</a></li><li class="navelem"><a class="el" href="dir_17daf06d2171afbecd78a5637d1e3acd.html">headers</a></li><li class="navelem"><a class="el" href="_c_entity_galaxy_8h.html">entity_galaxy.h</a></li>
     <li class="footer">Generated on Tue Nov 12 2013 20:07:16 for Simulino 2000 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>

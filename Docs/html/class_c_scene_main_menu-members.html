@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -98,32 +98,32 @@ $(document).ready(function(){initNavTree('class_c_scene_main_menu.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CSceneMainMenu Member List</div>  </div>
+<div class="title">scene_main_menu Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="class_c_scene_main_menu.html">CSceneMainMenu</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="class_c_scene_main_menu.html">scene_main_menu</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_c_scene_main_menu.html#adcb1be98a278b76c868c0eb2051cbb35">CSceneMainMenu</a>(SDL_Surface *screen_, CWorld &amp;world_)</td><td class="entry"><a class="el" href="class_c_scene_main_menu.html">CSceneMainMenu</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_scene.html#a2df1858872d424bf21381ba23052ab9c">Draw</a>() const </td><td class="entry"><a class="el" href="class_i_scene.html">IScene</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_scene.html#a6bef17aa01601cb0d61e3a251beed7ca">HandleEvent</a>(CWorld &amp;world_, const SDL_Event &amp;event_)</td><td class="entry"><a class="el" href="class_i_scene.html">IScene</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_scene_main_menu.html#a1edfc94b16482e001f3f80a40f576fc7">Init</a>()</td><td class="entry"><a class="el" href="class_c_scene_main_menu.html">CSceneMainMenu</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_scene.html#a0b09e8fb2a713adbd2c608c71a54f415">IScene</a>(SDL_Surface *screen_, CWorld &amp;world_, Uint32 background_color_)</td><td class="entry"><a class="el" href="class_i_scene.html">IScene</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_scene.html#ab1d70760a22020b3ba1ba64efb8f3afd">m_background_color</a></td><td class="entry"><a class="el" href="class_i_scene.html">IScene</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_scene.html#a30cdcc054494030c0c5382b19ff9b748">m_entities</a></td><td class="entry"><a class="el" href="class_i_scene.html">IScene</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_scene.html#ae2a9b4d42cb62d12d32ec1cd9e165430">m_mouse_coords</a></td><td class="entry"><a class="el" href="class_i_scene.html">IScene</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_scene.html#ab38b142ce56c46b73dec73872b46f809">m_UI_elements</a></td><td class="entry"><a class="el" href="class_i_scene.html">IScene</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_scene.html#a54a4e1f6b851925d51eca37de12e89ab">mp_screen</a></td><td class="entry"><a class="el" href="class_i_scene.html">IScene</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_scene.html#a5bbb646bd3d687c9e9f3c8ac279c49ee">mr_world</a></td><td class="entry"><a class="el" href="class_i_scene.html">IScene</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_i_scene.html#a6960d56609244f97c4286ee93a55f5e4">Update</a>(float dt)</td><td class="entry"><a class="el" href="class_i_scene.html">IScene</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_i_scene.html#a09c8139f7e26656b7c549a7909141c41">~IScene</a>()</td><td class="entry"><a class="el" href="class_i_scene.html">IScene</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_scene_main_menu.html#adcb1be98a278b76c868c0eb2051cbb35">scene_main_menu</a>(SDL_Surface *screen_, world_manager &amp;world_)</td><td class="entry"><a class="el" href="class_c_scene_main_menu.html">scene_main_menu</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_scene.html#a2df1858872d424bf21381ba23052ab9c">draw</a>() const </td><td class="entry"><a class="el" href="class_i_scene.html">scene_base</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_scene.html#a6bef17aa01601cb0d61e3a251beed7ca">handle_event</a>(world_manager &amp;world_, const SDL_Event &amp;event_)</td><td class="entry"><a class="el" href="class_i_scene.html">scene_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_scene_main_menu.html#a1edfc94b16482e001f3f80a40f576fc7">init</a>()</td><td class="entry"><a class="el" href="class_c_scene_main_menu.html">scene_main_menu</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_scene.html#a0b09e8fb2a713adbd2c608c71a54f415">scene_base</a>(SDL_Surface *screen_, world_manager &amp;world_, Uint32 background_color_)</td><td class="entry"><a class="el" href="class_i_scene.html">scene_base</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_scene.html#ab1d70760a22020b3ba1ba64efb8f3afd">m_background_color</a></td><td class="entry"><a class="el" href="class_i_scene.html">scene_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_scene.html#a30cdcc054494030c0c5382b19ff9b748">m_entities</a></td><td class="entry"><a class="el" href="class_i_scene.html">scene_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_scene.html#ae2a9b4d42cb62d12d32ec1cd9e165430">m_mouse_coords</a></td><td class="entry"><a class="el" href="class_i_scene.html">scene_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_scene.html#ab38b142ce56c46b73dec73872b46f809">m_UI_elements</a></td><td class="entry"><a class="el" href="class_i_scene.html">scene_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_scene.html#a54a4e1f6b851925d51eca37de12e89ab">mp_screen</a></td><td class="entry"><a class="el" href="class_i_scene.html">scene_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_scene.html#a5bbb646bd3d687c9e9f3c8ac279c49ee">mr_world</a></td><td class="entry"><a class="el" href="class_i_scene.html">scene_base</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_i_scene.html#a6960d56609244f97c4286ee93a55f5e4">update</a>(float dt)</td><td class="entry"><a class="el" href="class_i_scene.html">scene_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_i_scene.html#a09c8139f7e26656b7c549a7909141c41">~scene_base</a>()</td><td class="entry"><a class="el" href="class_i_scene.html">scene_base</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

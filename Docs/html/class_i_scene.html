@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>Simulino 2000: IScene Class Reference</title>
+<title>Simulino 2000: scene_base Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('class_i_scene.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
@@ -109,64 +109,64 @@ $(document).ready(function(){initNavTree('class_i_scene.html','');});
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_i_scene-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">IScene Class Reference</div>  </div>
+<div class="title">scene_base Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_i_scene_8h_source.html">IScene.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_i_scene_8h_source.html">scene_base.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for IScene:</div>
+Inheritance diagram for scene_base:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_i_scene.png" usemap="#IScene_map" alt=""/>
   <map id="IScene_map" name="IScene_map">
-<area href="class_c_scene_cloth.html" alt="CSceneCloth" shape="rect" coords="0,56,117,80"/>
-<area href="class_c_scene_galaxy.html" alt="CSceneGalaxy" shape="rect" coords="127,56,244,80"/>
-<area href="class_c_scene_main_menu.html" alt="CSceneMainMenu" shape="rect" coords="254,56,371,80"/>
+<area href="class_c_scene_cloth.html" alt="scene_cloth" shape="rect" coords="0,56,117,80"/>
+<area href="class_c_scene_galaxy.html" alt="scene_galaxy" shape="rect" coords="127,56,244,80"/>
+<area href="class_c_scene_main_menu.html" alt="scene_main_menu" shape="rect" coords="254,56,371,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0b09e8fb2a713adbd2c608c71a54f415"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a0b09e8fb2a713adbd2c608c71a54f415">IScene</a> (SDL_Surface *screen_, <a class="el" href="class_c_world.html">CWorld</a> &amp;world_, Uint32 background_color_)</td></tr>
+<tr class="memitem:a0b09e8fb2a713adbd2c608c71a54f415"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a0b09e8fb2a713adbd2c608c71a54f415">scene_base</a> (SDL_Surface *screen_, <a class="el" href="class_c_world.html">world_manager</a> &amp;world_, Uint32 background_color_)</td></tr>
 <tr class="separator:a0b09e8fb2a713adbd2c608c71a54f415"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabe471b2fccc969b567241c190b07fa1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#aabe471b2fccc969b567241c190b07fa1">Init</a> ()</td></tr>
+<tr class="memitem:aabe471b2fccc969b567241c190b07fa1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#aabe471b2fccc969b567241c190b07fa1">init</a> ()</td></tr>
 <tr class="separator:aabe471b2fccc969b567241c190b07fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6960d56609244f97c4286ee93a55f5e4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a6960d56609244f97c4286ee93a55f5e4">Update</a> (float dt)</td></tr>
+<tr class="memitem:a6960d56609244f97c4286ee93a55f5e4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a6960d56609244f97c4286ee93a55f5e4">update</a> (float dt)</td></tr>
 <tr class="separator:a6960d56609244f97c4286ee93a55f5e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bef17aa01601cb0d61e3a251beed7ca"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a6bef17aa01601cb0d61e3a251beed7ca">HandleEvent</a> (<a class="el" href="class_c_world.html">CWorld</a> &amp;world_, const SDL_Event &amp;event_)</td></tr>
+<tr class="memitem:a6bef17aa01601cb0d61e3a251beed7ca"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a6bef17aa01601cb0d61e3a251beed7ca">handle_event</a> (<a class="el" href="class_c_world.html">world_manager</a> &amp;world_, const SDL_Event &amp;event_)</td></tr>
 <tr class="separator:a6bef17aa01601cb0d61e3a251beed7ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2df1858872d424bf21381ba23052ab9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a2df1858872d424bf21381ba23052ab9c">Draw</a> () const </td></tr>
+<tr class="memitem:a2df1858872d424bf21381ba23052ab9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a2df1858872d424bf21381ba23052ab9c">draw</a> () const </td></tr>
 <tr class="separator:a2df1858872d424bf21381ba23052ab9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09c8139f7e26656b7c549a7909141c41"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a09c8139f7e26656b7c549a7909141c41">~IScene</a> ()</td></tr>
+<tr class="memitem:a09c8139f7e26656b7c549a7909141c41"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a09c8139f7e26656b7c549a7909141c41">~scene_base</a> ()</td></tr>
 <tr class="separator:a09c8139f7e26656b7c549a7909141c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a54a4e1f6b851925d51eca37de12e89ab"><td class="memItemLeft" align="right" valign="top">SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a54a4e1f6b851925d51eca37de12e89ab">mp_screen</a></td></tr>
 <tr class="separator:a54a4e1f6b851925d51eca37de12e89ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bbb646bd3d687c9e9f3c8ac279c49ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_world.html">CWorld</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a5bbb646bd3d687c9e9f3c8ac279c49ee">mr_world</a></td></tr>
+<tr class="memitem:a5bbb646bd3d687c9e9f3c8ac279c49ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_world.html">world_manager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a5bbb646bd3d687c9e9f3c8ac279c49ee">mr_world</a></td></tr>
 <tr class="separator:a5bbb646bd3d687c9e9f3c8ac279c49ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1d70760a22020b3ba1ba64efb8f3afd"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#ab1d70760a22020b3ba1ba64efb8f3afd">m_background_color</a></td></tr>
 <tr class="separator:ab1d70760a22020b3ba1ba64efb8f3afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2a9b4d42cb62d12d32ec1cd9e165430"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_c2_d_vector.html">C2DVector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#ae2a9b4d42cb62d12d32ec1cd9e165430">m_mouse_coords</a></td></tr>
+<tr class="memitem:ae2a9b4d42cb62d12d32ec1cd9e165430"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_c2_d_vector.html">vec2</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#ae2a9b4d42cb62d12d32ec1cd9e165430">m_mouse_coords</a></td></tr>
 <tr class="separator:ae2a9b4d42cb62d12d32ec1cd9e165430"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30cdcc054494030c0c5382b19ff9b748"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr<br class="typebreak"/>
-&lt; <a class="el" href="class_c_entity.html">CEntity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a30cdcc054494030c0c5382b19ff9b748">m_entities</a></td></tr>
+&lt; <a class="el" href="class_c_entity.html">entity_base</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#a30cdcc054494030c0c5382b19ff9b748">m_entities</a></td></tr>
 <tr class="separator:a30cdcc054494030c0c5382b19ff9b748"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab38b142ce56c46b73dec73872b46f809"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr<br class="typebreak"/>
-&lt; <a class="el" href="class_c_entity.html">CEntity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#ab38b142ce56c46b73dec73872b46f809">m_UI_elements</a></td></tr>
+&lt; <a class="el" href="class_c_entity.html">entity_base</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_scene.html#ab38b142ce56c46b73dec73872b46f809">m_UI_elements</a></td></tr>
 <tr class="separator:ab38b142ce56c46b73dec73872b46f809"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="class_i_scene.html">IScene</a> defines the interface for all the scenes that the <a class="el" href="class_c_world.html">CWorld</a> contain. </p>
+<div class="textblock"><p><a class="el" href="class_i_scene.html">scene_base</a> defines the interface for all the scenes that the <a class="el" href="class_c_world.html">world_manager</a> contain. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a0b09e8fb2a713adbd2c608c71a54f415"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">IScene::IScene </td>
+          <td class="memname">scene_base::scene_base </td>
           <td>(</td>
           <td class="paramtype">SDL_Surface *&#160;</td>
           <td class="paramname"><em>screen_</em>, </td>
@@ -174,7 +174,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_c_world.html">CWorld</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_c_world.html">world_manager</a> &amp;&#160;</td>
           <td class="paramname"><em>world_</em>, </td>
         </tr>
         <tr>
@@ -201,7 +201,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">IScene::~IScene </td>
+          <td class="memname">scene_base::~scene_base </td>
           <td>(</td>
           <td class="paramname">)</td><td></td>
           <td></td>
@@ -222,14 +222,14 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void IScene::Draw </td>
+          <td class="memname">void scene_base::draw </td>
           <td>(</td>
           <td class="paramname">)</td><td></td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Draw renders all the IEntities of the scene </p>
+<p>draw renders all the IEntities of the scene </p>
 
 </div>
 </div>
@@ -241,9 +241,9 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void IScene::HandleEvent </td>
+          <td class="memname">void scene_base::handle_event </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_c_world.html">CWorld</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_c_world.html">world_manager</a> &amp;&#160;</td>
           <td class="paramname"><em>world_</em>, </td>
         </tr>
         <tr>
@@ -264,7 +264,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>HandleEvent dispatches the events (mouse/keyboars) to the UI and the other IEntities of the scene </p>
+<p>handle_event dispatches the events (mouse/keyboars) to the UI and the other IEntities of the scene </p>
 
 </div>
 </div>
@@ -276,7 +276,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void IScene::Init </td>
+          <td class="memname">void scene_base::init </td>
           <td>(</td>
           <td class="paramname">)</td><td></td>
           <td></td>
@@ -288,9 +288,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Init loads the scene elements. Should be called before calling uptate on it. </p>
+<p>init loads the scene elements. Should be called before calling uptate on it. </p>
 
-<p>Reimplemented in <a class="el" href="class_c_scene_galaxy.html#a33d243cf5f843e99f86789cf7782bf08">CSceneGalaxy</a>, <a class="el" href="class_c_scene_main_menu.html#a1edfc94b16482e001f3f80a40f576fc7">CSceneMainMenu</a>, and <a class="el" href="class_c_scene_cloth.html#ac8cce617d833a5fedea97d6b38a27213">CSceneCloth</a>.</p>
+<p>Reimplemented in <a class="el" href="class_c_scene_galaxy.html#a33d243cf5f843e99f86789cf7782bf08">scene_galaxy</a>, <a class="el" href="class_c_scene_main_menu.html#a1edfc94b16482e001f3f80a40f576fc7">scene_main_menu</a>, and <a class="el" href="class_c_scene_cloth.html#ac8cce617d833a5fedea97d6b38a27213">scene_cloth</a>.</p>
 
 </div>
 </div>
@@ -302,7 +302,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void IScene::Update </td>
+          <td class="memname">void scene_base::update </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>dt</em>)</td><td></td>
@@ -315,7 +315,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Update takes care of updating all the IEnities in the scene </p>
+<p>update takes care of updating all the IEnities in the scene </p>
 
 </div>
 </div>
@@ -328,7 +328,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Uint32 IScene::m_background_color</td>
+          <td class="memname">Uint32 scene_base::m_background_color</td>
         </tr>
       </table>
   </td>
@@ -348,7 +348,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_c_entity.html">CEntity</a> &gt; &gt; IScene::m_entities</td>
+          <td class="memname">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_c_entity.html">entity_base</a> &gt; &gt; scene_base::m_entities</td>
         </tr>
       </table>
   </td>
@@ -368,7 +368,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_c2_d_vector.html">C2DVector</a> &gt; IScene::m_mouse_coords</td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_c2_d_vector.html">vec2</a> &gt; scene_base::m_mouse_coords</td>
         </tr>
       </table>
   </td>
@@ -388,7 +388,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_c_entity.html">CEntity</a> &gt; &gt; IScene::m_UI_elements</td>
+          <td class="memname">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_c_entity.html">entity_base</a> &gt; &gt; scene_base::m_UI_elements</td>
         </tr>
       </table>
   </td>
@@ -408,7 +408,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">SDL_Surface* IScene::mp_screen</td>
+          <td class="memname">SDL_Surface* scene_base::mp_screen</td>
         </tr>
       </table>
   </td>
@@ -428,7 +428,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_c_world.html">CWorld</a>&amp; IScene::mr_world</td>
+          <td class="memname"><a class="el" href="class_c_world.html">world_manager</a>&amp; scene_base::mr_world</td>
         </tr>
       </table>
   </td>
@@ -441,15 +441,15 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/<a class="el" href="_i_scene_8h_source.html">IScene.h</a></li>
-<li>C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/<a class="el" href="_i_scene_8cpp.html">IScene.cpp</a></li>
+<li>C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/<a class="el" href="_i_scene_8h_source.html">scene_base.h</a></li>
+<li>C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/<a class="el" href="_i_scene_8cpp.html">scene_base.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="class_i_scene.html">IScene</a></li>
+    <li class="navelem"><a class="el" href="class_i_scene.html">scene_base</a></li>
     <li class="footer">Generated on Tue Nov 12 2013 20:07:17 for Simulino 2000 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>

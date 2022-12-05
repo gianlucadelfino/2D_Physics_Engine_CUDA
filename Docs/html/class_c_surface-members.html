@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -98,27 +98,27 @@ $(document).ready(function(){initNavTree('class_c_surface.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CSurface Member List</div>  </div>
+<div class="title">surface_handler Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="class_c_surface.html">CSurface</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="class_c_surface.html">surface_handler</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_c_surface.html#a4231dc04dddfba3016bc0512fabe23fd">ApplySurface</a>(int x, int y, SDL_Surface *destination)</td><td class="entry"><a class="el" href="class_c_surface.html">CSurface</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_surface.html#a8d783806c24ea1ae0ba80dc1dc2b085c">CSurface</a>()</td><td class="entry"><a class="el" href="class_c_surface.html">CSurface</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_surface.html#a6de9f1c4b9b809a6343ccfacf5e296a4">CSurface</a>(SDL_Surface *surface_)</td><td class="entry"><a class="el" href="class_c_surface.html">CSurface</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_surface.html#a8a3e00e59549bde9989d3338dadd31aa">Destroy</a>()</td><td class="entry"><a class="el" href="class_c_surface.html">CSurface</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_surface.html#a9bb33df18680b5ba84271ff0e84ee61a">GetSurface</a>() const </td><td class="entry"><a class="el" href="class_c_surface.html">CSurface</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_surface.html#a1d4d50fabf8ba6c7f5d32653ce21af78">load_image</a>(string filename)</td><td class="entry"><a class="el" href="class_c_surface.html">CSurface</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c_surface.html#a5a0bc297be493fba0d78063044468383">LoadSurface</a>(SDL_Surface *new_surface_)</td><td class="entry"><a class="el" href="class_c_surface.html">CSurface</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c_surface.html#a231832d685c5967f3452311ca5e5dfcc">~CSurface</a>()</td><td class="entry"><a class="el" href="class_c_surface.html">CSurface</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_surface.html#a4231dc04dddfba3016bc0512fabe23fd">apply_surface</a>(int x, int y, SDL_Surface *destination)</td><td class="entry"><a class="el" href="class_c_surface.html">surface_handler</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_surface.html#a8d783806c24ea1ae0ba80dc1dc2b085c">surface_handler</a>()</td><td class="entry"><a class="el" href="class_c_surface.html">surface_handler</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_surface.html#a6de9f1c4b9b809a6343ccfacf5e296a4">surface_handler</a>(SDL_Surface *surface_)</td><td class="entry"><a class="el" href="class_c_surface.html">surface_handler</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_surface.html#a8a3e00e59549bde9989d3338dadd31aa">destroy</a>()</td><td class="entry"><a class="el" href="class_c_surface.html">surface_handler</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_surface.html#a9bb33df18680b5ba84271ff0e84ee61a">GetSurface</a>() const </td><td class="entry"><a class="el" href="class_c_surface.html">surface_handler</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_surface.html#a1d4d50fabf8ba6c7f5d32653ce21af78">load_image</a>(string filename)</td><td class="entry"><a class="el" href="class_c_surface.html">surface_handler</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c_surface.html#a5a0bc297be493fba0d78063044468383">load_surface</a>(SDL_Surface *new_surface_)</td><td class="entry"><a class="el" href="class_c_surface.html">surface_handler</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c_surface.html#a231832d685c5967f3452311ca5e5dfcc">~surface_handler</a>()</td><td class="entry"><a class="el" href="class_c_surface.html">surface_handler</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

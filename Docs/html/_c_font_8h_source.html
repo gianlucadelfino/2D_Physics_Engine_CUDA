@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>Simulino 2000: C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/CFont.h Source File</title>
+<title>Simulino 2000: C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/font_handler.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -79,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -96,14 +96,14 @@ $(document).ready(function(){initNavTree('_c_font_8h_source.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CFont.h</div>  </div>
+<div class="title">font_handler.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="_c_font_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CFONT_H</span></div>
@@ -114,17 +114,17 @@ $(document).ready(function(){initNavTree('_c_font_8h_source.html','');});
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;SDL.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;SDL_TTF.h&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_c_font.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_font.html">CFont</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_c_font.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_font.html">font_handler</a></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_c_font.html#a9c07c90700981222cabf403563837207">CFont</a>( std::string filename_, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size_ );</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_c_font.html#a9c07c90700981222cabf403563837207">font_handler</a>( std::string filename_, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size_ );</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    TTF_Font* <a class="code" href="class_c_font.html#a3c890f80916d8f99ded303b81155b9b6">GetFont</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_c_font.html#a1e1d2d4b4d14c7004289291785d75728">~CFont</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_c_font.html#a1e1d2d4b4d14c7004289291785d75728">~font_handler</a>();</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">//forbid copy and assignment.</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_c_font.html#a9c07c90700981222cabf403563837207">CFont</a>( <span class="keyword">const</span> <a class="code" href="class_c_font.html">CFont</a>&amp; );</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_c_font.html">CFont</a>&amp; operator=( <span class="keyword">const</span> <a class="code" href="class_c_font.html">CFont</a>&amp; );</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_c_font.html#a9c07c90700981222cabf403563837207">font_handler</a>( <span class="keyword">const</span> <a class="code" href="class_c_font.html">font_handler</a>&amp; );</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_c_font.html">font_handler</a>&amp; operator=( <span class="keyword">const</span> <a class="code" href="class_c_font.html">font_handler</a>&amp; );</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    TTF_Font* mp_font;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
@@ -135,7 +135,7 @@ $(document).ready(function(){initNavTree('_c_font_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8ceffd4ee35c3518d4e8bdc7e638efe8.html">Users</a></li><li class="navelem"><a class="el" href="dir_acc6bfcc6fa193beee391bebf45fb04a.html">gia</a></li><li class="navelem"><a class="el" href="dir_17f6dd4c8ed53c888a90ed4aa4aefaee.html">Documents</a></li><li class="navelem"><a class="el" href="dir_39bde259ea96f0dfb8acfd14f60f3cf0.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_6a3cdddb667c10fe919e9cd2025db3d5.html">2D_Physics_Engine_CUDA</a></li><li class="navelem"><a class="el" href="dir_f265ec9d600906b4a6204c695d23d079.html">src</a></li><li class="navelem"><a class="el" href="dir_17daf06d2171afbecd78a5637d1e3acd.html">headers</a></li><li class="navelem"><a class="el" href="_c_font_8h.html">CFont.h</a></li>
+    <li class="navelem"><a class="el" href="dir_8ceffd4ee35c3518d4e8bdc7e638efe8.html">Users</a></li><li class="navelem"><a class="el" href="dir_acc6bfcc6fa193beee391bebf45fb04a.html">gia</a></li><li class="navelem"><a class="el" href="dir_17f6dd4c8ed53c888a90ed4aa4aefaee.html">Documents</a></li><li class="navelem"><a class="el" href="dir_39bde259ea96f0dfb8acfd14f60f3cf0.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_6a3cdddb667c10fe919e9cd2025db3d5.html">2D_Physics_Engine_CUDA</a></li><li class="navelem"><a class="el" href="dir_f265ec9d600906b4a6204c695d23d079.html">src</a></li><li class="navelem"><a class="el" href="dir_17daf06d2171afbecd78a5637d1e3acd.html">headers</a></li><li class="navelem"><a class="el" href="_c_font_8h.html">font_handler.h</a></li>
     <li class="footer">Generated on Tue Nov 12 2013 20:07:16 for Simulino 2000 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>

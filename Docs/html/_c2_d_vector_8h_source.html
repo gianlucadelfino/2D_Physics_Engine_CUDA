@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>Simulino 2000: C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/C2DVector.h Source File</title>
+<title>Simulino 2000: C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/vec2.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -79,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -96,46 +96,46 @@ $(document).ready(function(){initNavTree('_c2_d_vector_8h_source.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
 
 <div class="header">
   <div class="headertitle">
-<div class="title">C2DVector.h</div>  </div>
+<div class="title">vec2.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_c2_d_vector_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef C2DVECTOR_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define C2DVECTOR_H</span></div>
+<a href="_c2_d_vector_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef vec2_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define vec2_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="class_c2_d_vector.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c2_d_vector.html">C2DVector</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="class_c2_d_vector.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c2_d_vector.html">vec2</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_c2_d_vector.html#a3b6ae90106e3777c758a76c9e00a0ade">   12</a></span>&#160;    <a class="code" href="class_c2_d_vector.html#a3b6ae90106e3777c758a76c9e00a0ade">C2DVector</a>():<a class="code" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">x</a>( 0.0f ), <a class="code" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">y</a>( 0.0f ) {}</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="class_c2_d_vector.html#a54651e83d7c725fd30adb65fd9490a79">   13</a></span>&#160;    <a class="code" href="class_c2_d_vector.html#a54651e83d7c725fd30adb65fd9490a79">C2DVector</a>( <span class="keywordtype">float</span> x_, <span class="keywordtype">float</span> y_ ):<a class="code" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">x</a>( x_ ), <a class="code" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">y</a>( y_ ) {}</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="class_c2_d_vector.html#a1e24115d0392ca7d2b120cd90469c4ac">   14</a></span>&#160;    <a class="code" href="class_c2_d_vector.html#a1e24115d0392ca7d2b120cd90469c4ac">C2DVector</a>( <span class="keywordtype">int</span> x_, <span class="keywordtype">int</span> y_ ):<a class="code" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">x</a>( static_cast&lt;float&gt;(x_) ), <a class="code" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">y</a>( static_cast&lt;float&gt;(y_)  ) {}</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_c2_d_vector.html#a3b6ae90106e3777c758a76c9e00a0ade">C2DVector</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; _vec );</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_c2_d_vector.html#a3b6ae90106e3777c758a76c9e00a0ade">   12</a></span>&#160;    <a class="code" href="class_c2_d_vector.html#a3b6ae90106e3777c758a76c9e00a0ade">vec2</a>():<a class="code" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">x</a>( 0.0f ), <a class="code" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">y</a>( 0.0f ) {}</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="class_c2_d_vector.html#a54651e83d7c725fd30adb65fd9490a79">   13</a></span>&#160;    <a class="code" href="class_c2_d_vector.html#a54651e83d7c725fd30adb65fd9490a79">vec2</a>( <span class="keywordtype">float</span> x_, <span class="keywordtype">float</span> y_ ):<a class="code" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">x</a>( x_ ), <a class="code" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">y</a>( y_ ) {}</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="class_c2_d_vector.html#a1e24115d0392ca7d2b120cd90469c4ac">   14</a></span>&#160;    <a class="code" href="class_c2_d_vector.html#a1e24115d0392ca7d2b120cd90469c4ac">vec2</a>( <span class="keywordtype">int</span> x_, <span class="keywordtype">int</span> y_ ):<a class="code" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">x</a>( static_cast&lt;float&gt;(x_) ), <a class="code" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">y</a>( static_cast&lt;float&gt;(y_)  ) {}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_c2_d_vector.html#a3b6ae90106e3777c758a76c9e00a0ade">vec2</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; _vec );</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; <a class="code" href="class_c2_d_vector.html#ac49e92c27238ee9d9f43a03423a6d2a2">operator=</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; rhs );</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; <a class="code" href="class_c2_d_vector.html#aff9258ddef94c86c62cc2be9835b1edd">operator*=</a>( <span class="keyword">const</span> <span class="keywordtype">float</span> k );</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; <a class="code" href="class_c2_d_vector.html#a32c6fb5f3ff8f4161324536201f9db9f">operator+=</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; rhs );</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; <a class="code" href="class_c2_d_vector.html#a3a2a66c4feeb56b58cd11de5fbc93f33">operator-=</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; rhs );</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; <a class="code" href="class_c2_d_vector.html#ac49e92c27238ee9d9f43a03423a6d2a2">operator=</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; rhs );</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; <a class="code" href="class_c2_d_vector.html#aff9258ddef94c86c62cc2be9835b1edd">operator*=</a>( <span class="keyword">const</span> <span class="keywordtype">float</span> k );</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; <a class="code" href="class_c2_d_vector.html#a32c6fb5f3ff8f4161324536201f9db9f">operator+=</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; rhs );</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; <a class="code" href="class_c2_d_vector.html#a3a2a66c4feeb56b58cd11de5fbc93f33">operator-=</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; rhs );</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_c2_d_vector.html#a7af9864aa1105fbad1fbb3d14f651f3a">GetSquaredLength</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_c2_d_vector.html#a55a75284995c46d363b349c3cda905b1">GetLenght</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_c2_d_vector.html#a7af9864aa1105fbad1fbb3d14f651f3a">get_squared_length</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_c2_d_vector.html#a55a75284995c46d363b349c3cda905b1">get_length</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_c2_d_vector.html#a863f42d042aec5f13c7330296a137f16">GetApproxInverseSqrt</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_c2_d_vector.html#af33869927c6654fabf52ebfb95625c9c">ScalarProduct</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_c2_d_vector.html#af33869927c6654fabf52ebfb95625c9c">scalar_product</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; ) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">friend</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a> <a class="code" href="class_c2_d_vector.html#a53fd68ef4379999463b9c8daae7e3c92">operator*</a>( <span class="keyword">const</span> <span class="keywordtype">float</span> k, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; _vec );</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">friend</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a> <a class="code" href="class_c2_d_vector.html#a53fd68ef4379999463b9c8daae7e3c92">operator*</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; _vec, <span class="keyword">const</span> <span class="keywordtype">float</span> k );</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">friend</span> <a class="code" href="class_c2_d_vector.html">vec2</a> <a class="code" href="class_c2_d_vector.html#a53fd68ef4379999463b9c8daae7e3c92">operator*</a>( <span class="keyword">const</span> <span class="keywordtype">float</span> k, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; _vec );</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">friend</span> <a class="code" href="class_c2_d_vector.html">vec2</a> <a class="code" href="class_c2_d_vector.html#a53fd68ef4379999463b9c8daae7e3c92">operator*</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; _vec, <span class="keyword">const</span> <span class="keywordtype">float</span> k );</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">friend</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a> <a class="code" href="class_c2_d_vector.html#a6c30921091fc46bd7e572795699aa61b">operator+</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; _first, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; _second);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">friend</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a> <a class="code" href="class_c2_d_vector.html#ae2f17b111af38fb6e347013ef8da3e54">operator-</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; _first, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; _second);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">friend</span> <a class="code" href="class_c2_d_vector.html">vec2</a> <a class="code" href="class_c2_d_vector.html#a6c30921091fc46bd7e572795699aa61b">operator+</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; _first, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; _second);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">friend</span> <a class="code" href="class_c2_d_vector.html">vec2</a> <a class="code" href="class_c2_d_vector.html#ae2f17b111af38fb6e347013ef8da3e54">operator-</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; _first, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; _second);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="class_c2_d_vector.html#ac386318cf0672a3d66af47aa76b8e98f">operator&lt;&lt; </a>( std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; vec);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="class_c2_d_vector.html#ac386318cf0672a3d66af47aa76b8e98f">operator&lt;&lt; </a>( std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; vec);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">   35</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">x</a>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">   36</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">y</a>;</div>
@@ -150,7 +150,7 @@ $(document).ready(function(){initNavTree('_c2_d_vector_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8ceffd4ee35c3518d4e8bdc7e638efe8.html">Users</a></li><li class="navelem"><a class="el" href="dir_acc6bfcc6fa193beee391bebf45fb04a.html">gia</a></li><li class="navelem"><a class="el" href="dir_17f6dd4c8ed53c888a90ed4aa4aefaee.html">Documents</a></li><li class="navelem"><a class="el" href="dir_39bde259ea96f0dfb8acfd14f60f3cf0.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_6a3cdddb667c10fe919e9cd2025db3d5.html">2D_Physics_Engine_CUDA</a></li><li class="navelem"><a class="el" href="dir_f265ec9d600906b4a6204c695d23d079.html">src</a></li><li class="navelem"><a class="el" href="dir_17daf06d2171afbecd78a5637d1e3acd.html">headers</a></li><li class="navelem"><a class="el" href="_c2_d_vector_8h.html">C2DVector.h</a></li>
+    <li class="navelem"><a class="el" href="dir_8ceffd4ee35c3518d4e8bdc7e638efe8.html">Users</a></li><li class="navelem"><a class="el" href="dir_acc6bfcc6fa193beee391bebf45fb04a.html">gia</a></li><li class="navelem"><a class="el" href="dir_17f6dd4c8ed53c888a90ed4aa4aefaee.html">Documents</a></li><li class="navelem"><a class="el" href="dir_39bde259ea96f0dfb8acfd14f60f3cf0.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_6a3cdddb667c10fe919e9cd2025db3d5.html">2D_Physics_Engine_CUDA</a></li><li class="navelem"><a class="el" href="dir_f265ec9d600906b4a6204c695d23d079.html">src</a></li><li class="navelem"><a class="el" href="dir_17daf06d2171afbecd78a5637d1e3acd.html">headers</a></li><li class="navelem"><a class="el" href="_c2_d_vector_8h.html">vec2.h</a></li>
     <li class="footer">Generated on Tue Nov 12 2013 20:07:15 for Simulino 2000 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>

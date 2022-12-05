@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -98,38 +98,38 @@ $(document).ready(function(){initNavTree('class_c2_d_vector.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
 
 <div class="header">
   <div class="headertitle">
-<div class="title">C2DVector Member List</div>  </div>
+<div class="title">vec2 Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="class_c2_d_vector.html">C2DVector</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="class_c2_d_vector.html">vec2</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#a3b6ae90106e3777c758a76c9e00a0ade">C2DVector</a>()</td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a54651e83d7c725fd30adb65fd9490a79">C2DVector</a>(float x_, float y_)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#a1e24115d0392ca7d2b120cd90469c4ac">C2DVector</a>(int x_, int y_)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a685df2a6af7703079e42f536080af5e0">C2DVector</a>(const C2DVector &amp;_vec)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#a863f42d042aec5f13c7330296a137f16">GetApproxInverseSqrt</a>() const </td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a55a75284995c46d363b349c3cda905b1">GetLenght</a>() const </td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#a7af9864aa1105fbad1fbb3d14f651f3a">GetSquaredLength</a>() const </td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a53fd68ef4379999463b9c8daae7e3c92">operator*</a>(const float k, const C2DVector &amp;_vec)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#a86dd9b7b7f63b497485efd4a5612db88">operator*</a>(const C2DVector &amp;_vec, const float k)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#aff9258ddef94c86c62cc2be9835b1edd">operator*=</a>(const float k)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#a6c30921091fc46bd7e572795699aa61b">operator+</a>(const C2DVector &amp;_first, const C2DVector &amp;_second)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a32c6fb5f3ff8f4161324536201f9db9f">operator+=</a>(const C2DVector &amp;rhs)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#ae2f17b111af38fb6e347013ef8da3e54">operator-</a>(const C2DVector &amp;_first, const C2DVector &amp;_second)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a3a2a66c4feeb56b58cd11de5fbc93f33">operator-=</a>(const C2DVector &amp;rhs)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#ac386318cf0672a3d66af47aa76b8e98f">operator&lt;&lt;</a>(std::ostream &amp;out, const C2DVector &amp;vec)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#ac49e92c27238ee9d9f43a03423a6d2a2">operator=</a>(const C2DVector &amp;rhs)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#af33869927c6654fabf52ebfb95625c9c">ScalarProduct</a>(const C2DVector &amp;) const </td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">x</a></td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">y</a></td><td class="entry"><a class="el" href="class_c2_d_vector.html">C2DVector</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#a3b6ae90106e3777c758a76c9e00a0ade">vec2</a>()</td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a54651e83d7c725fd30adb65fd9490a79">vec2</a>(float x_, float y_)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#a1e24115d0392ca7d2b120cd90469c4ac">vec2</a>(int x_, int y_)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a685df2a6af7703079e42f536080af5e0">vec2</a>(const vec2 &amp;_vec)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#a863f42d042aec5f13c7330296a137f16">GetApproxInverseSqrt</a>() const </td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a55a75284995c46d363b349c3cda905b1">get_length</a>() const </td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#a7af9864aa1105fbad1fbb3d14f651f3a">get_squared_length</a>() const </td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a53fd68ef4379999463b9c8daae7e3c92">operator*</a>(const float k, const vec2 &amp;_vec)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#a86dd9b7b7f63b497485efd4a5612db88">operator*</a>(const vec2 &amp;_vec, const float k)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#aff9258ddef94c86c62cc2be9835b1edd">operator*=</a>(const float k)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#a6c30921091fc46bd7e572795699aa61b">operator+</a>(const vec2 &amp;_first, const vec2 &amp;_second)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a32c6fb5f3ff8f4161324536201f9db9f">operator+=</a>(const vec2 &amp;rhs)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#ae2f17b111af38fb6e347013ef8da3e54">operator-</a>(const vec2 &amp;_first, const vec2 &amp;_second)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a3a2a66c4feeb56b58cd11de5fbc93f33">operator-=</a>(const vec2 &amp;rhs)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#ac386318cf0672a3d66af47aa76b8e98f">operator&lt;&lt;</a>(std::ostream &amp;out, const vec2 &amp;vec)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#ac49e92c27238ee9d9f43a03423a6d2a2">operator=</a>(const vec2 &amp;rhs)</td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#af33869927c6654fabf52ebfb95625c9c">scalar_product</a>(const vec2 &amp;) const </td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_c2_d_vector.html#a6d6527030cb728920c8a7b772035eb56">x</a></td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_c2_d_vector.html#aa4d3b0fbdb9cfefa52724c59932924cb">y</a></td><td class="entry"><a class="el" href="class_c2_d_vector.html">vec2</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

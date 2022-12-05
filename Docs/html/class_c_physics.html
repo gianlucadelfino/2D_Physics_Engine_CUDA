@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>Simulino 2000: CPhysics Class Reference</title>
+<title>Simulino 2000: physics_base Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -81,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('class_c_physics.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
@@ -110,40 +110,40 @@ $(document).ready(function(){initNavTree('class_c_physics.html','');});
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_c_physics-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">CPhysics Class Reference</div>  </div>
+<div class="title">physics_base Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_c_physics_8h_source.html">CPhysics.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_c_physics_8h_source.html">physics_base.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a900c26a6d4ef986dfa88812d46ff4f29"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a900c26a6d4ef986dfa88812d46ff4f29">CPhysics</a> (float mass_)</td></tr>
+<tr class="memitem:a900c26a6d4ef986dfa88812d46ff4f29"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a900c26a6d4ef986dfa88812d46ff4f29">physics_base</a> (float mass_)</td></tr>
 <tr class="separator:a900c26a6d4ef986dfa88812d46ff4f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af66e736ebe23e2cf04445612ab9cf2b1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#af66e736ebe23e2cf04445612ab9cf2b1">CPhysics</a> (float mass_, const <a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;gravity_accel_)</td></tr>
+<tr class="memitem:af66e736ebe23e2cf04445612ab9cf2b1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#af66e736ebe23e2cf04445612ab9cf2b1">physics_base</a> (float mass_, const <a class="el" href="class_c2_d_vector.html">vec2</a> &amp;gravity_accel_)</td></tr>
 <tr class="separator:af66e736ebe23e2cf04445612ab9cf2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19f3044b27b75b908351a534d8ca6bd8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a19f3044b27b75b908351a534d8ca6bd8">CPhysics</a> (const <a class="el" href="class_c_physics.html">CPhysics</a> &amp;other_)</td></tr>
+<tr class="memitem:a19f3044b27b75b908351a534d8ca6bd8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a19f3044b27b75b908351a534d8ca6bd8">physics_base</a> (const <a class="el" href="class_c_physics.html">physics_base</a> &amp;other_)</td></tr>
 <tr class="separator:a19f3044b27b75b908351a534d8ca6bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6455610ea8e143389eb039d4620b1fd"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; <a class="el" href="class_c_physics.html">CPhysics</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#aa6455610ea8e143389eb039d4620b1fd">Clone</a> () const </td></tr>
+<tr class="memitem:aa6455610ea8e143389eb039d4620b1fd"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; <a class="el" href="class_c_physics.html">physics_base</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#aa6455610ea8e143389eb039d4620b1fd">clone</a> () const </td></tr>
 <tr class="separator:aa6455610ea8e143389eb039d4620b1fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a957cfb1d7f4cd452e48d98c4b80b1b17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_physics.html">CPhysics</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a957cfb1d7f4cd452e48d98c4b80b1b17">operator=</a> (const <a class="el" href="class_c_physics.html">CPhysics</a> &amp;other_)</td></tr>
+<tr class="memitem:a957cfb1d7f4cd452e48d98c4b80b1b17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_physics.html">physics_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a957cfb1d7f4cd452e48d98c4b80b1b17">operator=</a> (const <a class="el" href="class_c_physics.html">physics_base</a> &amp;other_)</td></tr>
 <tr class="separator:a957cfb1d7f4cd452e48d98c4b80b1b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbfde92ab8af436a734756fdb9c469ab"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#acbfde92ab8af436a734756fdb9c469ab">~CPhysics</a> ()</td></tr>
+<tr class="memitem:acbfde92ab8af436a734756fdb9c469ab"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#acbfde92ab8af436a734756fdb9c469ab">~physics_base</a> ()</td></tr>
 <tr class="separator:acbfde92ab8af436a734756fdb9c469ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40568042121f9f0b9cc180a45a3f0f9b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a40568042121f9f0b9cc180a45a3f0f9b">Update</a> (const <a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;external_force_, std::unique_ptr&lt; <a class="el" href="class_i_moveable.html">IMoveable</a> &gt; &amp;moveable_, float dt)</td></tr>
+<tr class="memitem:a40568042121f9f0b9cc180a45a3f0f9b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a40568042121f9f0b9cc180a45a3f0f9b">update</a> (const <a class="el" href="class_c2_d_vector.html">vec2</a> &amp;external_force_, std::unique_ptr&lt; <a class="el" href="class_i_moveable.html">moveable_base</a> &gt; &amp;moveable_, float dt)</td></tr>
 <tr class="separator:a40568042121f9f0b9cc180a45a3f0f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac797f5c8fc07776e65efbd6707b199e1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_c2_d_vector.html">C2DVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#ac797f5c8fc07776e65efbd6707b199e1">GetForce</a> (const <a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;pos) const </td></tr>
+<tr class="memitem:ac797f5c8fc07776e65efbd6707b199e1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_c2_d_vector.html">vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#ac797f5c8fc07776e65efbd6707b199e1">get_force</a> (const <a class="el" href="class_c2_d_vector.html">vec2</a> &amp;pos) const </td></tr>
 <tr class="separator:ac797f5c8fc07776e65efbd6707b199e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a987437d5e09b1af1192c56837b1852c0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a987437d5e09b1af1192c56837b1852c0">GetMass</a> () const </td></tr>
+<tr class="memitem:a987437d5e09b1af1192c56837b1852c0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a987437d5e09b1af1192c56837b1852c0">get_mass</a> () const </td></tr>
 <tr class="separator:a987437d5e09b1af1192c56837b1852c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade7aad72ead3faf070698fe2ab2a9e1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#ade7aad72ead3faf070698fe2ab2a9e1a">SetMass</a> (float mass_)</td></tr>
+<tr class="memitem:ade7aad72ead3faf070698fe2ab2a9e1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#ade7aad72ead3faf070698fe2ab2a9e1a">set_mass</a> (float mass_)</td></tr>
 <tr class="separator:ade7aad72ead3faf070698fe2ab2a9e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a163688fcc790cfa5a0e52195061d02f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a163688fcc790cfa5a0e52195061d02f1">SetGravity</a> (const <a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;_grav)</td></tr>
+<tr class="memitem:a163688fcc790cfa5a0e52195061d02f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a163688fcc790cfa5a0e52195061d02f1">set_gravity</a> (const <a class="el" href="class_c2_d_vector.html">vec2</a> &amp;_grav)</td></tr>
 <tr class="separator:a163688fcc790cfa5a0e52195061d02f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:aac5e9cc32526aa2dafc30585d0d232f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#aac5e9cc32526aa2dafc30585d0d232f6">Integrate</a> (<a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;pos, <a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;old_pos, const <a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;external_force_, float dt)</td></tr>
+<tr class="memitem:aac5e9cc32526aa2dafc30585d0d232f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#aac5e9cc32526aa2dafc30585d0d232f6">integrate</a> (<a class="el" href="class_c2_d_vector.html">vec2</a> &amp;pos, <a class="el" href="class_c2_d_vector.html">vec2</a> &amp;old_pos, const <a class="el" href="class_c2_d_vector.html">vec2</a> &amp;external_force_, float dt)</td></tr>
 <tr class="separator:aac5e9cc32526aa2dafc30585d0d232f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -152,18 +152,18 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:aa91e91fbea96fdfd7b9f297ae2e43448"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1744f3a0241b2069fd819f66ec269092"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a1744f3a0241b2069fd819f66ec269092">m_inverseMass</a></td></tr>
 <tr class="separator:a1744f3a0241b2069fd819f66ec269092"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4213a342474a1e3de0aca10358d1ab1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c2_d_vector.html">C2DVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a4213a342474a1e3de0aca10358d1ab1a">m_gravity_acc</a></td></tr>
+<tr class="memitem:a4213a342474a1e3de0aca10358d1ab1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c2_d_vector.html">vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_physics.html#a4213a342474a1e3de0aca10358d1ab1a">m_gravity_acc</a></td></tr>
 <tr class="separator:a4213a342474a1e3de0aca10358d1ab1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="class_c_physics.html">CPhysics</a> defines the interface and basic implementation for entities that are bound to follow physics laws. </p>
+<div class="textblock"><p><a class="el" href="class_c_physics.html">physics_base</a> defines the interface and basic implementation for entities that are bound to follow physics laws. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a900c26a6d4ef986dfa88812d46ff4f29"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CPhysics::CPhysics </td>
+          <td class="memname">physics_base::physics_base </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>mass_</em>)</td><td></td>
@@ -179,7 +179,7 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CPhysics::CPhysics </td>
+          <td class="memname">physics_base::physics_base </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>mass_</em>, </td>
@@ -187,7 +187,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_c2_d_vector.html">vec2</a> &amp;&#160;</td>
           <td class="paramname"><em>gravity_accel_</em>&#160;</td>
         </tr>
         <tr>
@@ -205,9 +205,9 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CPhysics::CPhysics </td>
+          <td class="memname">physics_base::physics_base </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_c_physics.html">CPhysics</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_c_physics.html">physics_base</a> &amp;&#160;</td>
           <td class="paramname"><em>other_</em>)</td><td></td>
           <td></td>
         </tr>
@@ -224,7 +224,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CPhysics::~CPhysics </td>
+          <td class="memname">physics_base::~physics_base </td>
           <td>(</td>
           <td class="paramname">)</td><td></td>
           <td></td>
@@ -248,7 +248,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt; <a class="el" href="class_c_physics.html">CPhysics</a> &gt; CPhysics::Clone </td>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="class_c_physics.html">physics_base</a> &gt; physics_base::clone </td>
           <td>(</td>
           <td class="paramname">)</td><td></td>
           <td> const</td>
@@ -271,9 +271,9 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="class_c2_d_vector.html">C2DVector</a> CPhysics::GetForce </td>
+          <td class="memname">virtual <a class="el" href="class_c2_d_vector.html">vec2</a> physics_base::get_force </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_c2_d_vector.html">vec2</a> &amp;&#160;</td>
           <td class="paramname"><em>pos</em>)</td><td></td>
           <td> const</td>
         </tr>
@@ -295,7 +295,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CPhysics::GetMass </td>
+          <td class="memname">float physics_base::get_mass </td>
           <td>(</td>
           <td class="paramname">)</td><td></td>
           <td> const</td>
@@ -318,21 +318,21 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void CPhysics::Integrate </td>
+          <td class="memname">void physics_base::integrate </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_c2_d_vector.html">vec2</a> &amp;&#160;</td>
           <td class="paramname"><em>pos</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_c2_d_vector.html">vec2</a> &amp;&#160;</td>
           <td class="paramname"><em>old_pos</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_c2_d_vector.html">vec2</a> &amp;&#160;</td>
           <td class="paramname"><em>external_force_</em>, </td>
         </tr>
         <tr>
@@ -353,7 +353,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Integrate increments the position of the entity by integrating the force acting on it </p>
+<p>integrate increments the position of the entity by integrating the force acting on it </p>
 
 </div>
 </div>
@@ -362,9 +362,9 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_c_physics.html">CPhysics</a> &amp; CPhysics::operator= </td>
+          <td class="memname"><a class="el" href="class_c_physics.html">physics_base</a> &amp; physics_base::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_c_physics.html">CPhysics</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_c_physics.html">physics_base</a> &amp;&#160;</td>
           <td class="paramname"><em>other_</em>)</td><td></td>
           <td></td>
         </tr>
@@ -381,9 +381,9 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void CPhysics::SetGravity </td>
+          <td class="memname">void physics_base::set_gravity </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_c2_d_vector.html">vec2</a> &amp;&#160;</td>
           <td class="paramname"><em>_grav</em>)</td><td></td>
           <td></td>
         </tr>
@@ -405,7 +405,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void CPhysics::SetMass </td>
+          <td class="memname">void physics_base::set_mass </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>mass_</em>)</td><td></td>
@@ -429,15 +429,15 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void CPhysics::Update </td>
+          <td class="memname">void physics_base::update </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_c2_d_vector.html">C2DVector</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_c2_d_vector.html">vec2</a> &amp;&#160;</td>
           <td class="paramname"><em>external_force_</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="class_i_moveable.html">IMoveable</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="class_i_moveable.html">moveable_base</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>moveable_</em>, </td>
         </tr>
         <tr>
@@ -470,7 +470,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_c2_d_vector.html">C2DVector</a> CPhysics::m_gravity_acc</td>
+          <td class="memname"><a class="el" href="class_c2_d_vector.html">vec2</a> physics_base::m_gravity_acc</td>
         </tr>
       </table>
   </td>
@@ -490,7 +490,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CPhysics::m_inverseMass</td>
+          <td class="memname">float physics_base::m_inverseMass</td>
         </tr>
       </table>
   </td>
@@ -510,7 +510,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CPhysics::m_mass</td>
+          <td class="memname">float physics_base::m_mass</td>
         </tr>
       </table>
   </td>
@@ -523,15 +523,15 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/<a class="el" href="_c_physics_8h_source.html">CPhysics.h</a></li>
-<li>C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/<a class="el" href="_c_physics_8cpp.html">CPhysics.cpp</a></li>
+<li>C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/<a class="el" href="_c_physics_8h_source.html">physics_base.h</a></li>
+<li>C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/<a class="el" href="_c_physics_8cpp.html">physics_base.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="class_c_physics.html">CPhysics</a></li>
+    <li class="navelem"><a class="el" href="class_c_physics.html">physics_base</a></li>
     <li class="footer">Generated on Tue Nov 12 2013 20:07:16 for Simulino 2000 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>

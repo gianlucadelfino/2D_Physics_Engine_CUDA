@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>Simulino 2000: C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/CEntity.h Source File</title>
+<title>Simulino 2000: C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/entity_base.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -79,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -96,50 +96,50 @@ $(document).ready(function(){initNavTree('_c_entity_8h_source.html','');});
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CEntity.h</div>  </div>
+<div class="title">entity_base.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="_c_entity_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CENTITY_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CENTITY_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c2_d_vector_8h.html">C2DVector.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_i_moveable_8h.html">IMoveable.h</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_i_drawable_8h.html">IDrawable.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c2_d_vector_8h.html">vec2.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_i_moveable_8h.html">moveable_base.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_i_drawable_8h.html">drawable_base.h</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_c_entity.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_entity.html">CEntity</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_c_entity.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_entity.html">entity_base</a></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_c_entity.html#afad5bdba8a17ebb2cde0e5f9845bf2d0">CEntity</a>( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id_, std::unique_ptr&lt; IMoveable &gt; moveable_, std::unique_ptr&lt; IDrawable &gt; drawable_ );</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_c_entity.html#afad5bdba8a17ebb2cde0e5f9845bf2d0">CEntity</a>( <span class="keyword">const</span> <a class="code" href="class_c_entity.html">CEntity</a>&amp; other_ );</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_c_entity.html#afad5bdba8a17ebb2cde0e5f9845bf2d0">entity_base</a>( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id_, std::unique_ptr&lt; moveable_base &gt; moveable_, std::unique_ptr&lt; drawable_base &gt; drawable_ );</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_c_entity.html#afad5bdba8a17ebb2cde0e5f9845bf2d0">entity_base</a>( <span class="keyword">const</span> <a class="code" href="class_c_entity.html">entity_base</a>&amp; other_ );</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_c_entity.html">CEntity</a>&amp; <a class="code" href="class_c_entity.html#a9c53734e50ebc523a3075c415e8528b3">operator=</a>( <span class="keyword">const</span> <a class="code" href="class_c_entity.html">CEntity</a>&amp; rhs );</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_c_entity.html">entity_base</a>&amp; <a class="code" href="class_c_entity.html#a9c53734e50ebc523a3075c415e8528b3">operator=</a>( <span class="keyword">const</span> <a class="code" href="class_c_entity.html">entity_base</a>&amp; rhs );</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_c_entity.html#a11b9405b57ca1b32d270c6a661c11683">~CEntity</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_c_entity.html#a11b9405b57ca1b32d270c6a661c11683">~entity_base</a>();</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="class_c_entity.html#a3c539337a7c232de857e0157743e6e48">   28</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_entity.html#a3c539337a7c232de857e0157743e6e48">SetId</a>( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id_ ) { <a class="code" href="class_c_entity.html#a9c11358eeaddd5637ba6f0193db1b90c">m_id</a> = id_; }</div>
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="class_c_entity.html#a6f116b326955cf2ffc727e4cfd6022af">   29</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_c_entity.html#a6f116b326955cf2ffc727e4cfd6022af">GetId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_c_entity.html#a9c11358eeaddd5637ba6f0193db1b90c">m_id</a>; }</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_c_entity.html#a7e4f3894d85677f83016bdc2755b12a2">IsHit</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; coords_ ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_c_entity.html#a7e4f3894d85677f83016bdc2755b12a2">is_hit</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; coords_ ) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="class_c_entity.html#a1f5a4353f5153d28f3ea66476bc1d02f">   33</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity.html#a1f5a4353f5153d28f3ea66476bc1d02f">HandleMouseButtonDown</a>( std::shared_ptr&lt;C2DVector&gt; cursor_position_ ) {}</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="class_c_entity.html#ab817882eb3c60b0df98e587624b89b72">   34</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity.html#ab817882eb3c60b0df98e587624b89b72">HandleMouseButtonUp</a>( std::shared_ptr&lt;C2DVector&gt; cursor_position_ ) {}</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="class_c_entity.html#a1f5a4353f5153d28f3ea66476bc1d02f">   33</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity.html#a1f5a4353f5153d28f3ea66476bc1d02f">handle_mouse_buttondown</a>( std::shared_ptr&lt;vec2&gt; cursor_position_ ) {}</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="class_c_entity.html#ab817882eb3c60b0df98e587624b89b72">   34</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity.html#ab817882eb3c60b0df98e587624b89b72">handle_mouse_buttonup</a>( std::shared_ptr&lt;vec2&gt; cursor_position_ ) {}</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="class_c_entity.html#a463fcec293dfdb51b11c3bdae14e0a7a">   39</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity.html#a463fcec293dfdb51b11c3bdae14e0a7a">Update</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; external_force_, <span class="keywordtype">float</span> dt ) {}</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="class_c_entity.html#a463fcec293dfdb51b11c3bdae14e0a7a">   39</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity.html#a463fcec293dfdb51b11c3bdae14e0a7a">update</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; external_force_, <span class="keywordtype">float</span> dt ) {}</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity.html#a816178dbe4506e4721ed93b4c9c54406">Draw</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_entity.html#a816178dbe4506e4721ed93b4c9c54406">draw</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="class_c_entity.html#a9c11358eeaddd5637ba6f0193db1b90c">   47</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_c_entity.html#a9c11358eeaddd5637ba6f0193db1b90c">m_id</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="class_c_entity.html#aa77531416353e4541a1b2db50fdc4b4f">   48</a></span>&#160;    std::unique_ptr&lt; IMoveable &gt; <a class="code" href="class_c_entity.html#aa77531416353e4541a1b2db50fdc4b4f">mp_moveable</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="class_c_entity.html#a2f268ee9a72b0fe48edb8e2888277e72">   49</a></span>&#160;    std::unique_ptr&lt; IDrawable &gt; <a class="code" href="class_c_entity.html#a2f268ee9a72b0fe48edb8e2888277e72">mp_drawable</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="class_c_entity.html#aa77531416353e4541a1b2db50fdc4b4f">   48</a></span>&#160;    std::unique_ptr&lt; moveable_base &gt; <a class="code" href="class_c_entity.html#aa77531416353e4541a1b2db50fdc4b4f">mp_moveable</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="class_c_entity.html#a2f268ee9a72b0fe48edb8e2888277e72">   49</a></span>&#160;    std::unique_ptr&lt; drawable_base &gt; <a class="code" href="class_c_entity.html#a2f268ee9a72b0fe48edb8e2888277e72">mp_drawable</a>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
@@ -148,7 +148,7 @@ $(document).ready(function(){initNavTree('_c_entity_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8ceffd4ee35c3518d4e8bdc7e638efe8.html">Users</a></li><li class="navelem"><a class="el" href="dir_acc6bfcc6fa193beee391bebf45fb04a.html">gia</a></li><li class="navelem"><a class="el" href="dir_17f6dd4c8ed53c888a90ed4aa4aefaee.html">Documents</a></li><li class="navelem"><a class="el" href="dir_39bde259ea96f0dfb8acfd14f60f3cf0.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_6a3cdddb667c10fe919e9cd2025db3d5.html">2D_Physics_Engine_CUDA</a></li><li class="navelem"><a class="el" href="dir_f265ec9d600906b4a6204c695d23d079.html">src</a></li><li class="navelem"><a class="el" href="dir_17daf06d2171afbecd78a5637d1e3acd.html">headers</a></li><li class="navelem"><a class="el" href="_c_entity_8h.html">CEntity.h</a></li>
+    <li class="navelem"><a class="el" href="dir_8ceffd4ee35c3518d4e8bdc7e638efe8.html">Users</a></li><li class="navelem"><a class="el" href="dir_acc6bfcc6fa193beee391bebf45fb04a.html">gia</a></li><li class="navelem"><a class="el" href="dir_17f6dd4c8ed53c888a90ed4aa4aefaee.html">Documents</a></li><li class="navelem"><a class="el" href="dir_39bde259ea96f0dfb8acfd14f60f3cf0.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_6a3cdddb667c10fe919e9cd2025db3d5.html">2D_Physics_Engine_CUDA</a></li><li class="navelem"><a class="el" href="dir_f265ec9d600906b4a6204c695d23d079.html">src</a></li><li class="navelem"><a class="el" href="dir_17daf06d2171afbecd78a5637d1e3acd.html">headers</a></li><li class="navelem"><a class="el" href="_c_entity_8h.html">entity_base.h</a></li>
     <li class="footer">Generated on Tue Nov 12 2013 20:07:16 for Simulino 2000 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>

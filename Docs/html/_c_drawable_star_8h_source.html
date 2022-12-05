@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>Simulino 2000: C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/CDrawableStar.h Source File</title>
+<title>Simulino 2000: C:/Users/gia/Documents/GitHub/2D_Physics_Engine_CUDA/src/headers/drawable_star.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -56,8 +56,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
           <input type="text" id="MSearchField" value="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onfocus="searchBox.OnSearchFieldFocus(true)"
+               onblur="searchBox.OnSearchFieldFocus(false)"
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
             <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
@@ -79,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -96,32 +96,32 @@ $(document).ready(function(){initNavTree('_c_drawable_star_8h_source.html','');}
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CDrawableStar.h</div>  </div>
+<div class="title">drawable_star.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="_c_drawable_star_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CDRAWABLESTAR_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CDRAWABLESTAR_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;SDL.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c2_d_vector_8h.html">C2Dvector.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_i_drawable_8h.html">IDrawable.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c2_d_vector_8h.html">vec2.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_i_drawable_8h.html">drawable_base.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;SDL_gfxPrimitives.h&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_c_drawable_star.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_drawable_star.html">CDrawableStar</a>: <span class="keyword">public</span> <a class="code" href="class_i_drawable.html">IDrawable</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="class_c_drawable_star.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_drawable_star.html">drawable_star</a>: <span class="keyword">public</span> <a class="code" href="class_i_drawable.html">drawable_base</a></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_c_drawable_star.html#adcf26570de027aaedfadc722c35929f6">CDrawableStar</a>( SDL_Surface* destination_surf_ );</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_c_drawable_star.html#adcf26570de027aaedfadc722c35929f6">drawable_star</a>( SDL_Surface* destination_surf_ );</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> std::unique_ptr&lt; IDrawable &gt; <a class="code" href="class_c_drawable_star.html#ac7ca2c5c78ed1b2bf504a317b8b15c45">Clone</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> std::unique_ptr&lt; drawable_base &gt; <a class="code" href="class_c_drawable_star.html#ac7ca2c5c78ed1b2bf504a317b8b15c45">clone</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_drawable_star.html#a410df758ef2e42c3880c1784ab70bddb">Draw</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; pos_, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">C2DVector</a>&amp; orientation_  ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_c_drawable_star.html#a410df758ef2e42c3880c1784ab70bddb">draw</a>( <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; pos_, <span class="keyword">const</span> <a class="code" href="class_c2_d_vector.html">vec2</a>&amp; orientation_  ) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
@@ -130,7 +130,7 @@ $(document).ready(function(){initNavTree('_c_drawable_star_8h_source.html','');}
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8ceffd4ee35c3518d4e8bdc7e638efe8.html">Users</a></li><li class="navelem"><a class="el" href="dir_acc6bfcc6fa193beee391bebf45fb04a.html">gia</a></li><li class="navelem"><a class="el" href="dir_17f6dd4c8ed53c888a90ed4aa4aefaee.html">Documents</a></li><li class="navelem"><a class="el" href="dir_39bde259ea96f0dfb8acfd14f60f3cf0.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_6a3cdddb667c10fe919e9cd2025db3d5.html">2D_Physics_Engine_CUDA</a></li><li class="navelem"><a class="el" href="dir_f265ec9d600906b4a6204c695d23d079.html">src</a></li><li class="navelem"><a class="el" href="dir_17daf06d2171afbecd78a5637d1e3acd.html">headers</a></li><li class="navelem"><a class="el" href="_c_drawable_star_8h.html">CDrawableStar.h</a></li>
+    <li class="navelem"><a class="el" href="dir_8ceffd4ee35c3518d4e8bdc7e638efe8.html">Users</a></li><li class="navelem"><a class="el" href="dir_acc6bfcc6fa193beee391bebf45fb04a.html">gia</a></li><li class="navelem"><a class="el" href="dir_17f6dd4c8ed53c888a90ed4aa4aefaee.html">Documents</a></li><li class="navelem"><a class="el" href="dir_39bde259ea96f0dfb8acfd14f60f3cf0.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_6a3cdddb667c10fe919e9cd2025db3d5.html">2D_Physics_Engine_CUDA</a></li><li class="navelem"><a class="el" href="dir_f265ec9d600906b4a6204c695d23d079.html">src</a></li><li class="navelem"><a class="el" href="dir_17daf06d2171afbecd78a5637d1e3acd.html">headers</a></li><li class="navelem"><a class="el" href="_c_drawable_star_8h.html">drawable_star.h</a></li>
     <li class="footer">Generated on Tue Nov 12 2013 20:07:16 for Simulino 2000 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
