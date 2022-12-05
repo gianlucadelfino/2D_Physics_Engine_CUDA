@@ -1,0 +1,5 @@
+<map id="moveable_button" name="moveable_button">
+<area shape="rect" id="node1" title=" " alt="" coords="5,200,141,227"/>
+<area shape="rect" id="node2" href="$classmoveable__base.html" title=" " alt="" coords="11,124,136,151"/>
+<area shape="rect" id="node3" href="$classvec2.html" title=" " alt="" coords="47,5,100,32"/>
+</map>

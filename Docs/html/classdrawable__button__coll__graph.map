@@ -1,0 +1,5 @@
+<map id="drawable_button" name="drawable_button">
+<area shape="rect" id="node1" title=" " alt="" coords="5,171,136,197"/>
+<area shape="rect" id="node2" href="$classdrawable__base.html" title=" " alt="" coords="11,95,131,121"/>
+<area shape="rect" id="node3" href="$classvec2.html" title=" " alt="" coords="44,5,97,32"/>
+</map>

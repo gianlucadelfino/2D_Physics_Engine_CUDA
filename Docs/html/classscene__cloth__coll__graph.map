@@ -1,0 +1,5 @@
+<map id="scene_cloth" name="scene_cloth">
+<area shape="rect" id="node1" title=" " alt="" coords="17,171,116,197"/>
+<area shape="rect" id="node2" href="$classscene__base.html" title=" " alt="" coords="17,95,116,121"/>
+<area shape="rect" id="node3" href="$classworld__manager.html" title=" " alt="" coords="5,5,128,32"/>
+</map>

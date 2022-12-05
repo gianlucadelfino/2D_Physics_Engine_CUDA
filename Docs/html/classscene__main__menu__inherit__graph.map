@@ -1,0 +1,4 @@
+<map id="scene_main_menu" name="scene_main_menu">
+<area shape="rect" id="node1" title=" " alt="" coords="5,80,149,107"/>
+<area shape="rect" id="node2" href="$classscene__base.html" title=" " alt="" coords="28,5,127,32"/>
+</map>

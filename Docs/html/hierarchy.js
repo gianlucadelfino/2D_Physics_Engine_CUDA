@@ -1,30 +1,29 @@
 var hierarchy =
 [
-    [ "C2DVector", "class_c2_d_vector.html", null ],
-    [ "CEntity", "class_c_entity.html", [
-      [ "CEntityButton", "class_c_entity_button.html", null ],
-      [ "CEntityCloth", "class_c_entity_cloth.html", null ],
-      [ "CEntityGalaxy", "class_c_entity_galaxy.html", null ],
-      [ "CEntityParticle", "class_c_entity_particle.html", null ]
+    [ "drawable_base", "classdrawable__base.html", [
+      [ "drawable_button", "classdrawable__button.html", null ],
+      [ "drawable_link", "classdrawable__link.html", null ],
+      [ "drawable_star", "classdrawable__star.html", null ]
     ] ],
-    [ "CFont", "class_c_font.html", null ],
-    [ "CPhysics", "class_c_physics.html", null ],
-    [ "CRandom", "class_c_random.html", null ],
-    [ "CSurface", "class_c_surface.html", null ],
-    [ "CWorld", "class_c_world.html", null ],
-    [ "IDrawable", "class_i_drawable.html", [
-      [ "CDrawableButton", "class_c_drawable_button.html", null ],
-      [ "CDrawableImage", "class_c_drawable_image.html", null ],
-      [ "CDrawableLink", "class_c_drawable_link.html", null ],
-      [ "CDrawableStar", "class_c_drawable_star.html", null ]
+    [ "entity_base", "classentity__base.html", [
+      [ "entity_button", "classentity__button.html", null ],
+      [ "entity_cloth", "classentity__cloth.html", null ],
+      [ "entity_galaxy", "classentity__galaxy.html", null ],
+      [ "entity_particle", "classentity__particle.html", null ]
     ] ],
-    [ "IMoveable", "class_i_moveable.html", [
-      [ "CMoveableButton", "class_c_moveable_button.html", null ],
-      [ "CMoveableParticle", "class_c_moveable_particle.html", null ]
+    [ "font_handler", "classfont__handler.html", null ],
+    [ "moveable_base", "classmoveable__base.html", [
+      [ "moveable_button", "classmoveable__button.html", null ],
+      [ "moveable_particle", "classmoveable__particle.html", null ]
     ] ],
-    [ "IScene", "class_i_scene.html", [
-      [ "CSceneCloth", "class_c_scene_cloth.html", null ],
-      [ "CSceneGalaxy", "class_c_scene_galaxy.html", null ],
-      [ "CSceneMainMenu", "class_c_scene_main_menu.html", null ]
-    ] ]
+    [ "physics_base", "classphysics__base.html", null ],
+    [ "random_generator", "classrandom__generator.html", null ],
+    [ "scene_base", "classscene__base.html", [
+      [ "scene_cloth", "classscene__cloth.html", null ],
+      [ "scene_galaxy", "classscene__galaxy.html", null ],
+      [ "scene_main_menu", "classscene__main__menu.html", null ]
+    ] ],
+    [ "surface_handler", "classsurface__handler.html", null ],
+    [ "vec2", "classvec2.html", null ],
+    [ "world_manager", "classworld__manager.html", null ]
 ];

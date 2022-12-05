@@ -18,7 +18,7 @@ A scalable C++ Physics Engine with CUDA integration.
 1. Galaxy (N-body simulation) (computed either on CUDA GPU or CPU). Clicking and holding will add a very massive star in place.
 
 
-## Instructions:
+## Usage:
 1. Cloth Simulation
   - click and hold the left mouse button on the cloth and drag it.
 
@@ -32,14 +32,9 @@ A scalable C++ Physics Engine with CUDA integration.
 
   ![cloth_simulation](/Docs/Simulino_2000_galaxy.gif?raw=true)
 
-## Link to win32 builds:
-1. https://dl.dropboxusercontent.com/u/3272164/Simulino_2000.zip
-  - uncompress the .exe and the .ttf file in the same directory
-  - double click on .exe file or run with Wine if under Linux
+## How to build:
+The project can be built either on linux or windows.
 
-# Developer ReadMe
-
-## Instructions to compile:
 1. Install CUDA Toolkit (available upon free registration on https://developer.nvidia.com/cuda-toolkit).
 2. Install Conan Package Manager
 
@@ -62,8 +57,6 @@ Then the program can be launched from the "app" directory
     cd build
     ./app/engine
 ```
-
-
 
 ## Class Diagram (editable version in `Docs\` folder)
 - (click to magnify)
