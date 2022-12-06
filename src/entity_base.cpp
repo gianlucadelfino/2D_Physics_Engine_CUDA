@@ -65,8 +65,10 @@ bool entity_base::is_hit(const vec2& coords_) const
     return false;
 }
 
-void entity_base::draw() const
+void entity_base::draw(SDL_Renderer* renderer_) const
 {
   if (_drawable && _moveable)
-    _drawable->draw(_moveable->pos, _moveable->orientation);
+  {
+    _drawable->draw(renderer_, _moveable->pos, _moveable->orientation);
+  }
 }

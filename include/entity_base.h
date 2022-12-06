@@ -45,7 +45,7 @@ public:
   /**
    * draw renders the Entity if an drawable_base is available
    */
-  virtual void draw() const;
+  virtual void draw(SDL_Renderer*) const;
 
 protected:
   unsigned int _id;

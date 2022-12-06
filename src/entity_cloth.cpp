@@ -114,7 +114,7 @@ void entity_cloth::update(const vec2& external_force_, float dt)
   }
 }
 
-void entity_cloth::draw() const
+void entity_cloth::draw(SDL_Renderer* renderer_) const
 {
   // draw each link, for each id, we draw the left and top link
   for (unsigned int id = 0; id < _collection.size(); ++id)
@@ -128,13 +128,13 @@ void entity_cloth::draw() const
     if (top_id >= 0)
     {
       vec2 top_id_position = _collection[top_id]->get_position();
-      _drawable->draw(top_id_position, id_pos);
+      _drawable->draw(renderer_, top_id_position, id_pos);
     }
 
     if ((left_id % _side_length) < (id % _side_length))
     {
       vec2 left_id_position = _collection[left_id]->get_position();
-      _drawable->draw(left_id_position, id_pos);
+      _drawable->draw(renderer_, left_id_position, id_pos);
     }
   }
 }

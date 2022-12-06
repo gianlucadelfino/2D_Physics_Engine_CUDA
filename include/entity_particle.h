@@ -24,7 +24,7 @@ public:
 
   virtual ~entity_particle();
 
-  virtual void draw() const;
+  virtual void draw(SDL_Renderer*) const;
   virtual void update(const vec2& external_force_, float dt);
 
   virtual void handle_mouse_buttondown(std::shared_ptr<vec2> coords_);

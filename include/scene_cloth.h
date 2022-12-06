@@ -19,7 +19,7 @@ class world_manager;
 class scene_cloth : public scene_base
 {
 public:
-  scene_cloth(SDL_Renderer* renderer_, world_manager& world_);
+  scene_cloth(world_manager& world_);
   scene_cloth(const scene_cloth& other_);
   scene_cloth& operator=(const scene_cloth& rhs);
 

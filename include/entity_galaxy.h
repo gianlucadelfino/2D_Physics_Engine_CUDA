@@ -32,7 +32,7 @@ public:
                 bool use_CUDA_);
 
   virtual void update(const vec2& external_force_, float dt);
-  virtual void draw() const;
+  virtual void draw(SDL_Renderer*) const;
 
   virtual void handle_mouse_buttondown(std::shared_ptr<vec2> coords_);
   virtual void handle_mouse_buttonup(std::shared_ptr<vec2> coords_);

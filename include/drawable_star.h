@@ -11,12 +11,14 @@
 class drawable_star : public drawable_base
 {
 public:
-  explicit drawable_star(SDL_Renderer* renderer_);
+  drawable_star() = default;
 
-  virtual void draw(const vec2& pos_, const vec2& orientation_) const;
+  virtual void draw(SDL_Renderer* renderer_,
+                    const vec2& pos_,
+                    const vec2& orientation_) const override;
 
 private:
-  virtual std::unique_ptr<drawable_base> do_clone() const;
+  virtual std::unique_ptr<drawable_base> do_clone() const override;
 };
 
 #endif

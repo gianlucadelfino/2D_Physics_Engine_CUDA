@@ -1,4 +1,5 @@
 #include "SDL.h"
+#include "scene_main_menu.h"
 #include "world_manager.h"
 #include <SDL_video.h>
 #include <iostream>
@@ -46,7 +47,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
     exit(EXIT_FAILURE);
   }
   // instantiate World
-  world_manager world(renderer.get());
+  world_manager world;
 
   bool quit = false;
   SDL_Event event{};
@@ -86,7 +87,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
     }
 
     // draw world
-    world.draw();
+    world.draw(renderer.get());
 
     // update Screen
     SDL_RenderPresent(renderer.get());

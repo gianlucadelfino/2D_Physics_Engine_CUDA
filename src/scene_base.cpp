@@ -1,17 +1,13 @@
 #include "scene_base.h"
 #include "world_manager.h"
 
-scene_base::scene_base(SDL_Renderer* renderer_, world_manager& world_, SDL_Color bgr_color_)
-    : _renderer(renderer_),
-      _world(&world_),
-      _background_color(bgr_color_),
-      _mouse_coords(std::make_shared<vec2>())
+scene_base::scene_base(world_manager& world_, SDL_Color bgr_color_)
+    : _world(world_), _background_color(bgr_color_), _mouse_coords(std::make_shared<vec2>())
 {
 }
 
 scene_base::scene_base(const scene_base& other_)
-    : _renderer(other_._renderer),
-      _world(other_._world),
+    : _world(other_._world),
       _background_color(other_._background_color),
       _mouse_coords(other_._mouse_coords)
 {
@@ -21,8 +17,6 @@ scene_base& scene_base::operator=(const scene_base& rhs)
 {
   if (this != &rhs)
   {
-    _renderer = rhs._renderer;
-    _world = rhs._world;
     _background_color = rhs._background_color;
     _mouse_coords = rhs._mouse_coords;
   }
@@ -97,22 +91,22 @@ void scene_base::handle_event(world_manager& /*world_*/, const SDL_Event& event_
   }
 }
 
-void scene_base::draw() const
+void scene_base::draw(SDL_Renderer* renderer_) const
 {
-  SDL_RenderClear(_renderer);
+  SDL_RenderClear(renderer_);
   // draw Background
   SDL_SetRenderDrawColor(
-      _renderer, _background_color.r, _background_color.g, _background_color.b, SDL_ALPHA_OPAQUE);
+      renderer_, _background_color.r, _background_color.g, _background_color.b, SDL_ALPHA_OPAQUE);
 
   // draw the "Entities"
   for (const std::unique_ptr<entity_base>& cit : _entities)
   {
-    cit->draw();
+    cit->draw(renderer_);
   }
   // draw the HUD/UI last (on top)
   for (const std::unique_ptr<entity_base>& cit : _UI_elements)
   {
-    cit->draw();
+    cit->draw(renderer_);
   }
 }
 

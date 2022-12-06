@@ -17,11 +17,11 @@ class scene_base;
 class world_manager
 {
 public:
-  world_manager(SDL_Renderer* renderer_);
+  world_manager();
 
   void update(float dt) const;
   void handle_event(const SDL_Event& event_);
-  void draw() const;
+  void draw(SDL_Renderer*) const;
 
   void change_scene(std::unique_ptr<scene_base> new_scene_);
   ~world_manager();
@@ -32,7 +32,6 @@ private:
   world_manager& operator=(const world_manager&);
 
   std::unique_ptr<scene_base> _cur_scene;
-  SDL_Renderer* _renderer;
 };
 
 #endif

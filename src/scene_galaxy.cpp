@@ -5,11 +5,8 @@
 #include "scene_galaxy.h"
 #include "scene_main_menu.h"
 
-scene_galaxy::scene_galaxy(SDL_Renderer* renderer_,
-                           world_manager& world_,
-                           bool use_CUDA_,
-                           unsigned int stars_nu_)
-    : scene_base(renderer_, world_, {0, 0, 0, 0}),
+scene_galaxy::scene_galaxy(world_manager& world_, bool use_CUDA_, unsigned int stars_nu_)
+    : scene_base(world_, {0, 0, 0, 0}),
       _using_CUDA(use_CUDA_),
       _stars_num(stars_nu_),
       _font(std::make_unique<font_handler>("assets/pcseniorSmall.ttf", 20)),
@@ -25,7 +22,6 @@ scene_galaxy::scene_galaxy(SDL_Renderer* renderer_,
       SDL_Color label_color = {255, 255, 255, 0};
       std::unique_ptr<drawable_button> stars_nu_label_drawable =
           std::make_unique<drawable_button>(_font,
-                                            _renderer,
                                             "CUDA compatible device not found, still using CPU!",
                                             vec2(220.0f, 22.0f),
                                             black_color,
@@ -41,7 +37,7 @@ scene_galaxy::scene_galaxy(SDL_Renderer* renderer_,
   }
 
   // build prototype star for the galaxy
-  std::unique_ptr<drawable_star> star_drawable = std::make_unique<drawable_star>(renderer_);
+  std::unique_ptr<drawable_star> star_drawable = std::make_unique<drawable_star>();
   std::unique_ptr<physics_base> star_physics =
       std::make_unique<physics_base>(1.0f, vec2(0.0f, 0.0f));
   star_physics->set_gravity(vec2(0.0f, 0.0f));
@@ -97,13 +93,8 @@ void scene_galaxy::init()
 
   std::unique_ptr<moveable_button> CUDA_CPU_moveable_button =
       std::make_unique<moveable_button>(vec2(50.0f, 600.0f), vec2(320.0f, 22.0f));
-  std::unique_ptr<drawable_button> CUDA_CPU_button_drawable =
-      std::make_unique<drawable_button>(_font,
-                                        _renderer,
-                                        CUDA_CPU_switch_label,
-                                        vec2(320.0f, 22.0f),
-                                        white_color,
-                                        button_label_color);
+  std::unique_ptr<drawable_button> CUDA_CPU_button_drawable = std::make_unique<drawable_button>(
+      _font, CUDA_CPU_switch_label, vec2(320.0f, 22.0f), white_color, button_label_color);
 
   /*start from less stars if we are switching to CPU. The starting number of
   stars should be high ONLY if we clicked on "SWITCH TO CUDA"
@@ -119,45 +110,44 @@ void scene_galaxy::init()
       1,
       std::move(CUDA_CPU_moveable_button),
       std::move(CUDA_CPU_button_drawable),
-      *_world,
-      std::make_unique<scene_galaxy>(_renderer, *_world, !_using_CUDA, starting_stars_num));
+      _world,
+      std::make_unique<scene_galaxy>(_world, !_using_CUDA, starting_stars_num));
   _UI_elements.push_back(std::move(CUDA_CPU_switch_button));
 
   // switch to Main Menu button
   std::unique_ptr<moveable_button> main_menu_moveable_button =
       std::make_unique<moveable_button>(vec2(400.0f, 600.0f), vec2(200.0f, 22.0f));
   std::unique_ptr<drawable_button> main_menu_button_drawable = std::make_unique<drawable_button>(
-      _font, _renderer, "MAIN MENU", vec2(200.0f, 22.0f), white_color, button_label_color);
+      _font, "MAIN MENU", vec2(200.0f, 22.0f), white_color, button_label_color);
 
   std::unique_ptr<entity_base> cloth_si_switch_button =
       std::make_unique<entity_button>(1,
                                       std::move(main_menu_moveable_button),
                                       std::move(main_menu_button_drawable),
-                                      *_world,
-                                      std::make_unique<scene_main_menu>(_renderer, *_world));
+                                      _world,
+                                      std::make_unique<scene_main_menu>(_world));
   _UI_elements.push_back(std::move(cloth_si_switch_button));
 
   // more stars buttons
-  unsigned int increment_num = _using_CUDA ? 1024 : 128;
+  const unsigned int increment_num = _using_CUDA ? 5024 : 128;
   std::unique_ptr<moveable_button> more_stars_moveable_button =
       std::make_unique<moveable_button>(vec2(630.0f, 600.0f), vec2(220.0f, 22.0f));
   std::unique_ptr<drawable_button> more_stars_button_drawable = std::make_unique<drawable_button>(
-      _font, _renderer, "MORE STARS", vec2(220.0f, 22.0f), white_color, button_label_color);
+      _font, "MORE STARS", vec2(220.0f, 22.0f), white_color, button_label_color);
 
   std::unique_ptr<entity_base> more_stars_button = std::make_unique<entity_button>(
       1,
       std::move(more_stars_moveable_button),
       std::move(more_stars_button_drawable),
-      *_world,
-      std::make_unique<scene_galaxy>(_renderer, *_world, _using_CUDA, _stars_num + increment_num));
+      _world,
+      std::make_unique<scene_galaxy>(_world, _using_CUDA, _stars_num + increment_num));
   _UI_elements.push_back(std::move(more_stars_button));
 
-  // less stars buttons (appears only if there are more stars than
-  // increment_num)
+  // less stars buttons (appears only if there are more stars than increment_num)
   if (_stars_num > increment_num)
   {
     std::unique_ptr<drawable_button> less_stars_button_drawable = std::make_unique<drawable_button>(
-        _font, _renderer, "LESS STARS", vec2(220.0f, 22.0f), white_color, button_label_color);
+        _font, "LESS STARS", vec2(220.0f, 22.0f), white_color, button_label_color);
     std::unique_ptr<moveable_button> less_stars_moveable_button =
         std::make_unique<moveable_button>(vec2(870.0f, 600.0f), vec2(220.0f, 22.0f));
 
@@ -165,9 +155,8 @@ void scene_galaxy::init()
         1,
         std::move(less_stars_moveable_button),
         std::move(less_stars_button_drawable),
-        *_world,
-        std::make_unique<scene_galaxy>(
-            _renderer, *_world, _using_CUDA, _stars_num - increment_num));
+        _world,
+        std::make_unique<scene_galaxy>(_world, _using_CUDA, _stars_num - increment_num));
     _UI_elements.push_back(std::move(less_stars_button));
   }
   // stars number label
@@ -177,7 +166,6 @@ void scene_galaxy::init()
       std::make_unique<moveable_button>(vec2(20.0f, 20.0f), vec2(220.0f, 22.0f));
   std::unique_ptr<drawable_button> stars_nu_label_drawable =
       std::make_unique<drawable_button>(_font,
-                                        _renderer,
                                         "Stars in simulation: " + std::to_string(_stars_num),
                                         vec2(220.0f, 22.0f),
                                         black_color,
@@ -192,7 +180,7 @@ void scene_galaxy::init()
       std::make_unique<moveable_button>(vec2(850.0f, 240.0f), vec2(220.0f, 22.0f));
   std::unique_ptr<drawable_button> instructionsfirst_label_drawable =
       std::make_unique<drawable_button>(
-          _font, _renderer, "Each star gravitates", vec2(220.0f, 22.0f), black_color, label_color);
+          _font, "Each star gravitates", vec2(220.0f, 22.0f), black_color, label_color);
 
   std::unique_ptr<entity_base> instructionsfirst_label = std::make_unique<entity_base>(
       1, std::move(instructionsfirst_label_moveable), std::move(instructionsfirst_label_drawable));
@@ -203,7 +191,7 @@ void scene_galaxy::init()
       std::make_unique<moveable_button>(vec2(850.0f, 270.0f), vec2(220.0f, 22.0f));
   std::unique_ptr<drawable_button> instructionssecond_label_drawable =
       std::make_unique<drawable_button>(
-          _font, _renderer, "with all the others.", vec2(220.0f, 22.0f), black_color, label_color);
+          _font, "with all the others.", vec2(220.0f, 22.0f), black_color, label_color);
 
   std::unique_ptr<entity_base> instructionssecond_label =
       std::make_unique<entity_base>(1,
@@ -216,7 +204,7 @@ void scene_galaxy::init()
       std::make_unique<moveable_button>(vec2(850.0f, 300.0f), vec2(220.0f, 22.0f));
   std::unique_ptr<drawable_button> instructions_third_label_drawable =
       std::make_unique<drawable_button>(
-          _font, _renderer, "Click and hold to", vec2(220.0f, 22.0f), black_color, label_color);
+          _font, "Click and hold to", vec2(220.0f, 22.0f), black_color, label_color);
 
   std::unique_ptr<entity_base> instructions_third_label =
       std::make_unique<entity_base>(1,
@@ -229,7 +217,7 @@ void scene_galaxy::init()
       std::make_unique<moveable_button>(vec2(850.0f, 330.0f), vec2(220.0f, 22.0f));
   std::unique_ptr<drawable_button> instructions_fourth_label_drawable =
       std::make_unique<drawable_button>(
-          _font, _renderer, "attract them.", vec2(220.0f, 22.0f), black_color, label_color);
+          _font, "attract them.", vec2(220.0f, 22.0f), black_color, label_color);
 
   std::unique_ptr<entity_base> instructions_fourth_label =
       std::make_unique<entity_base>(1,

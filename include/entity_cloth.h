@@ -30,7 +30,7 @@ public:
   virtual void handle_mouse_buttonup(std::shared_ptr<vec2> coords_);
 
   virtual void update(const vec2& external_force_, float dt);
-  virtual void draw() const;
+  virtual void draw(SDL_Renderer*) const;
 
 private:
   std::vector<std::unique_ptr<entity_particle>> _collection;

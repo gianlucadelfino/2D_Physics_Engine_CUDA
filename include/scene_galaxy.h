@@ -21,10 +21,7 @@ class world_manager;
 class scene_galaxy : public scene_base
 {
 public:
-  scene_galaxy(SDL_Renderer* renderer_,
-               world_manager& world_,
-               bool use_CUDA_,
-               unsigned int stars_num_);
+  scene_galaxy(world_manager& world_, bool use_CUDA_, unsigned int stars_num_);
   scene_galaxy(const scene_galaxy& other_);
   scene_galaxy& operator=(const scene_galaxy& rhs);
 

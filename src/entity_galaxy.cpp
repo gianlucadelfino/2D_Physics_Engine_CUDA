@@ -1,4 +1,9 @@
+#include <barrier>
+#include <cassert>
+#include <cstddef>
+#include <list>
 #include <stdexcept>
+#include <thread>
 
 #include "entity_galaxy.h"
 
@@ -126,63 +131,98 @@ void entity_galaxy::update_cpu(const vec2& external_force_, float dt)
                                                          // self interaction), however this would
                                                          // lead to complicated look up
 
-  // load the forces for each pair of star in the forces vector (N^2
-  // operation)
-  for (unsigned int i = 0; i < _collection.size(); ++i)
+  std::list<std::thread> pool;
+  const size_t num_cores = std::thread::hardware_concurrency();
+  const size_t batch_size =
+      std::max((_collection.size() + num_cores - 1) / num_cores, static_cast<size_t>(8));
+
+  const size_t pool_size = (_collection.size() + batch_size - 1) / batch_size;
+
+  std::barrier sync_point(pool_size);
+
+  auto work = [&](size_t start, size_t end)
   {
-    for (unsigned int j = 0; j < i;
-         ++j) // keep j < i to compute only the upper half of the matrix. The matrix is
-              // antisimmetric anyway, no need to compute it all!
+    // load the forces for each pair of star in the forces vector (N^2
+    // operation)
+    for (size_t i = start; i < end; ++i)
     {
-      float mass_i = _collection[i]->get_mass();
-      vec2 pos_i = _collection[i]->get_position();
+      // keep j < i to compute only the upper half of the matrix. The matrix is
+      // antisimmetric anyway, no need to compute it all!
+      for (size_t j = 0; j < i; ++j)
+      {
+        float mass_i = _collection[i]->get_mass();
+        vec2 pos_i = _collection[i]->get_position();
 
-      float mass_j = _collection[j]->get_mass();
-      vec2 pos_j = _collection[j]->get_position();
+        float mass_j = _collection[j]->get_mass();
+        vec2 pos_j = _collection[j]->get_position();
 
-      // compute gravity
-      vec2 r = pos_j - pos_i; // vector from i to j
+        // compute gravity
+        vec2 r = pos_j - pos_i; // vector from i to j
 
-      float dist = r.get_length();
-      const float min_dist = 70.0f;    // to avoid infinities
-      const float NEWTON_CONST = 2.0f; // higher than in CUDA case since we surely have less stars,
-                                       // so let's make it more interesting!
+        float dist = r.get_length();
+        const float min_dist = 70.0f;    // to avoid infinities
+        const float NEWTON_CONST = 2.0f; // higher than in CUDA case since we surely have less
+                                         // stars, so let's make it more interesting!
 
-      // force = G*m*M/ r^2
-      vec2 force_ij = NEWTON_CONST * mass_i * mass_j / (dist * dist * dist + min_dist) *
-                      r; // r is not normalized, therefore we divide by dist^3
+        // force = G*m*M/ r^2
+        vec2 force_ij = NEWTON_CONST * mass_i * mass_j / (dist * dist * dist + min_dist) *
+                        r; // r is not normalized, therefore we divide by dist^3
 
-      unsigned int index_ij = i + _collection.size() * j; // col + rows_num*row
-      unsigned int index_ji = j + _collection.size() * i; // col + rows_num*row
+        size_t index_ij = i + _collection.size() * j; // col + rows_num*row
+        size_t index_ji = j + _collection.size() * i; // col + rows_num*row
 
-      pairwise_forces[index_ij] = force_ij;
-      pairwise_forces[index_ji] = (-1) * force_ij; // save redundant
-                                                   // information for easy
-                                                   // and fast look-ups
+        pairwise_forces[index_ij] = force_ij;
+        pairwise_forces[index_ji] = (-1) * force_ij; // save redundant
+                                                     // information for easy
+                                                     // and fast look-ups
+      }
+    }
+
+    sync_point.arrive_and_wait();
+
+    // now add forces for each particle and apply it ( order N^2 )
+    for (size_t i = start; i < end; ++i)
+    {
+      vec2 force_on_i = vec2(0.0f, 0.0f);
+      for (size_t j = 0; j < _collection.size(); ++j) // sum all the column of forces
+      {
+        if (i != j)
+        {
+          size_t index_ij = i + _collection.size() * j; // col + rows_num*row
+          force_on_i += pairwise_forces[index_ij];
+        }
+      }
+      _collection[i]->update(external_force_ + force_on_i, dt);
+    }
+  };
+
+  for (int s = 0;; s += batch_size)
+  {
+    if ((s + batch_size) >= _collection.size())
+    {
+      pool.emplace_back(std::thread(work, s, _collection.size()));
+      break;
+    }
+    else
+    {
+      pool.emplace_back(std::thread(work, s, s + batch_size));
     }
   }
 
-  // now add forces for each particle and apply it ( order N^2 )
-  for (unsigned int i = 0; i < _collection.size(); ++i)
+  assert(pool.size() == pool_size);
+
+  for (auto&& t : pool)
   {
-    vec2 force_on_i = vec2(0.0f, 0.0f);
-    for (unsigned int j = 0; j < _collection.size(); ++j) // sum all the column of forces
-    {
-      if (i != j)
-      {
-        unsigned int index_ij = i + _collection.size() * j; // col + rows_num*row
-        force_on_i += pairwise_forces[index_ij];
-      }
-    }
-    _collection[i]->update(external_force_ + force_on_i, dt);
+    if (t.joinable())
+      t.join();
   }
 }
 
-void entity_galaxy::draw() const
+void entity_galaxy::draw(SDL_Renderer* renderer_) const
 {
   for (const auto& star : _collection)
   {
-    star->draw();
+    star->draw(renderer_);
   }
 }
 

@@ -1,10 +1,12 @@
 #include "entity_particle.h"
 
 entity_particle::entity_particle(const unsigned int id_,
-                                 std::unique_ptr<moveable_base> _,
-                                 std::unique_ptr<drawable_base> d_,
-                                 std::unique_ptr<physics_base> p_)
-    : entity_base(id_, std::move(_), std::move(d_)), _physics(std::move(p_)), _is_static(false)
+                                 std::unique_ptr<moveable_base> moveable_,
+                                 std::unique_ptr<drawable_base> drawable_,
+                                 std::unique_ptr<physics_base> physics_)
+    : entity_base(id_, std::move(moveable_), std::move(drawable_)),
+      _physics(std::move(physics_)),
+      _is_static(false)
 {
 }
 
@@ -17,11 +19,11 @@ entity_particle::entity_particle(const entity_particle& other_)
     : entity_base(other_), _is_static(other_._is_static)
 {
   if (other_._physics)
-    _physics = std::move(other_._physics->clone());
+    _physics = other_._physics->clone();
   else
     _physics = nullptr;
   if (other_._drawable)
-    _drawable = std::move(other_._drawable->clone());
+    _drawable = other_._drawable->clone();
   else
     _drawable = nullptr;
 }
@@ -32,11 +34,11 @@ entity_particle& entity_particle::operator=(const entity_particle& rhs)
   {
     entity_base::operator=(rhs);
     if (rhs._physics)
-      _physics = std::move(rhs._physics->clone());
+      _physics = rhs._physics->clone();
     else
       _physics = nullptr;
     if (rhs._drawable)
-      _drawable = std::move(rhs._drawable->clone());
+      _drawable = rhs._drawable->clone();
     else
       _drawable = nullptr;
     _is_static = rhs._is_static;
@@ -45,11 +47,11 @@ entity_particle& entity_particle::operator=(const entity_particle& rhs)
   return *this;
 }
 
-void entity_particle::draw() const
+void entity_particle::draw(SDL_Renderer* renderer_) const
 {
   if (_drawable)
   {
-    _drawable->draw(_moveable->pos, vec2(0.0f, 0.0f));
+    _drawable->draw(renderer_, _moveable->pos, vec2(0.0f, 0.0f));
   }
 }
 void entity_particle::update(const vec2& external_force_, float dt)
@@ -64,12 +66,12 @@ void entity_particle::update(const vec2& external_force_, float dt)
 
 void entity_particle::add_drawable(std::unique_ptr<drawable_base> drawable_)
 {
-  _drawable = std::move(drawable_->clone());
+  _drawable = drawable_->clone();
 }
 
 void entity_particle::add_physics(std::unique_ptr<physics_base> physics_)
 {
-  _physics = std::move(physics_->clone());
+  _physics = physics_->clone();
 }
 
 void entity_particle::handle_mouse_buttondown(std::shared_ptr<vec2> coords_)

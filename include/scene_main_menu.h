@@ -21,7 +21,7 @@ class world_manager;
 class scene_main_menu : public scene_base
 {
 public:
-  scene_main_menu(SDL_Renderer* renderer_, world_manager& world_);
+  explicit scene_main_menu(world_manager& world_);
   scene_main_menu(const scene_main_menu& other_);
   scene_main_menu& operator=(const scene_main_menu& rhs);
 

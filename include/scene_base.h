@@ -16,7 +16,7 @@ class world_manager;
 class scene_base
 {
 public:
-  scene_base(SDL_Renderer* renderer_, world_manager& world_, SDL_Color bgr_color_);
+  scene_base(world_manager& world_, SDL_Color bgr_color_);
   scene_base(const scene_base& other_);
   scene_base& operator=(const scene_base& rhs);
 
@@ -38,13 +38,12 @@ public:
   /**
    * draw renders all the IEntities of the scene
    */
-  void draw() const;
+  void draw(SDL_Renderer*) const;
 
   virtual ~scene_base();
 
 protected:
-  SDL_Renderer* _renderer;
-  world_manager* _world;
+  world_manager& _world;
   SDL_Color _background_color;
   std::shared_ptr<vec2> _mouse_coords;
   std::vector<std::unique_ptr<entity_base>> _entities;

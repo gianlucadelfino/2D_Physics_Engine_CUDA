@@ -10,13 +10,11 @@
 #include "surface_handler.h"
 #include "vec2.h"
 drawable_button::drawable_button(std::shared_ptr<font_handler> font_,
-                                 SDL_Renderer* renderer_,
                                  const std::string& label_,
                                  const vec2& size_,
                                  SDL_Color background_color_,
                                  SDL_Color label_color_)
-    : drawable_base(renderer_),
-      _label(label_),
+    : _label(label_),
       _font(font_),
       _size(size_),
       _background_color(background_color_),
@@ -54,11 +52,12 @@ drawable_button& drawable_button::operator=(const drawable_button& rhs)
 
 std::unique_ptr<drawable_base> drawable_button::do_clone() const
 {
-  return std::make_unique<drawable_button>(
-      _font, _renderer, _label, _size, _background_color, _label_color);
+  return std::make_unique<drawable_button>(_font, _label, _size, _background_color, _label_color);
 }
 
-void drawable_button::draw(const vec2& pos, const vec2& /*orientation_*/) const
+void drawable_button::draw(SDL_Renderer* renderer_,
+                           const vec2& pos,
+                           const vec2& /*orientation_*/) const
 {
   // build the rectangle
   SDL_Rect button;
@@ -68,8 +67,8 @@ void drawable_button::draw(const vec2& pos, const vec2& /*orientation_*/) const
   button.h = static_cast<Uint16>(_size.y);
   // draw the rectangle
   SDL_SetRenderDrawColor(
-      _renderer, _background_color.r, _background_color.g, _background_color.b, SDL_ALPHA_OPAQUE);
-  SDL_RenderFillRect(_renderer, &button);
+      renderer_, _background_color.r, _background_color.g, _background_color.b, SDL_ALPHA_OPAQUE);
+  SDL_RenderFillRect(renderer_, &button);
 
   // draw the label in the position + 10% padding
   SDL_Rect label_rect;
@@ -79,6 +78,6 @@ void drawable_button::draw(const vec2& pos, const vec2& /*orientation_*/) const
   label_rect.h = static_cast<Uint16>(_size.y * .8f);
 
   std::unique_ptr<SDL_Texture, decltype(&SDL_DestroyTexture)> texture = {
-      SDL_CreateTextureFromSurface(_renderer, _text_surface.GetSurface()), SDL_DestroyTexture};
-  SDL_RenderCopy(_renderer, texture.get(), nullptr, &label_rect);
+      SDL_CreateTextureFromSurface(renderer_, _text_surface.GetSurface()), SDL_DestroyTexture};
+  SDL_RenderCopy(renderer_, texture.get(), nullptr, &label_rect);
 }

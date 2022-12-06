@@ -13,8 +13,7 @@
 class drawable_base
 {
 public:
-  drawable_base(SDL_Renderer* renderer_);
-
+  drawable_base() = default;
   // copy constructor and assignment operator
   drawable_base(const drawable_base& other_);
   drawable_base& operator=(const drawable_base& other_);
@@ -23,7 +22,9 @@ public:
                                                 // has been overridden (see "c++
                                                 // coding standards" elem 54)
 
-  virtual void draw(const vec2& position_, const vec2& orientation_) const = 0;
+  virtual void draw(SDL_Renderer* renderer_,
+                    const vec2& position_,
+                    const vec2& orientation_) const = 0;
 
   virtual ~drawable_base();
 
@@ -31,7 +32,6 @@ public:
   void set_scale(float scale_);
 
 protected:
-  SDL_Renderer* _renderer;
   vec2 _dimensions;
   float _scale{};
 
