@@ -50,7 +50,6 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
   world_manager world;
 
   bool quit = false;
-  SDL_Event event{};
 
   // keep track of the lag if the game is slowing down (update only, without
   // rendering, to keep up)
@@ -66,13 +65,13 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
     prev_ticks = cur_ticks;
 
     // add the time it took last frame to the lag, then we know how many
-    // times
-    // we have to cycle over MS_PER_UPDATE to catch up with real time
+    // times we have to cycle over MS_PER_UPDATE to catch up with real time
     lag += dt;
 
     while (lag >= MS_PER_UPDATE)
     {
       // event handling
+      SDL_Event event{};
       while (SDL_PollEvent(&event))
       {
         world.handle_event(event);
@@ -93,9 +92,11 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char** argv)
     SDL_RenderPresent(renderer.get());
 
     // sleep if it took less than MS_PER_UPDATE
-    int delay = cur_ticks + MS_PER_UPDATE - SDL_GetTicks();
+    const int delay = cur_ticks + MS_PER_UPDATE - SDL_GetTicks();
     if (delay > 0)
+    {
       SDL_Delay(delay);
+    }
   }
 
   SDL_Quit();

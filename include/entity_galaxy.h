@@ -31,6 +31,10 @@ public:
                 float max_dist_,
                 bool use_CUDA_);
 
+  // forbid copy and assignment
+  entity_galaxy(const entity_galaxy&) = delete;
+  entity_galaxy& operator=(const entity_galaxy&) = delete;
+
   virtual void update(const vec2& external_force_, float dt);
   virtual void draw(SDL_Renderer*) const;
 
@@ -43,10 +47,6 @@ public:
   void set_use_cuda(bool use_CUDA_);
 
 private:
-  // forbid copy and assignment
-  entity_galaxy(const entity_galaxy&);
-  entity_galaxy& operator=(const entity_galaxy&);
-
   void update_cuda(const vec2& external_force_, float dt);
   void update_cpu(const vec2& external_force_, float dt);
 

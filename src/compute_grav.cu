@@ -117,11 +117,11 @@ void compute_grav(
     //transfer data on the device
     device_array<float> d_pos_x( nu_stars );
     device_array<float> d_pos_y( nu_stars );
-    d_pos_x.copyHostToDevice( h_pos_x );
-    d_pos_y.copyHostToDevice( h_pos_y );
+    d_pos_x.copy_to_device( h_pos_x );
+    d_pos_y.copy_to_device( h_pos_y );
 
     device_array<float> d_masses( nu_stars );
-    d_masses.copyHostToDevice( h_masses );
+    d_masses.copy_to_device( h_masses );
 
     //instantiate a vectors to contain the gravitational forces
     device_array<float2> d_gravs( nu_stars );
@@ -129,10 +129,10 @@ void compute_grav(
     const unsigned int grid_side = (nu_stars + BLOCK_SIZE - 1) / BLOCK_SIZE;
 
     //get regular pointers to be passed to the kernel
-    float* d_pos_x_ptr = d_pos_x.GetPtr();
-    float* d_pos_y_ptr = d_pos_y.GetPtr();
-    float* d_masses_ptr = d_masses.GetPtr();
-    float2* d_gravs_ptr = d_gravs.GetPtr();
+    float* d_pos_x_ptr = d_pos_x.get();
+    float* d_pos_y_ptr = d_pos_y.get();
+    float* d_masses_ptr = d_masses.get();
+    float2* d_gravs_ptr = d_gravs.get();
     //take the positions and compute the partial sums of the forces acting on each star. We need to store partials because
     //we had to tile the matrix of the forces..
     compute_gravs<<< grid_side, BLOCK_SIZE, BLOCK_SIZE*3*sizeof(float) >>>(
@@ -140,5 +140,5 @@ void compute_grav(
     cudaDeviceSynchronize();
 
     //transfer gravs back to host
-    d_gravs.copyDeviceToHost( h_gravs );
+    d_gravs.copy_to_host( h_gravs );
 }

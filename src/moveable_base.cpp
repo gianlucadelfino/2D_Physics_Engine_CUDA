@@ -70,7 +70,7 @@ void moveable_base::translate(const vec2& shift_)
 
 moveable_base::~moveable_base() {}
 
-void moveable_base::ImposeConstraints()
+void moveable_base::impose_constraints()
 {
   if (_constraint)
   {
@@ -85,4 +85,4 @@ void moveable_base::set_constraint(std::shared_ptr<vec2> constrainted_pos_)
   _constraint = constrainted_pos_;
 }
 
-void moveable_base::UnsetConstraint() { _constraint.reset(); }
+void moveable_base::unset_constraints() { _constraint.reset(); }

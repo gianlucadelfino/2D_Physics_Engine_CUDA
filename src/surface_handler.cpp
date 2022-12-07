@@ -5,7 +5,6 @@
 #include "SDL_image.h"
 #include "surface_handler.h"
 
-surface_handler::surface_handler() : _surface(nullptr) {}
 surface_handler::surface_handler(SDL_Surface* surface_) : _surface(surface_) {}
 
 surface_handler::~surface_handler() { destroy(); }

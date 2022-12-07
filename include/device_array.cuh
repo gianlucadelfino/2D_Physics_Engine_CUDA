@@ -8,9 +8,9 @@
 
 #define gpuErrorCheck(ans)                                                                         \
   {                                                                                                \
-    gpuAssert((ans), __FILE__, __LINE__);                                                          \
+    gpu_assert((ans), __FILE__, __LINE__);                                                          \
   }
-inline void gpuAssert(cudaError_t code, const char* file, int line, bool abort = true)
+inline void gpu_assert(cudaError_t code, const char* file, int line, bool abort = true)
 {
   if (cudaSuccess != code)
   {
@@ -23,35 +23,35 @@ inline void gpuAssert(cudaError_t code, const char* file, int line, bool abort =
 /**
  * device_array is a RAII class to contain CUDA arrays.
  */
-template <typename ValueType>
+template <typename value_type>
 class device_array
 {
 public:
   explicit device_array(unsigned int N) : _ptr(0), _size(N)
   {
-    gpuErrorCheck(cudaMalloc((void**)&_ptr, N * sizeof(ValueType)));
+    gpuErrorCheck(cudaMalloc((void**)&_ptr, N * sizeof(value_type)));
   }
 
-  ValueType* GetPtr() const { return _ptr; }
+  value_type* get() const { return _ptr; }
 
   /**
-   * Initialize uses cudaMemset that can only assign ints.
+   * initialize uses cudaMemset that can only assign ints.
    */
-  void Initialize(int val)
+  void initialize(int val)
   {
-    gpuErrorCheck(cudaMemset(_ptr, val, _size * sizeof(ValueType)));
+    gpuErrorCheck(cudaMemset(_ptr, val, _size * sizeof(value_type)));
   }
 
-  void copyHostToDevice(const ValueType* const other_array)
+  void copy_to_device(const value_type* const other_array)
   {
     gpuErrorCheck(
-        cudaMemcpy(_ptr, other_array, _size * sizeof(ValueType), cudaMemcpyHostToDevice));
+        cudaMemcpy(_ptr, other_array, _size * sizeof(value_type), cudaMemcpyHostToDevice));
   }
 
-  void copyDeviceToHost(ValueType* other_array)
+  void copy_to_host(value_type* other_array)
   {
     gpuErrorCheck(
-        cudaMemcpy(other_array, _ptr, _size * sizeof(ValueType), cudaMemcpyDeviceToHost));
+        cudaMemcpy(other_array, _ptr, _size * sizeof(value_type), cudaMemcpyDeviceToHost));
   }
 
   ~device_array() { gpuErrorCheck(cudaFree(_ptr)); }
@@ -61,7 +61,7 @@ private:
   device_array(const device_array&);
   device_array& operator=(const device_array&);
 
-  ValueType* _ptr;
+  value_type* _ptr;
   unsigned int _size;
 };
 #endif

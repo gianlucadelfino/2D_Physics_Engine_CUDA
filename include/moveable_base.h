@@ -45,10 +45,10 @@ public:
   virtual ~moveable_base();
 
   /**
-   * ImposeConstraints solves the constraints imposed on the position/velocity
+   * impose_constraints solves the constraints imposed on the position/velocity
    * of the objects and applies them
    */
-  virtual void ImposeConstraints();
+  virtual void impose_constraints();
 
   /**
    * set_constraint adds the pointer to the position the current instance is
@@ -57,9 +57,9 @@ public:
   virtual void set_constraint(std::shared_ptr<vec2> constrainted_pos_);
 
   /**
-   * UnsetConstraint frees the moveable_base from a set constraint
+   * unset_constraints frees the moveable_base from a set constraint
    */
-  virtual void UnsetConstraint();
+  virtual void unset_constraints();
 
   /**
    * is_hit receives a set of coordinates and returns true if hit (default to

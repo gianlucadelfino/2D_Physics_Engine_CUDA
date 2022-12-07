@@ -20,7 +20,8 @@ font_handler::font_handler(std::filesystem::path filename_, unsigned int size_) 
     throw std::runtime_error("Could not open the font file!");
 }
 
-TTF_Font* font_handler::GetFont() const { return _font; }
+TTF_Font* font_handler::get() { return _font; }
+const TTF_Font* font_handler::get() const { return _font; }
 
 font_handler::~font_handler()
 {

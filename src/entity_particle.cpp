@@ -60,7 +60,7 @@ void entity_particle::update(const vec2& external_force_, float dt)
   {
     _physics->update(external_force_, _moveable, dt);
     // impose local constraints
-    _moveable->ImposeConstraints();
+    _moveable->impose_constraints();
   }
 }
 
@@ -84,7 +84,7 @@ void entity_particle::handle_mouse_buttondown(std::shared_ptr<vec2> coords_)
 
 void entity_particle::handle_mouse_buttonup(std::shared_ptr<vec2> /*coords_*/)
 {
-  _moveable->UnsetConstraint();
+  _moveable->unset_constraints();
 }
 
 /*

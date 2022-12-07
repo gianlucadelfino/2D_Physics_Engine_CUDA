@@ -14,18 +14,19 @@
 class surface_handler
 {
 public:
-  surface_handler();
+  surface_handler() = default;
   explicit surface_handler(SDL_Surface* surface_);
   ~surface_handler();
-  SDL_Surface* GetSurface() const { return _surface; }
+  SDL_Surface* get() const { return _surface; }
   void load_surface(SDL_Surface* new_surface_);
-  void destroy();
+
+  surface_handler(const surface_handler&) = delete;
+  surface_handler& operator=(const surface_handler&) = delete;
 
 private:
-  surface_handler(const surface_handler&);
-  surface_handler& operator=(const surface_handler&);
+  void destroy();
 
-  SDL_Surface* _surface;
+  SDL_Surface* _surface{};
 };
 
 #endif

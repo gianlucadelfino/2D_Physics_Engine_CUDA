@@ -21,7 +21,7 @@ drawable_button::drawable_button(std::shared_ptr<font_handler> font_,
       _label_color(label_color_)
 {
   // build the label
-  _text_surface.load_surface(TTF_RenderText_Solid(font_->GetFont(), label_.c_str(), _label_color));
+  _text_surface.load_surface(TTF_RenderText_Solid(font_->get(), label_.c_str(), _label_color));
 }
 
 drawable_button::drawable_button(const drawable_button& other_)
@@ -33,7 +33,7 @@ drawable_button::drawable_button(const drawable_button& other_)
       _label_color(other_._label_color)
 {
   // build the label
-  _text_surface.load_surface(TTF_RenderText_Solid(_font->GetFont(), _label.c_str(), _label_color));
+  _text_surface.load_surface(TTF_RenderText_Solid(_font->get(), _label.c_str(), _label_color));
 }
 
 drawable_button& drawable_button::operator=(const drawable_button& rhs)
@@ -78,6 +78,6 @@ void drawable_button::draw(SDL_Renderer* renderer_,
   label_rect.h = static_cast<Uint16>(_size.y * .8f);
 
   std::unique_ptr<SDL_Texture, decltype(&SDL_DestroyTexture)> texture = {
-      SDL_CreateTextureFromSurface(renderer_, _text_surface.GetSurface()), SDL_DestroyTexture};
+      SDL_CreateTextureFromSurface(renderer_, _text_surface.get()), SDL_DestroyTexture};
   SDL_RenderCopy(renderer_, texture.get(), nullptr, &label_rect);
 }

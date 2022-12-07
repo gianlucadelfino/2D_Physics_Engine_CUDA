@@ -15,10 +15,7 @@ world_manager::world_manager()
     std::cerr << "Could NOT initialize SDL_ttf.." << std::endl;
   }
   // add the Main Menu as first scene
-  std::unique_ptr<scene_base> main_menu = std::make_unique<scene_main_menu>(*this);
-
-  _cur_scene = std::move(main_menu);
-  _cur_scene->init();
+  change_scene(std::make_unique<scene_main_menu>(*this));
 }
 
 void world_manager::update(float dt) const

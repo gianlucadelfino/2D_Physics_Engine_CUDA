@@ -44,7 +44,7 @@ public:
   vec2 get_position() const { return _moveable->pos; }
   void set_constraint(std::shared_ptr<vec2> constrainted_pos_);
 
-  // IPhysics
+  // physics_base
   float get_mass() const;
   void set_mass(float mass_);
 

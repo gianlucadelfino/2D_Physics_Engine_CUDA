@@ -22,15 +22,15 @@ public:
    */
   font_handler(std::filesystem::path filename_, unsigned int size_);
 
-  TTF_Font* GetFont() const;
+  font_handler(const font_handler&) = delete;
+  font_handler& operator=(const font_handler&) = delete;
+
+  const TTF_Font* get() const;
+  TTF_Font* get();
   ~font_handler();
 
 private:
-  // forbid copy and assignment.
-  font_handler(const font_handler&);
-  font_handler& operator=(const font_handler&);
-
-  TTF_Font* _font;
+  TTF_Font* _font{};
 };
 
 #endif
